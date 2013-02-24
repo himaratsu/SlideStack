@@ -21,9 +21,8 @@
 {
     [super viewDidLoad];
     
-    self.title = @"設定";
-
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel target:self action:@selector(close)];
+    self.title = @"設定";    
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"完了" style:UIBarButtonItemStyleDone target:self action:@selector(close)];
     
     self.navigationController.navigationBar.tintColor = [UIColor blackColor];
 }

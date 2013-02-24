@@ -38,6 +38,8 @@
     _tableView.delegate = self;
     _tableView.dataSource = self;
     [self.view addSubview:_tableView];
+    
+    self.tableView.scrollsToTop = NO;
 }
 
 - (void)viewWillAppear:(BOOL)animated {

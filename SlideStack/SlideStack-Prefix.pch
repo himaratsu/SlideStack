@@ -34,3 +34,9 @@
 #define LOG_SIZE(p)
 #define LOG_RECT(p)
 #endif
+
+
+
+// ***** Setting *****
+#define PER_PAGE 12
+
