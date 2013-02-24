@@ -8,16 +8,26 @@
 
 #import "AppDelegate.h"
 
-#import "ViewController.h"
+#import "SlideListTableViewController.h"
+#import "SelectTagViewController.h"
 
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    // Override point for customization after application launch.
-    self.viewController = [[ViewController alloc] initWithNibName:@"ViewController" bundle:nil];
-    self.window.rootViewController = self.viewController;
+
+    SlideListTableViewController *slideListVC = [[SlideListTableViewController alloc] initWithNibName:@"SlideListTableViewController" bundle:nil];
+    self.navController = [[UINavigationController alloc] initWithRootViewController:slideListVC];
+    self.navController.navigationBar.tintColor = [UIColor blackColor];
+    
+    SelectTagViewController *selectTagVC = [[SelectTagViewController alloc] initWithNibName:@"SelectTagViewController" bundle:nil];
+    
+    self.deckController = [[IIViewDeckController alloc] initWithCenterViewController:self.navController rightViewController:selectTagVC];
+    _deckController.rightSize = 150;
+    _deckController.centerhiddenInteractivity =IIViewDeckCenterHiddenNotUserInteractive;
+    
+    self.window.rootViewController = self.deckController;
     [self.window makeKeyAndVisible];
     return YES;
 }

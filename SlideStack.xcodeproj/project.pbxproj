@@ -7,6 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		200BBF2416DA5709007C673F /* ControlSortView.m in Sources */ = {isa = PBXBuildFile; fileRef = 200BBF2316DA5709007C673F /* ControlSortView.m */; };
+		20461D0616D9F6BD00BAA4AA /* TagManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 20461D0516D9F6BD00BAA4AA /* TagManager.m */; };
+		20461D0916D9F91F00BAA4AA /* TagWithCheckMarkObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 20461D0816D9F91F00BAA4AA /* TagWithCheckMarkObject.m */; };
+		20461D1216DA339A00BAA4AA /* SettingTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 20461D1016DA339A00BAA4AA /* SettingTableViewController.m */; };
+		20461D1316DA339A00BAA4AA /* SettingTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 20461D1116DA339A00BAA4AA /* SettingTableViewController.xib */; };
+		20461D1B16DA37BF00BAA4AA /* SettingLanguageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 20461D1916DA37BF00BAA4AA /* SettingLanguageViewController.m */; };
+		20461D1C16DA37BF00BAA4AA /* SettingLanguageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 20461D1A16DA37BF00BAA4AA /* SettingLanguageViewController.xib */; };
+		20461D1F16DA398E00BAA4AA /* MySettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 20461D1E16DA398E00BAA4AA /* MySettingViewController.m */; };
+		20461D2216DA41CF00BAA4AA /* SlideTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 20461D2116DA41CE00BAA4AA /* SlideTableViewCell.m */; };
+		20461D2516DA423800BAA4AA /* CustomImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 20461D2416DA423800BAA4AA /* CustomImageView.m */; };
+		2070A68B16D91CE400F27B85 /* NSString+MyString.m in Sources */ = {isa = PBXBuildFile; fileRef = 2070A68A16D91CE400F27B85 /* NSString+MyString.m */; };
 		207343E916D7C6C5002EF8A7 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 207343E816D7C6C5002EF8A7 /* UIKit.framework */; };
 		207343EB16D7C6C5002EF8A7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 207343EA16D7C6C5002EF8A7 /* Foundation.framework */; };
 		207343ED16D7C6C5002EF8A7 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 207343EC16D7C6C5002EF8A7 /* CoreGraphics.framework */; };
@@ -16,11 +27,48 @@
 		207343FB16D7C6C5002EF8A7 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 207343FA16D7C6C5002EF8A7 /* Default.png */; };
 		207343FD16D7C6C5002EF8A7 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 207343FC16D7C6C5002EF8A7 /* Default@2x.png */; };
 		207343FF16D7C6C5002EF8A7 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 207343FE16D7C6C5002EF8A7 /* Default-568h@2x.png */; };
-		2073440216D7C6C5002EF8A7 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2073440116D7C6C5002EF8A7 /* ViewController.m */; };
-		2073440516D7C6C5002EF8A7 /* ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2073440316D7C6C5002EF8A7 /* ViewController.xib */; };
+		2073440D16D7C751002EF8A7 /* CommonAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 2073440C16D7C751002EF8A7 /* CommonAPI.m */; };
+		2073441716D7CB15002EF8A7 /* SlideSearchAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 2073441616D7CB15002EF8A7 /* SlideSearchAPI.m */; };
+		2073441A16D7DDCA002EF8A7 /* CommonAPIParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 2073441916D7DDCA002EF8A7 /* CommonAPIParser.m */; };
+		2073441D16D7E83C002EF8A7 /* SlideShowObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 2073441C16D7E83C002EF8A7 /* SlideShowObject.m */; };
+		2099163B16D9AFA7008335F5 /* TagObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 2099163A16D9AFA7008335F5 /* TagObject.m */; };
+		2099164216D9B9A3008335F5 /* SlideListTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2099164016D9B9A3008335F5 /* SlideListTableViewController.m */; };
+		2099164316D9B9A3008335F5 /* SlideListTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2099164116D9B9A3008335F5 /* SlideListTableViewController.xib */; };
+		2099164816D9BA0A008335F5 /* SVProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 2099164516D9BA0A008335F5 /* SVProgressHUD.bundle */; };
+		2099164916D9BA0A008335F5 /* SVProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 2099164716D9BA0A008335F5 /* SVProgressHUD.m */; };
+		2099164B16D9BC43008335F5 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2099164A16D9BC43008335F5 /* QuartzCore.framework */; };
+		2099164F16D9BCAC008335F5 /* WebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2099164D16D9BCAC008335F5 /* WebViewController.m */; };
+		2099165016D9BCAC008335F5 /* WebViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2099164E16D9BCAC008335F5 /* WebViewController.xib */; };
+		2099165816D9C81F008335F5 /* IISideController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2099165316D9C81F008335F5 /* IISideController.m */; };
+		2099165916D9C81F008335F5 /* IIViewDeckController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2099165516D9C81F008335F5 /* IIViewDeckController.m */; };
+		2099165A16D9C81F008335F5 /* IIWrapController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2099165716D9C81F008335F5 /* IIWrapController.m */; };
+		2099166416D9C88B008335F5 /* SelectTagViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2099166216D9C88B008335F5 /* SelectTagViewController.m */; };
+		2099166516D9C88B008335F5 /* SelectTagViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2099166316D9C88B008335F5 /* SelectTagViewController.xib */; };
+		2099166916D9D7ED008335F5 /* TagManageTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2099166716D9D7ED008335F5 /* TagManageTableViewController.m */; };
+		2099166A16D9D7ED008335F5 /* TagManageTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2099166816D9D7ED008335F5 /* TagManageTableViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		200BBF2216DA5709007C673F /* ControlSortView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ControlSortView.h; path = ../ControlSortView.h; sourceTree = "<group>"; };
+		200BBF2316DA5709007C673F /* ControlSortView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ControlSortView.m; path = ../ControlSortView.m; sourceTree = "<group>"; };
+		20461D0416D9F6BD00BAA4AA /* TagManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TagManager.h; sourceTree = "<group>"; };
+		20461D0516D9F6BD00BAA4AA /* TagManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TagManager.m; sourceTree = "<group>"; };
+		20461D0716D9F91F00BAA4AA /* TagWithCheckMarkObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TagWithCheckMarkObject.h; sourceTree = "<group>"; };
+		20461D0816D9F91F00BAA4AA /* TagWithCheckMarkObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TagWithCheckMarkObject.m; sourceTree = "<group>"; };
+		20461D0F16DA339A00BAA4AA /* SettingTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingTableViewController.h; sourceTree = "<group>"; };
+		20461D1016DA339A00BAA4AA /* SettingTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingTableViewController.m; sourceTree = "<group>"; };
+		20461D1116DA339A00BAA4AA /* SettingTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SettingTableViewController.xib; sourceTree = "<group>"; };
+		20461D1816DA37BE00BAA4AA /* SettingLanguageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingLanguageViewController.h; sourceTree = "<group>"; };
+		20461D1916DA37BF00BAA4AA /* SettingLanguageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingLanguageViewController.m; sourceTree = "<group>"; };
+		20461D1A16DA37BF00BAA4AA /* SettingLanguageViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SettingLanguageViewController.xib; sourceTree = "<group>"; };
+		20461D1D16DA398E00BAA4AA /* MySettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MySettingViewController.h; sourceTree = "<group>"; };
+		20461D1E16DA398E00BAA4AA /* MySettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MySettingViewController.m; sourceTree = "<group>"; };
+		20461D2016DA41CE00BAA4AA /* SlideTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SlideTableViewCell.h; sourceTree = "<group>"; };
+		20461D2116DA41CE00BAA4AA /* SlideTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SlideTableViewCell.m; sourceTree = "<group>"; };
+		20461D2316DA423700BAA4AA /* CustomImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomImageView.h; sourceTree = "<group>"; };
+		20461D2416DA423800BAA4AA /* CustomImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomImageView.m; sourceTree = "<group>"; };
+		2070A68916D91CE400F27B85 /* NSString+MyString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+MyString.h"; sourceTree = "<group>"; };
+		2070A68A16D91CE400F27B85 /* NSString+MyString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+MyString.m"; sourceTree = "<group>"; };
 		207343E516D7C6C5002EF8A7 /* SlideStack.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SlideStack.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		207343E816D7C6C5002EF8A7 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		207343EA16D7C6C5002EF8A7 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -34,9 +82,38 @@
 		207343FA16D7C6C5002EF8A7 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		207343FC16D7C6C5002EF8A7 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		207343FE16D7C6C5002EF8A7 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
-		2073440016D7C6C5002EF8A7 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		2073440116D7C6C5002EF8A7 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		2073440416D7C6C5002EF8A7 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/ViewController.xib; sourceTree = "<group>"; };
+		2073440B16D7C751002EF8A7 /* CommonAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommonAPI.h; sourceTree = "<group>"; };
+		2073440C16D7C751002EF8A7 /* CommonAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommonAPI.m; sourceTree = "<group>"; };
+		2073441516D7CB15002EF8A7 /* SlideSearchAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SlideSearchAPI.h; path = ../SlideSearchAPI.h; sourceTree = "<group>"; };
+		2073441616D7CB15002EF8A7 /* SlideSearchAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SlideSearchAPI.m; path = ../SlideSearchAPI.m; sourceTree = "<group>"; };
+		2073441816D7DDC9002EF8A7 /* CommonAPIParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommonAPIParser.h; sourceTree = "<group>"; };
+		2073441916D7DDCA002EF8A7 /* CommonAPIParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommonAPIParser.m; sourceTree = "<group>"; };
+		2073441B16D7E83B002EF8A7 /* SlideShowObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SlideShowObject.h; sourceTree = "<group>"; };
+		2073441C16D7E83C002EF8A7 /* SlideShowObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SlideShowObject.m; sourceTree = "<group>"; };
+		2099163916D9AFA7008335F5 /* TagObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TagObject.h; sourceTree = "<group>"; };
+		2099163A16D9AFA7008335F5 /* TagObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TagObject.m; sourceTree = "<group>"; };
+		2099163F16D9B9A3008335F5 /* SlideListTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SlideListTableViewController.h; path = ../SlideListTableViewController.h; sourceTree = "<group>"; };
+		2099164016D9B9A3008335F5 /* SlideListTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SlideListTableViewController.m; path = ../SlideListTableViewController.m; sourceTree = "<group>"; };
+		2099164116D9B9A3008335F5 /* SlideListTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SlideListTableViewController.xib; path = ../SlideListTableViewController.xib; sourceTree = "<group>"; };
+		2099164516D9BA0A008335F5 /* SVProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = SVProgressHUD.bundle; sourceTree = "<group>"; };
+		2099164616D9BA0A008335F5 /* SVProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVProgressHUD.h; sourceTree = "<group>"; };
+		2099164716D9BA0A008335F5 /* SVProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVProgressHUD.m; sourceTree = "<group>"; };
+		2099164A16D9BC43008335F5 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		2099164C16D9BCAC008335F5 /* WebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebViewController.h; sourceTree = "<group>"; };
+		2099164D16D9BCAC008335F5 /* WebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebViewController.m; sourceTree = "<group>"; };
+		2099164E16D9BCAC008335F5 /* WebViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WebViewController.xib; sourceTree = "<group>"; };
+		2099165216D9C81F008335F5 /* IISideController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IISideController.h; sourceTree = "<group>"; };
+		2099165316D9C81F008335F5 /* IISideController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IISideController.m; sourceTree = "<group>"; };
+		2099165416D9C81F008335F5 /* IIViewDeckController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IIViewDeckController.h; sourceTree = "<group>"; };
+		2099165516D9C81F008335F5 /* IIViewDeckController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IIViewDeckController.m; sourceTree = "<group>"; };
+		2099165616D9C81F008335F5 /* IIWrapController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IIWrapController.h; sourceTree = "<group>"; };
+		2099165716D9C81F008335F5 /* IIWrapController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IIWrapController.m; sourceTree = "<group>"; };
+		2099166116D9C88B008335F5 /* SelectTagViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SelectTagViewController.h; path = ../SelectTagViewController.h; sourceTree = "<group>"; };
+		2099166216D9C88B008335F5 /* SelectTagViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SelectTagViewController.m; path = ../SelectTagViewController.m; sourceTree = "<group>"; };
+		2099166316D9C88B008335F5 /* SelectTagViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SelectTagViewController.xib; path = ../SelectTagViewController.xib; sourceTree = "<group>"; };
+		2099166616D9D7ED008335F5 /* TagManageTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TagManageTableViewController.h; sourceTree = "<group>"; };
+		2099166716D9D7ED008335F5 /* TagManageTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TagManageTableViewController.m; sourceTree = "<group>"; };
+		2099166816D9D7ED008335F5 /* TagManageTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TagManageTableViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -44,6 +121,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2099164B16D9BC43008335F5 /* QuartzCore.framework in Frameworks */,
 				207343E916D7C6C5002EF8A7 /* UIKit.framework in Frameworks */,
 				207343EB16D7C6C5002EF8A7 /* Foundation.framework in Frameworks */,
 				207343ED16D7C6C5002EF8A7 /* CoreGraphics.framework in Frameworks */,
@@ -53,9 +131,72 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		20461D1416DA33A800BAA4AA /* network */ = {
+			isa = PBXGroup;
+			children = (
+				2073440B16D7C751002EF8A7 /* CommonAPI.h */,
+				2073440C16D7C751002EF8A7 /* CommonAPI.m */,
+				2073441816D7DDC9002EF8A7 /* CommonAPIParser.h */,
+				2073441916D7DDCA002EF8A7 /* CommonAPIParser.m */,
+				2073441516D7CB15002EF8A7 /* SlideSearchAPI.h */,
+				2073441616D7CB15002EF8A7 /* SlideSearchAPI.m */,
+			);
+			name = network;
+			sourceTree = "<group>";
+		};
+		20461D1516DA33B900BAA4AA /* contents */ = {
+			isa = PBXGroup;
+			children = (
+				2073441B16D7E83B002EF8A7 /* SlideShowObject.h */,
+				2073441C16D7E83C002EF8A7 /* SlideShowObject.m */,
+				2099163916D9AFA7008335F5 /* TagObject.h */,
+				2099163A16D9AFA7008335F5 /* TagObject.m */,
+				20461D0716D9F91F00BAA4AA /* TagWithCheckMarkObject.h */,
+				20461D0816D9F91F00BAA4AA /* TagWithCheckMarkObject.m */,
+			);
+			name = contents;
+			sourceTree = "<group>";
+		};
+		20461D1716DA342400BAA4AA /* Setting */ = {
+			isa = PBXGroup;
+			children = (
+				20461D0F16DA339A00BAA4AA /* SettingTableViewController.h */,
+				20461D1016DA339A00BAA4AA /* SettingTableViewController.m */,
+				20461D1116DA339A00BAA4AA /* SettingTableViewController.xib */,
+				20461D1816DA37BE00BAA4AA /* SettingLanguageViewController.h */,
+				20461D1916DA37BF00BAA4AA /* SettingLanguageViewController.m */,
+				20461D1A16DA37BF00BAA4AA /* SettingLanguageViewController.xib */,
+			);
+			name = Setting;
+			sourceTree = "<group>";
+		};
+		20461D2616DA423D00BAA4AA /* parts */ = {
+			isa = PBXGroup;
+			children = (
+				20461D2016DA41CE00BAA4AA /* SlideTableViewCell.h */,
+				20461D2116DA41CE00BAA4AA /* SlideTableViewCell.m */,
+				20461D2316DA423700BAA4AA /* CustomImageView.h */,
+				20461D2416DA423800BAA4AA /* CustomImageView.m */,
+				200BBF2216DA5709007C673F /* ControlSortView.h */,
+				200BBF2316DA5709007C673F /* ControlSortView.m */,
+			);
+			name = parts;
+			sourceTree = "<group>";
+		};
+		20461D2A16DA4ED900BAA4AA /* View */ = {
+			isa = PBXGroup;
+			children = (
+				20461D2616DA423D00BAA4AA /* parts */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
 		207343DC16D7C6C5002EF8A7 = {
 			isa = PBXGroup;
 			children = (
+				2099164A16D9BC43008335F5 /* QuartzCore.framework */,
+				2070A68916D91CE400F27B85 /* NSString+MyString.h */,
+				2070A68A16D91CE400F27B85 /* NSString+MyString.m */,
 				207343EE16D7C6C5002EF8A7 /* SlideStack */,
 				207343E716D7C6C5002EF8A7 /* Frameworks */,
 				207343E616D7C6C5002EF8A7 /* Products */,
@@ -83,11 +224,13 @@
 		207343EE16D7C6C5002EF8A7 /* SlideStack */ = {
 			isa = PBXGroup;
 			children = (
+				20461D2A16DA4ED900BAA4AA /* View */,
+				2099165B16D9C822008335F5 /* ||ViewDeck */,
+				2099165116D9C7CC008335F5 /* ViewController */,
+				2073441116D7C764002EF8A7 /* Model */,
 				207343F716D7C6C5002EF8A7 /* AppDelegate.h */,
 				207343F816D7C6C5002EF8A7 /* AppDelegate.m */,
-				2073440016D7C6C5002EF8A7 /* ViewController.h */,
-				2073440116D7C6C5002EF8A7 /* ViewController.m */,
-				2073440316D7C6C5002EF8A7 /* ViewController.xib */,
+				2099164416D9BA0A008335F5 /* SVProgressHUD */,
 				207343EF16D7C6C5002EF8A7 /* Supporting Files */,
 			);
 			path = SlideStack;
@@ -105,6 +248,62 @@
 				207343FE16D7C6C5002EF8A7 /* Default-568h@2x.png */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		2073441116D7C764002EF8A7 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				20461D1516DA33B900BAA4AA /* contents */,
+				20461D1416DA33A800BAA4AA /* network */,
+				20461D0416D9F6BD00BAA4AA /* TagManager.h */,
+				20461D0516D9F6BD00BAA4AA /* TagManager.m */,
+				20461D1D16DA398E00BAA4AA /* MySettingViewController.h */,
+				20461D1E16DA398E00BAA4AA /* MySettingViewController.m */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		2099164416D9BA0A008335F5 /* SVProgressHUD */ = {
+			isa = PBXGroup;
+			children = (
+				2099164516D9BA0A008335F5 /* SVProgressHUD.bundle */,
+				2099164616D9BA0A008335F5 /* SVProgressHUD.h */,
+				2099164716D9BA0A008335F5 /* SVProgressHUD.m */,
+			);
+			path = SVProgressHUD;
+			sourceTree = "<group>";
+		};
+		2099165116D9C7CC008335F5 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				20461D1716DA342400BAA4AA /* Setting */,
+				2099166116D9C88B008335F5 /* SelectTagViewController.h */,
+				2099166216D9C88B008335F5 /* SelectTagViewController.m */,
+				2099166316D9C88B008335F5 /* SelectTagViewController.xib */,
+				2099166616D9D7ED008335F5 /* TagManageTableViewController.h */,
+				2099166716D9D7ED008335F5 /* TagManageTableViewController.m */,
+				2099166816D9D7ED008335F5 /* TagManageTableViewController.xib */,
+				2099163F16D9B9A3008335F5 /* SlideListTableViewController.h */,
+				2099164016D9B9A3008335F5 /* SlideListTableViewController.m */,
+				2099164116D9B9A3008335F5 /* SlideListTableViewController.xib */,
+				2099164C16D9BCAC008335F5 /* WebViewController.h */,
+				2099164D16D9BCAC008335F5 /* WebViewController.m */,
+				2099164E16D9BCAC008335F5 /* WebViewController.xib */,
+			);
+			name = ViewController;
+			sourceTree = "<group>";
+		};
+		2099165B16D9C822008335F5 /* ||ViewDeck */ = {
+			isa = PBXGroup;
+			children = (
+				2099165216D9C81F008335F5 /* IISideController.h */,
+				2099165316D9C81F008335F5 /* IISideController.m */,
+				2099165416D9C81F008335F5 /* IIViewDeckController.h */,
+				2099165516D9C81F008335F5 /* IIViewDeckController.m */,
+				2099165616D9C81F008335F5 /* IIWrapController.h */,
+				2099165716D9C81F008335F5 /* IIWrapController.m */,
+			);
+			name = "||ViewDeck";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -162,7 +361,13 @@
 				207343FB16D7C6C5002EF8A7 /* Default.png in Resources */,
 				207343FD16D7C6C5002EF8A7 /* Default@2x.png in Resources */,
 				207343FF16D7C6C5002EF8A7 /* Default-568h@2x.png in Resources */,
-				2073440516D7C6C5002EF8A7 /* ViewController.xib in Resources */,
+				2099164316D9B9A3008335F5 /* SlideListTableViewController.xib in Resources */,
+				2099164816D9BA0A008335F5 /* SVProgressHUD.bundle in Resources */,
+				2099165016D9BCAC008335F5 /* WebViewController.xib in Resources */,
+				2099166516D9C88B008335F5 /* SelectTagViewController.xib in Resources */,
+				2099166A16D9D7ED008335F5 /* TagManageTableViewController.xib in Resources */,
+				20461D1316DA339A00BAA4AA /* SettingTableViewController.xib in Resources */,
+				20461D1C16DA37BF00BAA4AA /* SettingLanguageViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -175,7 +380,28 @@
 			files = (
 				207343F516D7C6C5002EF8A7 /* main.m in Sources */,
 				207343F916D7C6C5002EF8A7 /* AppDelegate.m in Sources */,
-				2073440216D7C6C5002EF8A7 /* ViewController.m in Sources */,
+				2073440D16D7C751002EF8A7 /* CommonAPI.m in Sources */,
+				2073441716D7CB15002EF8A7 /* SlideSearchAPI.m in Sources */,
+				2073441A16D7DDCA002EF8A7 /* CommonAPIParser.m in Sources */,
+				2073441D16D7E83C002EF8A7 /* SlideShowObject.m in Sources */,
+				2070A68B16D91CE400F27B85 /* NSString+MyString.m in Sources */,
+				2099163B16D9AFA7008335F5 /* TagObject.m in Sources */,
+				2099164216D9B9A3008335F5 /* SlideListTableViewController.m in Sources */,
+				2099164916D9BA0A008335F5 /* SVProgressHUD.m in Sources */,
+				2099164F16D9BCAC008335F5 /* WebViewController.m in Sources */,
+				2099165816D9C81F008335F5 /* IISideController.m in Sources */,
+				2099165916D9C81F008335F5 /* IIViewDeckController.m in Sources */,
+				2099165A16D9C81F008335F5 /* IIWrapController.m in Sources */,
+				2099166416D9C88B008335F5 /* SelectTagViewController.m in Sources */,
+				2099166916D9D7ED008335F5 /* TagManageTableViewController.m in Sources */,
+				20461D0616D9F6BD00BAA4AA /* TagManager.m in Sources */,
+				20461D0916D9F91F00BAA4AA /* TagWithCheckMarkObject.m in Sources */,
+				20461D1216DA339A00BAA4AA /* SettingTableViewController.m in Sources */,
+				20461D1B16DA37BF00BAA4AA /* SettingLanguageViewController.m in Sources */,
+				20461D1F16DA398E00BAA4AA /* MySettingViewController.m in Sources */,
+				20461D2216DA41CF00BAA4AA /* SlideTableViewCell.m in Sources */,
+				20461D2516DA423800BAA4AA /* CustomImageView.m in Sources */,
+				200BBF2416DA5709007C673F /* ControlSortView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -188,14 +414,6 @@
 				207343F216D7C6C5002EF8A7 /* en */,
 			);
 			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-		2073440316D7C6C5002EF8A7 /* ViewController.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				2073440416D7C6C5002EF8A7 /* en */,
-			);
-			name = ViewController.xib;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -263,6 +481,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "SlideStack/SlideStack-Prefix.pch";
 				INFOPLIST_FILE = "SlideStack/SlideStack-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -274,6 +493,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "SlideStack/SlideStack-Prefix.pch";
 				INFOPLIST_FILE = "SlideStack/SlideStack-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -298,6 +518,7 @@
 				2073440A16D7C6C5002EF8A7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
