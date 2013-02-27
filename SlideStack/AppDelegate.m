@@ -24,8 +24,8 @@
     SelectTagViewController *selectTagVC = [[SelectTagViewController alloc] initWithNibName:@"SelectTagViewController" bundle:nil];
     
     self.deckController = [[IIViewDeckController alloc] initWithCenterViewController:self.navController rightViewController:selectTagVC];
-    _deckController.rightSize = 150;
-    _deckController.centerhiddenInteractivity =IIViewDeckCenterHiddenNotUserInteractive;
+    _deckController.rightSize = RIGHT_SIDE_BAR_WIDTH;
+    _deckController.centerhiddenInteractivity = IIViewDeckCenterHiddenNotUserInteractiveWithTapToClose;
     
     self.window.rootViewController = self.deckController;
     [self.window makeKeyAndVisible];

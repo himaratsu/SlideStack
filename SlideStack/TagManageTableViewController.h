@@ -8,11 +8,14 @@
 
 #import <UIKit/UIKit.h>
 
-@interface TagManageTableViewController : UITableViewController
-<UISearchBarDelegate, UISearchDisplayDelegate>
+#define ALERT_VIEW_TAG_CREATE_NEW_TAG   500
 
-@property (nonatomic, strong) NSArray *tags;
+@interface TagManageTableViewController : UITableViewController
+<UISearchBarDelegate, UISearchDisplayDelegate, UIAlertViewDelegate>
+
+@property (nonatomic, strong) NSMutableArray *tags;
 @property (nonatomic, strong) NSMutableArray *filteredTags;
+@property (nonatomic, strong) UITextField *textFieldNewTagName;
 
 @property (weak, nonatomic) IBOutlet UISearchBar *mySearchBar;
 @property (strong, nonatomic) IBOutlet UISearchDisplayController *mySearchDisplayController;

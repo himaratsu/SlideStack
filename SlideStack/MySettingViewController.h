@@ -12,6 +12,8 @@
 
 + (MySettingViewController*)sharedInstance;
 
-@property (nonatomic, strong) NSString *language;
+@property (nonatomic, strong) NSString *language;   // 対象言語
+@property (nonatomic, strong) NSString *target;     // 検索モード（0:テキスト/1;タグ）
+@property (nonatomic, strong) NSString *targetDisplay;   // 検索モードの表示文
 
 @end

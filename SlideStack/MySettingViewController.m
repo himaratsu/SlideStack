@@ -23,9 +23,20 @@ static MySettingViewController *sharedInstance = nil;
     self = [super init];
     if (self) {
         self.language = @"ja";
+        self.target   = nil;
+        self.targetDisplay = @"タイトル+本文";
     }
     return self;
 }
 
+- (void)setTargetDisplay:(NSString *)targetDisplay {
+    _targetDisplay = targetDisplay;
+    if ([targetDisplay isEqualToString:@"タイトル+本文"]) {
+        _target = nil;
+    }
+    else if ([targetDisplay isEqualToString:@"タグ"]) {
+        _target = @"tag";
+    }
+}
 
 @end

@@ -28,7 +28,7 @@
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        self.tags = [[TagManager sharedInstance] allTags];
+        self.tags = [NSMutableArray arrayWithArray:[[TagManager sharedInstance] allTags]];
         self.filteredTags = [NSMutableArray arrayWithCapacity:[self totalTagCount]];
         
     }
@@ -43,7 +43,7 @@
     
     self.navigationController.navigationBar.tintColor = [UIColor blackColor];
     
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"閉じる" style:UIBarButtonItemStylePlain target:self action:@selector(close)];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"完了" style:UIBarButtonItemStylePlain target:self action:@selector(close)];
     
     _mySearchBar.tintColor = [UIColor lightGrayColor];
     _mySearchBar.delegate = self;
@@ -52,9 +52,24 @@
     [_mySearchBar sizeToFit];
     self.tableView.tableHeaderView = _mySearchBar;
     
+    for (UIView *searchBarSubview in [_mySearchBar subviews]) {
+        //protocolがUITextInputTraits=キー入力関係のオブジェクトを判定
+        if ([searchBarSubview conformsToProtocol:@protocol(UITextInputTraits)]) {
+            @try {
+                //UITextInputTraitsのオブジェクト、ここでは「検索」ボタンになるので
+                //UIReturnKeyDone=完了に変更
+                [(UITextField *)searchBarSubview setReturnKeyType:UIReturnKeyDone];
+            }
+            @catch (NSException * e) {
+                //例外処理
+            }
+        }
+    }
+    
     _mySearchDisplayController.delegate = self;
     _mySearchDisplayController.searchResultsDelegate = self;
     _mySearchDisplayController.searchResultsDataSource = self;
+    _mySearchDisplayController.searchResultsTitle = @"タグの絞り込み";
     
     [self.tableView reloadData];
     self.tableView.scrollEnabled = YES;
@@ -67,7 +82,7 @@
 }
 
 - (void)reload {
-    self.tags = [[TagManager sharedInstance] allTags];
+    self.tags = [NSMutableArray arrayWithArray:[[TagManager sharedInstance] allTags]];
 //    self.filteredTags = [NSMutableArray arrayWithCapacity:[self totalTagCount]];
     [self.tableView reloadData];
 }
@@ -80,7 +95,7 @@
         return 1;
     }
     else {
-        return [_tags count];
+        return 1 + [_tags count]; // タグを作成 + 各カテゴリのタグ
     }
 }
 
@@ -90,7 +105,13 @@
         return [_filteredTags count];
     }
     else {
-        return [[_tags objectAtIndex:section] count];
+        switch (section) {
+            case 0:
+                return 1;
+            default:
+                return [[_tags objectAtIndex:(section-1)] count];
+        }
+        return 0;
     }
 }
 
@@ -98,24 +119,30 @@
     if (tableView == self.searchDisplayController.searchResultsTableView) {
         return @"検索結果";
     } else {
-        if ([[_tags objectAtIndex:section] count] == 0) {
-                return @"";
-        }
+//        if ([[_tags objectAtIndex:section] count] == 0) {
+//                return @"";
+//        }
         
         switch (section) {
             case 0:
-                return @"あなたが追加したタグ";
+                return @"";
             case 1:
-                return @"プログラミング";
+                if ([[_tags objectAtIndex:0] count] == 0) {
+                    return @"";
+                }
+                else {
+                    return @"あなたが作ったタグ";
+                }
             case 2:
-                return @"ライブラリ";
+                return @"プログラミング";
             case 3:
-                return @"開発";
+                return @"ライブラリ";
             case 4:
-                return @"サーバ/インフラ";
+                return @"開発";
             case 5:
+                return @"サーバ/インフラ";
+            case 6:
                 return @"その他";
-                break;
         }
     }
     return @"";
@@ -129,13 +156,21 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
     }
     
-    // Configure the cell...
+    // 「タグを作成」セクション
+    if (tableView != self.searchDisplayController.searchResultsTableView
+        && indexPath.section == 0)
+    {
+        cell.textLabel.text = @"+タグを作成";
+        return cell;
+    }
+    
+    
     TagWithCheckMarkObject *tag;
     if (tableView == self.searchDisplayController.searchResultsTableView) {
         tag = [_filteredTags objectAtIndex:indexPath.row];
     }
     else {
-        tag = [[_tags objectAtIndex:indexPath.section] objectAtIndex:indexPath.row];
+        tag = [[_tags objectAtIndex:(indexPath.section-1)] objectAtIndex:indexPath.row];
     }
     
     cell.textLabel.text = tag.tagName;
@@ -144,32 +179,37 @@
     } else {
         cell.accessoryType = UITableViewCellAccessoryNone;
     }
+
     
     return cell;
 }
 
-/*
+
 // Override to support conditional editing of the table view.
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
+    if (indexPath.section == 1) {
+        // 「あなたが作成したタグ」のみ編集可能
+        return YES;
+    }
+    else {
+        return NO;
+    }
 }
-*/
 
-/*
+
+
 // Override to support editing the table view.
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         // Delete the row from the data source
+        TagWithCheckMarkObject *deleteTag = [[_tags objectAtIndex:(indexPath.section-1)] objectAtIndex:indexPath.row];
+        [[TagManager sharedInstance] removeOriginalTag:deleteTag.tagName];
         [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    }   
-    else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
+    }
 }
-*/
+
 
 /*
 // Override to support rearranging the table view.
@@ -193,14 +233,18 @@
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
-    NSLog(@"%d %d", indexPath.section, indexPath.row);
-    
     TagWithCheckMarkObject *tag;
     if (tableView == self.searchDisplayController.searchResultsTableView) {
         tag = [_filteredTags objectAtIndex:indexPath.row];
     }
     else {
-        tag = [[_tags objectAtIndex:indexPath.section] objectAtIndex:indexPath.row];
+        if (indexPath.section == 0) {
+            // タグを新規作成
+            [self createNewTag];
+            return ;
+        }
+        
+        tag = [[_tags objectAtIndex:(indexPath.section-1)] objectAtIndex:indexPath.row];
     }
     UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
     if (tag.isChecked == NO) {
@@ -233,7 +277,16 @@
 
 - (BOOL)searchDisplayController:(UISearchDisplayController *)controller shouldReloadTableForSearchString:(NSString *)searchString {
     [self filterContentForSearchText:searchString scope:[[self.searchDisplayController.searchBar scopeButtonTitles] objectAtIndex:[self.searchDisplayController.searchBar selectedScopeButtonIndex]]];
+    controller.searchBar.showsCancelButton = NO;
+    
     return YES;
+}
+
+#pragma mark - UISearchBar Delegate Methods
+
+- (void) searchBarSearchButtonClicked: (UISearchBar *) searchBar {
+    [searchBar resignFirstResponder];
+    [self.searchDisplayController setActive:NO animated:YES];
 }
 
 // section-rowを無視したタグリストを返す
@@ -261,9 +314,45 @@
     return totalCount;
 }
 
-
 - (void)close {
     [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (void)createNewTag {
+    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"作成するタグ名"
+                                                        message:@" "
+                                                       delegate:self
+                                              cancelButtonTitle:@"キャンセル"
+                                              otherButtonTitles:@"OK", nil];
+    alertView.tag = ALERT_VIEW_TAG_CREATE_NEW_TAG;
+    self.textFieldNewTagName = [[UITextField alloc] initWithFrame:CGRectMake(12.0, 45.0, 260.0, 25.0)];
+    [_textFieldNewTagName setBackgroundColor:[UIColor whiteColor]];
+    [alertView addSubview:_textFieldNewTagName];
+    [alertView show];
+}
+
+#pragma mark - UIAlertViewDelegate
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+    if (alertView.tag == ALERT_VIEW_TAG_CREATE_NEW_TAG
+        && buttonIndex == 1) {
+        // タグを新規作成
+        BOOL success = [[TagManager sharedInstance] addOriginalTag:_textFieldNewTagName.text];
+        if (success){
+            if (success == NO) {
+                // タグの追加に失敗
+                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"エラー"
+                                                                message:@"既に同名のタグが存在します"
+                                                               delegate:self
+                                                      cancelButtonTitle:nil
+                                                      otherButtonTitles:@"OK", nil];
+                [alert show];
+            } else {
+                // タグの追加に成功
+                [self reload];
+            }
+        }
+    }
 }
 
 @end

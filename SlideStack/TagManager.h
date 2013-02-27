@@ -17,7 +17,8 @@
 
 + (TagManager*)sharedInstance;
 
-- (void)addOriginalTag:(NSString*)originalTagName;   // タグを新規に追加
+- (BOOL)addOriginalTag:(NSString*)originalTagName;   // タグを新規に追加
+- (void)removeOriginalTag:(NSString*)originalTagName;  // タグを削除
 - (void)updateCheckMarkState:(NSString*)tagName isCheck:(BOOL)isCheck;    // 指定したタグの選択状態を変更
 - (NSArray*)checkedTagArray;    // 選択状態にあるタグリストを返す
 

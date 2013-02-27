@@ -16,7 +16,12 @@
 
 
 
-@interface ControlSortView : UIView
+@interface ControlSortView : UIView {
+    UIButton *relateBtn;
+    UIButton *mostViewBtn;
+    UIButton *mostDLBtn;
+    UIButton *latestBtn;
+}
 
 @property (nonatomic, assign) id<ControlSortViewDelegate> delegate;
 

@@ -82,9 +82,9 @@ typedef enum LazyImageViewTag_ {
     if (iv) [iv removeFromSuperview];
     
 //    if (_isLoaded == NO) {
-        self.alpha = 0.0;
+        self.alpha = 0.3;
         [self setImage:[UIImage imageWithData:self.data]];
-        [UIView animateWithDuration:0.3f
+        [UIView animateWithDuration:0.5f
                          animations:^(void) {
                              self.alpha = 1.0;
                          }
@@ -108,8 +108,9 @@ typedef enum LazyImageViewTag_ {
 //    [iv startAnimating];
     [iv setHidden:NO];
     
-    //[self setBackgroundColor:[UIColor colorWithRed:1.0 green:1.0 blue:1.0 alpha:0.3]];
-    [self setBackgroundColor:[UIColor whiteColor]];
+    self.backgroundColor = [UIColor colorWithRed:213/255.0 green:213/255.0 blue:213/255.0 alpha:0.5];
+//    [self setBackgroundColor:[UIColor colorWithRed:1.0 green:1.0 blue:1.0 alpha:0.3]];
+    //[self setBackgroundColor:[UIColor whiteColor]];
 }
 
 - (void)setLoadErrorImage {
@@ -118,8 +119,8 @@ typedef enum LazyImageViewTag_ {
     [iv removeFromSuperview];
     
     [self setImage:nil];
-    //[self setBackgroundColor:[UIColor colorWithRed:0.3 green:0.3 blue:0.3 alpha:0.4]];
-    [self setBackgroundColor:[UIColor redColor]];
+    [self setBackgroundColor:[UIColor colorWithRed:0.3 green:0.3 blue:0.3 alpha:0.4]];
+//    [self setBackgroundColor:[UIColor redColor]];
 }
 
 

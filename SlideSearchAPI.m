@@ -24,6 +24,10 @@
 - (void)send:(NSDictionary*)param {
     NSMutableDictionary *mutParam = [NSMutableDictionary dictionaryWithDictionary:param];
     [mutParam setObject:[MySettingViewController sharedInstance].language forKey:@"lang"];
+    NSString *what = [MySettingViewController sharedInstance].target;
+    if (what) {
+        [mutParam setObject:what forKey:@"what"];
+    }
     [super send:[NSDictionary dictionaryWithDictionary:mutParam]];
 }
 

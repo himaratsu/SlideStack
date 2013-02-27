@@ -9,6 +9,7 @@
 #import "SettingTableViewController.h"
 #import "SettingLanguageViewController.h"
 #import "MySettingViewController.h"
+#import "SettingTargetViewController.h"
 
 @interface SettingTableViewController ()
 
@@ -42,25 +43,75 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 1;
+    return 2;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
+    switch (section) {
+        case 0:
+            return 2;
+        case 1:
+            return 2;
+        default:
+            break;
+    }
     return 1;
+}
+
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
+    switch (section) {
+        case 0:
+            return @"検索条件";
+        case 1:
+            return @"その他";
+        default:
+            break;
+    }
+    return @"";
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"Cell";
+    static NSString *CellIdentifier = nil;
+    CellIdentifier = [NSString stringWithFormat:@"Cell_%d", indexPath.section];
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue2 reuseIdentifier:CellIdentifier];
+        if (indexPath.section == 0) {
+            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue2 reuseIdentifier:CellIdentifier];
+        }
+        else if (indexPath.section == 1) {
+            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+        }
     }
     
-    cell.textLabel.text = @"検索言語";
-    cell.detailTextLabel.text = [MySettingViewController sharedInstance].language;
-    cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+    if (indexPath.section == 0) {
+        switch (indexPath.row) {
+            case 0:
+                cell.textLabel.text = @"検索言語";
+                cell.detailTextLabel.text = [MySettingViewController sharedInstance].language;
+                break;
+            case 1:
+                cell.textLabel.text = @"検索対象";
+                cell.detailTextLabel.text = [MySettingViewController sharedInstance].targetDisplay;
+                break;
+            default:
+                break;
+        }
+        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+    }
+    else if (indexPath.section == 1) {
+        switch (indexPath.row) {
+            case 0:
+                cell.textLabel.text = @"このアプリについて";
+                break;
+            case 1:
+                cell.textLabel.text = @"ご意見ご要望";
+            default:
+                break;
+        }
+        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+    }
     
     return cell;
 }
@@ -108,8 +159,30 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    SettingLanguageViewController *settingLanguageVC = [[SettingLanguageViewController alloc] initWithNibName:@"SettingLanguageViewController" bundle:nil];
-    [self.navigationController pushViewController:settingLanguageVC animated:YES];
+    if (indexPath.section == 0) {
+        switch (indexPath.row) {
+            case 0:
+            {
+                SettingLanguageViewController *settingLanguageVC = [[SettingLanguageViewController alloc] initWithNibName:@"SettingLanguageViewController" bundle:nil];
+                [self.navigationController pushViewController:settingLanguageVC animated:YES];
+                break;
+            }
+            case 1:
+            {
+                SettingTargetViewController *settingTargetVC = [[SettingTargetViewController alloc]
+                                                                initWithNibName:@"SettingTargetViewController" bundle:nil];
+                [self.navigationController pushViewController:settingTargetVC animated:YES];
+                break;
+            }
+            default:
+                break;
+        }
+
+    }
+    else if (indexPath.section == 1){
+        // TODO: 処理を追記
+        
+    }
 }
 
 

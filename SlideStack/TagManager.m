@@ -29,9 +29,44 @@ static TagManager *sharedInstance = nil;
 }
 
 // 独自のタグを追加
-- (void)addOriginalTag:(NSString *)originalTagName {
-    TagWithCheckMarkObject *tag = [[TagWithCheckMarkObject alloc] initWithTagName:originalTagName isChecked:YES];
-    [_myOriginalTags addObject:tag];
+- (BOOL)addOriginalTag:(NSString *)originalTagName {
+    if ([self isAlreadyExist:originalTagName]) {
+        return NO;
+    }
+    else {
+        TagWithCheckMarkObject *tag = [[TagWithCheckMarkObject alloc] initWithTagName:originalTagName isChecked:YES];
+        [_myOriginalTags addObject:tag];
+        [self saveTags];
+        return YES;
+    }
+}
+
+- (BOOL)isAlreadyExist:(NSString*)tagName {
+    NSArray *itemArray = [NSArray array];
+    TagWithCheckMarkObject *tag;
+    
+    for (int i=0; i<[_allTags count]; i++) {
+        itemArray = [_allTags objectAtIndex:i];
+        for (int j=0; j<[itemArray count]; j++) {
+            tag = [itemArray objectAtIndex:j];
+            if ([tag.tagName isEqualToString:tagName]) {
+                return YES;
+            }
+        }
+    }
+    return NO;
+}
+
+// タグを削除
+- (void)removeOriginalTag:(NSString*)originalTagName {
+    TagWithCheckMarkObject *tag;
+    for (int i=0; i<[_myOriginalTags count]; i++) {
+        tag = [_myOriginalTags objectAtIndex:i];
+        if ([originalTagName isEqualToString:tag.tagName]) {
+            [_myOriginalTags removeObject:tag];
+            break;
+        }
+    }
     [self saveTags];
 }
 
@@ -80,7 +115,7 @@ static TagManager *sharedInstance = nil;
     self.myOriginalTags = [NSMutableArray array];
     NSArray* program = [self stringArrayToTagArray:
                         @[@"HTML", @"CSS", @"JavaScript", @"Perl", @"PHP",
-                        @"Ruby", @"Python", @"Java", @"Objectice-C",
+                        @"Ruby", @"Python", @"Java", @"Objective-C",
                         @"ActionScript", @"SQL"]
                         ];
     NSArray* library = [self stringArrayToTagArray:
