@@ -59,6 +59,11 @@
 		2099166516D9C88B008335F5 /* SelectTagViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2099166316D9C88B008335F5 /* SelectTagViewController.xib */; };
 		2099166916D9D7ED008335F5 /* TagManageTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2099166716D9D7ED008335F5 /* TagManageTableViewController.m */; };
 		2099166A16D9D7ED008335F5 /* TagManageTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2099166816D9D7ED008335F5 /* TagManageTableViewController.xib */; };
+		20A753E816E4CC6200BC4692 /* SlideHistoryManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 20A753E716E4CC6200BC4692 /* SlideHistoryManager.m */; };
+		20A753EB16E4D10400BC4692 /* SlideHistoryView.m in Sources */ = {isa = PBXBuildFile; fileRef = 20A753EA16E4D10400BC4692 /* SlideHistoryView.m */; };
+		20A753F016E4D19500BC4692 /* RecommendSlideListView.m in Sources */ = {isa = PBXBuildFile; fileRef = 20A753ED16E4D19500BC4692 /* RecommendSlideListView.m */; };
+		20A753F116E4D19500BC4692 /* RecommendSlideView.m in Sources */ = {isa = PBXBuildFile; fileRef = 20A753EF16E4D19500BC4692 /* RecommendSlideView.m */; };
+		20A753F416E4D6AC00BC4692 /* SlideHistoryViewParts.m in Sources */ = {isa = PBXBuildFile; fileRef = 20A753F316E4D6AC00BC4692 /* SlideHistoryViewParts.m */; };
 		20B82EEC16E3450600DDBE12 /* RecommendAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 20B82EEB16E3450600DDBE12 /* RecommendAPI.m */; };
 		20B82EEF16E37A0F00DDBE12 /* RecommendTagListView.m in Sources */ = {isa = PBXBuildFile; fileRef = 20B82EEE16E37A0F00DDBE12 /* RecommendTagListView.m */; };
 		20DC34F816DE4CBE00FE0907 /* icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 20DC34F716DE4CBE00FE0907 /* icon@2x.png */; };
@@ -151,6 +156,16 @@
 		2099166616D9D7ED008335F5 /* TagManageTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TagManageTableViewController.h; sourceTree = "<group>"; };
 		2099166716D9D7ED008335F5 /* TagManageTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TagManageTableViewController.m; sourceTree = "<group>"; };
 		2099166816D9D7ED008335F5 /* TagManageTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TagManageTableViewController.xib; sourceTree = "<group>"; };
+		20A753E616E4CC6200BC4692 /* SlideHistoryManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SlideHistoryManager.h; sourceTree = "<group>"; };
+		20A753E716E4CC6200BC4692 /* SlideHistoryManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SlideHistoryManager.m; sourceTree = "<group>"; };
+		20A753E916E4D10400BC4692 /* SlideHistoryView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SlideHistoryView.h; sourceTree = "<group>"; };
+		20A753EA16E4D10400BC4692 /* SlideHistoryView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SlideHistoryView.m; sourceTree = "<group>"; };
+		20A753EC16E4D19500BC4692 /* RecommendSlideListView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecommendSlideListView.h; sourceTree = "<group>"; };
+		20A753ED16E4D19500BC4692 /* RecommendSlideListView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecommendSlideListView.m; sourceTree = "<group>"; };
+		20A753EE16E4D19500BC4692 /* RecommendSlideView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecommendSlideView.h; sourceTree = "<group>"; };
+		20A753EF16E4D19500BC4692 /* RecommendSlideView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecommendSlideView.m; sourceTree = "<group>"; };
+		20A753F216E4D6AC00BC4692 /* SlideHistoryViewParts.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SlideHistoryViewParts.h; sourceTree = "<group>"; };
+		20A753F316E4D6AC00BC4692 /* SlideHistoryViewParts.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SlideHistoryViewParts.m; sourceTree = "<group>"; };
 		20B82EEA16E3450600DDBE12 /* RecommendAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecommendAPI.h; sourceTree = "<group>"; };
 		20B82EEB16E3450600DDBE12 /* RecommendAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecommendAPI.m; sourceTree = "<group>"; };
 		20B82EED16E37A0F00DDBE12 /* RecommendTagListView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecommendTagListView.h; sourceTree = "<group>"; };
@@ -245,6 +260,10 @@
 		20461D2616DA423D00BAA4AA /* parts */ = {
 			isa = PBXGroup;
 			children = (
+				20A753E916E4D10400BC4692 /* SlideHistoryView.h */,
+				20A753EA16E4D10400BC4692 /* SlideHistoryView.m */,
+				20A753F216E4D6AC00BC4692 /* SlideHistoryViewParts.h */,
+				20A753F316E4D6AC00BC4692 /* SlideHistoryViewParts.m */,
 				20461D2016DA41CE00BAA4AA /* SlideTableViewCell.h */,
 				20461D2116DA41CE00BAA4AA /* SlideTableViewCell.m */,
 				20461D2316DA423700BAA4AA /* CustomImageView.h */,
@@ -257,6 +276,10 @@
 				207DCA1E16E25FF40078B65B /* RecommendTagView.m */,
 				20B82EED16E37A0F00DDBE12 /* RecommendTagListView.h */,
 				20B82EEE16E37A0F00DDBE12 /* RecommendTagListView.m */,
+				20A753EC16E4D19500BC4692 /* RecommendSlideListView.h */,
+				20A753ED16E4D19500BC4692 /* RecommendSlideListView.m */,
+				20A753EE16E4D19500BC4692 /* RecommendSlideView.h */,
+				20A753EF16E4D19500BC4692 /* RecommendSlideView.m */,
 			);
 			name = parts;
 			sourceTree = "<group>";
@@ -337,6 +360,8 @@
 				20461D1416DA33A800BAA4AA /* network */,
 				20461D0416D9F6BD00BAA4AA /* TagManager.h */,
 				20461D0516D9F6BD00BAA4AA /* TagManager.m */,
+				20A753E616E4CC6200BC4692 /* SlideHistoryManager.h */,
+				20A753E716E4CC6200BC4692 /* SlideHistoryManager.m */,
 				20461D1D16DA398E00BAA4AA /* MySettingViewController.h */,
 				20461D1E16DA398E00BAA4AA /* MySettingViewController.m */,
 			);
@@ -506,6 +531,11 @@
 				207DCA1F16E25FF40078B65B /* RecommendTagView.m in Sources */,
 				20B82EEC16E3450600DDBE12 /* RecommendAPI.m in Sources */,
 				20B82EEF16E37A0F00DDBE12 /* RecommendTagListView.m in Sources */,
+				20A753E816E4CC6200BC4692 /* SlideHistoryManager.m in Sources */,
+				20A753EB16E4D10400BC4692 /* SlideHistoryView.m in Sources */,
+				20A753F016E4D19500BC4692 /* RecommendSlideListView.m in Sources */,
+				20A753F116E4D19500BC4692 /* RecommendSlideView.m in Sources */,
+				20A753F416E4D6AC00BC4692 /* SlideHistoryViewParts.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

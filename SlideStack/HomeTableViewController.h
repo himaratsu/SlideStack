@@ -9,11 +9,18 @@
 #import <UIKit/UIKit.h>
 #import "RecommendAPI.h"
 #import "RecommendTagListView.h"
+#import "RecommendSlideListView.h"
+#import "SlideHistoryView.h"
 
 @interface HomeTableViewController : UITableViewController
-<HttpRequestDelegate, RecommendTagListViewDelegate>
+<HttpRequestDelegate, RecommendTagListViewDelegate, RecommendSlideViewDelegate, SlideHistoryViewPartsDelegate>
 {
-    RecommendTagListView *tagListView;
+    BOOL isLoaded;  // ロード済みかどうか
 }
+
+@property (nonatomic, strong) RecommendTagListView *tagListView;    // タグリスト
+@property (nonatomic, strong) RecommendSlideListView *slideListView;// スライドリスト
+@property (nonatomic, strong) SlideHistoryView *histView;           // 履歴リスト
+@property (nonatomic, strong) NSMutableArray *recommendSlides;
 
 @end

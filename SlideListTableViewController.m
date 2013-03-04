@@ -14,7 +14,7 @@
 #import "SettingTableViewController.h"
 #import "SlideTableViewCell.h"
 #import "IIViewDeckController.h"
-
+#import "SlideHistoryManager.h"
 
 @interface SlideListTableViewController ()
 
@@ -254,6 +254,9 @@
     webVC.title = d.title;
     webVC.loadUrl = d.url;
     [self.navigationController pushViewController:webVC animated:YES];
+    
+    // スライド閲覧履歴に追加
+    [[SlideHistoryManager sharedInstance] appendHistoryList:d];
 }
 
 

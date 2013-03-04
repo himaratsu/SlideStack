@@ -168,17 +168,11 @@
         else if ([elementName isEqualToString:@"ThumbnailSmallURL"]) {
             _slideShow.thumbnailSmallUrl = [self appendProtocol:[NSString trim:self.currentCharacters]];
         }
-        else if ([elementName isEqualToString:@"Embed"]) {
-            _slideShow.embed = [NSString trim:self.currentCharacters];
-        }
         else if ([elementName isEqualToString:@"Created"]) {
             _slideShow.created = [NSString trim:self.currentCharacters];
         }
         else if ([elementName isEqualToString:@"Updated"]) {
             _slideShow.Updated = [NSString trim:self.currentCharacters];
-        }
-        else if ([elementName isEqualToString:@"UserID"]) {
-            _slideShow.userId = [NSString trim:self.currentCharacters];
         }
         else if ([elementName isEqualToString:@"NumDownloads"]) {
             _slideShow.numDownloads = [[NSString trim:self.currentCharacters] integerValue];

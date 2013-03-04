@@ -10,4 +10,18 @@
 
 @implementation TagObject
 
+- (id)initWithCoder:(NSCoder *)aDecoder {
+    self = [super init];
+    if (self) {
+        self.tagCount = [aDecoder decodeIntegerForKey:@"TagCount"];
+        self.tagName = [aDecoder decodeObjectForKey:@"TagName"];
+    }
+    return self;
+}
+
+- (void)encodeWithCoder:(NSCoder *)aCoder {
+    [aCoder encodeInteger:_tagCount forKey:@"TagCount"];
+    [aCoder encodeObject:_tagName forKey:@"TagName"];
+}
+
 @end

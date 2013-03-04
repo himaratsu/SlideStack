@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface SlideShowObject : NSObject
+@interface SlideShowObject : NSObject <NSCoding>
 
 @property (nonatomic, strong) NSString *slideId;        // id
 @property (nonatomic, strong) NSString *title;          // タイトル
@@ -17,10 +17,8 @@
 @property (nonatomic, strong) NSString *url;            // url
 @property (nonatomic, strong) NSString *thumbnailUrl;   // 画像url
 @property (nonatomic, strong) NSString *thumbnailSmallUrl;  // 小画像urk
-@property (nonatomic, strong) NSString *embed;
 @property (nonatomic, strong) NSString   *created;
 @property (nonatomic, strong) NSString   *Updated;
-@property (nonatomic, strong) NSString *userId;
 @property (nonatomic, strong) NSMutableArray *tags;
 @property (nonatomic, assign) NSInteger numDownloads;
 @property (nonatomic, assign) NSInteger numViews;

@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface TagObject : NSObject
+@interface TagObject : NSObject <NSCoding>
 
 @property (nonatomic, assign) NSInteger tagCount;
 @property (nonatomic, retain) NSString *tagName;

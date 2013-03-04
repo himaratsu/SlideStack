@@ -21,11 +21,10 @@
 
 @implementation HomeTableViewController
 
-- (id)initWithStyle:(UITableViewStyle)style
-{
-    self = [super initWithStyle:style];
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
+    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        // Custom initialization
+        isLoaded = NO;
     }
     return self;
 }
@@ -58,9 +57,6 @@
     tagButtonItem.style = UIBarButtonItemStyleBordered;
     self.navigationItem.rightBarButtonItem = tagButtonItem;
     
-    tagListView = [[RecommendTagListView alloc] initWithFrame:CGRectMake(0, 0, 320, 200)];
-    tagListView.delegate = self;
-    
     [self reload];
 }
 
@@ -69,17 +65,48 @@
     [api send];
 }
 
+- (void)reloadData {
+    [self.tableView reloadData];
+}
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
 
+- (RecommendTagListView *)tagListView {
+    if (_tagListView == nil) {
+        _tagListView = [[RecommendTagListView alloc] initWithFrame:CGRectMake(0, 0, 320, 200)];
+        _tagListView.delegate = self;
+    }
+    return _tagListView;
+}
+
+- (RecommendSlideListView *)slideListView {
+    if (_slideListView == nil) {
+        _slideListView = [[RecommendSlideListView alloc] initWithFrame:CGRectMake(0, 10, 320, 250) delegate:self];
+    }
+    return _slideListView;
+}
+
+- (SlideHistoryView *)histView {
+    if (_histView == nil) {
+        _histView = [[SlideHistoryView alloc] initWithFrame:CGRectMake(0, 10, 320, 80)];
+        _histView.delegate = self;
+    }
+    return _histView;
+}
+
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 2;
+    if (isLoaded) {
+        return 3;
+    } else {
+        return 0;
+    }
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -92,6 +119,8 @@
         case 0:
             return @"おすすめのタグ";
         case 1:
+            return @"おすすめのスライド";
+        case 2:
             return @"閲覧履歴";
         default:
             break;
@@ -102,9 +131,11 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     switch (indexPath.section) {
         case 0:
-            return [tagListView heightForTagList] + 10;
+            return [self.tagListView heightForTagList] + 10;
         case 1:
-            return 400;
+            return 270;
+        case 2:
+            return 100;
         default:
             break;
     }
@@ -119,9 +150,29 @@
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
         if (indexPath.section == 0) {
-            [cell.contentView addSubview:tagListView];
+            [cell.contentView addSubview:self.tagListView];
+        }
+        else if (indexPath.section == 1) {
+            [cell.contentView addSubview:self.slideListView];
+        }
+        else if (indexPath.section == 2) {
+            [cell.contentView addSubview:self.histView];
         }
     }
+    
+    switch (indexPath.section) {
+        case 0:
+            break;
+        case 1:
+            [_slideListView startLoadingImages];
+            break;
+        case 2:
+            [_histView reload];
+            break;
+        default:
+            break;
+    }
+    
     return cell;
 }
 
@@ -146,6 +197,20 @@
     [self.navigationController pushViewController:slideListVC animated:YES];
 }
 
+- (void)didTapRecommendSlideWithUrl:(NSString *)url title:(NSString *)title {
+    WebViewController *webVC = [[WebViewController alloc] initWithNibName:@"WebViewController" bundle:nil];
+    webVC.title = title;
+    webVC.loadUrl = url;
+    [self.navigationController pushViewController:webVC animated:YES];
+}
+
+- (void)didTapSlideHistory:(SlideShowObject *)slide {
+    WebViewController *webVC = [[WebViewController alloc] initWithNibName:@"WebViewController" bundle:nil];
+    webVC.title = slide.title;
+    webVC.loadUrl = slide.url;
+    [self.navigationController pushViewController:webVC animated:YES];
+}
+
 - (void)slide {
     [self.viewDeckController toggleRightViewAnimated:YES];
 }
@@ -168,15 +233,16 @@
 - (void)didEndHttpResuest:(id)result type:(NSString *)type {
     NSMutableDictionary *results = (NSMutableDictionary*)result;
     
-    tagListView.tagList = [results objectForKey:@"RecommendTags"];
+    self.tagListView.tagList = [results objectForKey:@"RecommendTags"];
+    self.slideListView.dataArray = [results objectForKey:@"RecommendSlides"];
     
-    [self.tableView reloadData];
-//    [SVProgressHUD dismiss];
+    isLoaded = YES;
+
+    [self.tableView performSelectorOnMainThread:@selector(reloadData) withObject:nil waitUntilDone:NO];
 }
 
 - (void)didErrorHttpRequest:(id)result type:(NSString *)type {
 
-    [SVProgressHUD dismiss];
 }
 
 
