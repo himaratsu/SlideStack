@@ -25,6 +25,7 @@
 - (id)initWithDelegate:(id)delegate;
 - (void)send:(NSDictionary*)param;
 - (void)send;
+- (void)sendWithUrl:(NSString*)url;
 - (void)parse:(NSData*)dic;
 
 @end

@@ -66,18 +66,17 @@
     self.tableView.tableHeaderView = brankView;
     
     // ナビゲーションバーの設定
-    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"設定"
-                                                                             style:UIBarButtonItemStylePlain
-                                                                            target:self
-                                                                            action:@selector(openSettingView)];
+
     // 設定ボタン
-    UIButton *settingButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 40, 40)];
-    settingButton.showsTouchWhenHighlighted = YES;
-    [settingButton setBackgroundImage:[UIImage imageNamed:@"setting.png"] forState:UIControlStateNormal];
-    [settingButton addTarget:self action:@selector(openSettingView) forControlEvents:UIControlEventTouchUpInside];
-    UIBarButtonItem* settingbuttonItem = [[UIBarButtonItem alloc] initWithCustomView:settingButton];
-    settingbuttonItem.style = UIBarButtonItemStyleBordered;
-    self.navigationItem.leftBarButtonItem = settingbuttonItem;
+//    if (self.navigationItem.leftBarButtonItem != nil) {
+//        UIButton *settingButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 40, 40)];
+//        settingButton.showsTouchWhenHighlighted = YES;
+//        [settingButton setBackgroundImage:[UIImage imageNamed:@"setting.png"] forState:UIControlStateNormal];
+//        [settingButton addTarget:self action:@selector(openSettingView) forControlEvents:UIControlEventTouchUpInside];
+//        UIBarButtonItem* settingbuttonItem = [[UIBarButtonItem alloc] initWithCustomView:settingButton];
+//        settingbuttonItem.style = UIBarButtonItemStyleBordered;
+//        self.navigationItem.leftBarButtonItem = settingbuttonItem;
+//    }
 
     // タグ表示ボタン
     UIButton *tagButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 40, 40)];
@@ -92,7 +91,6 @@
     _refreshControl = [[UIRefreshControl alloc] init];
     [_refreshControl addTarget:self action:@selector(refreshStarted) forControlEvents:UIControlEventValueChanged];
     self.refreshControl = _refreshControl;
-    
     
     self.tableView.scrollsToTop = YES;
     
@@ -310,7 +308,7 @@
 
 - (void)setSearchWord:(NSString *)searchWord {
     _searchWord = searchWord;
-    [self reset];
+//    [self reset];
 }
 
 - (void)openSettingView {
@@ -373,6 +371,5 @@
     [self reset];
     [_refreshControl endRefreshing];
 }
-
 
 @end

@@ -10,6 +10,7 @@
 
 #import "SlideListTableViewController.h"
 #import "SelectTagViewController.h"
+#import "HomeTableViewController.h"
 
 @implementation AppDelegate
 
@@ -17,8 +18,8 @@
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
 
-    SlideListTableViewController *slideListVC = [[SlideListTableViewController alloc] initWithNibName:@"SlideListTableViewController" bundle:nil];
-    self.navController = [[UINavigationController alloc] initWithRootViewController:slideListVC];
+    HomeTableViewController *homeTableVC = [[HomeTableViewController alloc] initWithNibName:@"HomeTableViewController" bundle:nil];
+    self.navController = [[UINavigationController alloc] initWithRootViewController:homeTableVC];
     self.navController.navigationBar.tintColor = [UIColor blackColor];
     
     SelectTagViewController *selectTagVC = [[SelectTagViewController alloc] initWithNibName:@"SelectTagViewController" bundle:nil];

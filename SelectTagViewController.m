@@ -13,6 +13,7 @@
 #import "TagManager.h"
 #import "TagWithCheckMarkObject.h"
 #import "SelectTagViewCell.h"
+#import "HomeTableViewController.h"
 
 @interface SelectTagViewController ()
 
@@ -69,12 +70,15 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 2;
+    return 3;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     if (section == 0) {
+        return 1;
+    }
+    else if (section == 1) {
         return [_dataArray count];
     }
     else {
@@ -85,18 +89,31 @@
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
     switch (section) {
         case 0:
-            return @"タグを選ぶ";
+            return @"";
         case 1:
+            return @"タグを選ぶ";
+        case 2:
         default:
             return @"タグを管理";
     }
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
-    return 30;
+    switch (section) {
+        case 0:
+            return 0;
+        case 1:
+        case 2:
+            return 30;
+        default:
+            break;
+    }
+    return 0;
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
+
+    
     UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 40)];
     view.backgroundColor = DEFAULT_TAG_LIST_TITLE_BGCOLOR;
     
@@ -122,6 +139,10 @@
     }
     
     if (indexPath.section == 0) {
+        cell.textLabel.text = @"おすすめ";
+        cell.imageView.image = [UIImage imageNamed:@"recommend.png"];        
+    }
+    else if (indexPath.section == 1) {
         TagWithCheckMarkObject *tag = [_dataArray objectAtIndex:indexPath.row];
         cell.textLabel.text = tag.tagName;
         cell.imageView.image = [UIImage imageNamed:@"tag.png"];
@@ -141,7 +162,7 @@
 // Override to support conditional editing of the table view.
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (indexPath.section == 0) {
+    if (indexPath.section == 1) {
         return YES;
     } else {
         return NO;
@@ -188,14 +209,24 @@
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
     if (indexPath.section == 0) {
-        UINavigationController *centerNav = ((UINavigationController*)self.viewDeckController.centerController);
-        if ([centerNav isKindOfClass:[SlideListTableViewController class]] == NO) {
-            [centerNav popToRootViewControllerAnimated:NO];
-        }
-        SlideListTableViewController *slideListTableVC = ((SlideListTableViewController*)centerNav.topViewController);
+        HomeTableViewController *homeTableVC = [[HomeTableViewController alloc]
+                                                initWithNibName:@"HomeTableViewController" bundle:nil];
+        UINavigationController *navCon = [[UINavigationController alloc] initWithRootViewController:homeTableVC];
+        navCon.navigationBar.tintColor = [UIColor blackColor];
+        self.viewDeckController.centerController = navCon;
         
+        [self.viewDeckController closeOpenView];
+    }
+    else if (indexPath.section == 1) {
+        SlideListTableViewController *slideListVC = [[SlideListTableViewController alloc]
+                                                     initWithNibName:@"SlideListTableViewController"
+                                                     bundle:nil];
         TagWithCheckMarkObject *tag = [_dataArray objectAtIndex:indexPath.row];
-        slideListTableVC.searchWord = tag.tagName;
+        slideListVC.searchWord = tag.tagName;
+        
+        UINavigationController *navCon = [[UINavigationController alloc] initWithRootViewController:slideListVC];
+        navCon.navigationBar.tintColor = [UIColor blackColor];
+        self.viewDeckController.centerController = navCon;
         
         [self.viewDeckController closeOpenView];
     }

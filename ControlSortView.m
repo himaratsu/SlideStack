@@ -42,7 +42,6 @@
             forControlEvents:UIControlEventTouchUpInside];
         [self addSubview:mostDLBtn];
         
-        
         relateBtn = [UIButton buttonWithType:100];
         relateBtn.frame = CGRectMake(245, 6, 70, 20);
         relateBtn.tintColor = DEFAULT_SORT_CONTROL_BUTTON_COLOR;

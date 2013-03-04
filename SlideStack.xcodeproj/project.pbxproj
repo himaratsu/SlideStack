@@ -40,6 +40,10 @@
 		2073441716D7CB15002EF8A7 /* SlideSearchAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 2073441616D7CB15002EF8A7 /* SlideSearchAPI.m */; };
 		2073441A16D7DDCA002EF8A7 /* CommonAPIParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 2073441916D7DDCA002EF8A7 /* CommonAPIParser.m */; };
 		2073441D16D7E83C002EF8A7 /* SlideShowObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 2073441C16D7E83C002EF8A7 /* SlideShowObject.m */; };
+		207DCA1B16E2569D0078B65B /* HomeTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 207DCA1916E2569D0078B65B /* HomeTableViewController.m */; };
+		207DCA1C16E2569D0078B65B /* HomeTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 207DCA1A16E2569D0078B65B /* HomeTableViewController.xib */; };
+		207DCA1F16E25FF40078B65B /* RecommendTagView.m in Sources */ = {isa = PBXBuildFile; fileRef = 207DCA1E16E25FF40078B65B /* RecommendTagView.m */; };
+		207DCA2116E33F950078B65B /* recommend.png in Resources */ = {isa = PBXBuildFile; fileRef = 207DCA2016E33F950078B65B /* recommend.png */; };
 		2099163B16D9AFA7008335F5 /* TagObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 2099163A16D9AFA7008335F5 /* TagObject.m */; };
 		2099164216D9B9A3008335F5 /* SlideListTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2099164016D9B9A3008335F5 /* SlideListTableViewController.m */; };
 		2099164316D9B9A3008335F5 /* SlideListTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2099164116D9B9A3008335F5 /* SlideListTableViewController.xib */; };
@@ -55,6 +59,8 @@
 		2099166516D9C88B008335F5 /* SelectTagViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2099166316D9C88B008335F5 /* SelectTagViewController.xib */; };
 		2099166916D9D7ED008335F5 /* TagManageTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2099166716D9D7ED008335F5 /* TagManageTableViewController.m */; };
 		2099166A16D9D7ED008335F5 /* TagManageTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2099166816D9D7ED008335F5 /* TagManageTableViewController.xib */; };
+		20B82EEC16E3450600DDBE12 /* RecommendAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 20B82EEB16E3450600DDBE12 /* RecommendAPI.m */; };
+		20B82EEF16E37A0F00DDBE12 /* RecommendTagListView.m in Sources */ = {isa = PBXBuildFile; fileRef = 20B82EEE16E37A0F00DDBE12 /* RecommendTagListView.m */; };
 		20DC34F816DE4CBE00FE0907 /* icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 20DC34F716DE4CBE00FE0907 /* icon@2x.png */; };
 		20DC34FA16DE4CD100FE0907 /* icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 20DC34F916DE4CD100FE0907 /* icon@2x.png */; };
 		20DC34FC16DE571000FE0907 /* download_black.png in Resources */ = {isa = PBXBuildFile; fileRef = 20DC34FB16DE571000FE0907 /* download_black.png */; };
@@ -115,6 +121,12 @@
 		2073441916D7DDCA002EF8A7 /* CommonAPIParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommonAPIParser.m; sourceTree = "<group>"; };
 		2073441B16D7E83B002EF8A7 /* SlideShowObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SlideShowObject.h; sourceTree = "<group>"; };
 		2073441C16D7E83C002EF8A7 /* SlideShowObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SlideShowObject.m; sourceTree = "<group>"; };
+		207DCA1816E2569D0078B65B /* HomeTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeTableViewController.h; sourceTree = "<group>"; };
+		207DCA1916E2569D0078B65B /* HomeTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeTableViewController.m; sourceTree = "<group>"; };
+		207DCA1A16E2569D0078B65B /* HomeTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeTableViewController.xib; sourceTree = "<group>"; };
+		207DCA1D16E25FF40078B65B /* RecommendTagView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecommendTagView.h; sourceTree = "<group>"; };
+		207DCA1E16E25FF40078B65B /* RecommendTagView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecommendTagView.m; sourceTree = "<group>"; };
+		207DCA2016E33F950078B65B /* recommend.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = recommend.png; sourceTree = "<group>"; };
 		2099163916D9AFA7008335F5 /* TagObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TagObject.h; sourceTree = "<group>"; };
 		2099163A16D9AFA7008335F5 /* TagObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TagObject.m; sourceTree = "<group>"; };
 		2099163F16D9B9A3008335F5 /* SlideListTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SlideListTableViewController.h; path = ../SlideListTableViewController.h; sourceTree = "<group>"; };
@@ -139,6 +151,10 @@
 		2099166616D9D7ED008335F5 /* TagManageTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TagManageTableViewController.h; sourceTree = "<group>"; };
 		2099166716D9D7ED008335F5 /* TagManageTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TagManageTableViewController.m; sourceTree = "<group>"; };
 		2099166816D9D7ED008335F5 /* TagManageTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TagManageTableViewController.xib; sourceTree = "<group>"; };
+		20B82EEA16E3450600DDBE12 /* RecommendAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecommendAPI.h; sourceTree = "<group>"; };
+		20B82EEB16E3450600DDBE12 /* RecommendAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecommendAPI.m; sourceTree = "<group>"; };
+		20B82EED16E37A0F00DDBE12 /* RecommendTagListView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecommendTagListView.h; sourceTree = "<group>"; };
+		20B82EEE16E37A0F00DDBE12 /* RecommendTagListView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecommendTagListView.m; sourceTree = "<group>"; };
 		20DC34F716DE4CBE00FE0907 /* icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon@2x.png"; sourceTree = "<group>"; };
 		20DC34F916DE4CD100FE0907 /* icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon@2x.png"; sourceTree = "<group>"; };
 		20DC34FB16DE571000FE0907 /* download_black.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = download_black.png; sourceTree = "<group>"; };
@@ -167,6 +183,7 @@
 			isa = PBXGroup;
 			children = (
 				20DC34F716DE4CBE00FE0907 /* icon@2x.png */,
+				207DCA2016E33F950078B65B /* recommend.png */,
 				20DC34FB16DE571000FE0907 /* download_black.png */,
 				20DC34FD16DE571A00FE0907 /* fav_black.png */,
 				20DC34FE16DE571A00FE0907 /* view_black.png */,
@@ -190,6 +207,8 @@
 				2073441916D7DDCA002EF8A7 /* CommonAPIParser.m */,
 				2073441516D7CB15002EF8A7 /* SlideSearchAPI.h */,
 				2073441616D7CB15002EF8A7 /* SlideSearchAPI.m */,
+				20B82EEA16E3450600DDBE12 /* RecommendAPI.h */,
+				20B82EEB16E3450600DDBE12 /* RecommendAPI.m */,
 			);
 			name = network;
 			sourceTree = "<group>";
@@ -234,6 +253,10 @@
 				200BBF2316DA5709007C673F /* ControlSortView.m */,
 				20DC350116DE7CCE00FE0907 /* SelectTagViewCell.h */,
 				20DC350216DE7CCF00FE0907 /* SelectTagViewCell.m */,
+				207DCA1D16E25FF40078B65B /* RecommendTagView.h */,
+				207DCA1E16E25FF40078B65B /* RecommendTagView.m */,
+				20B82EED16E37A0F00DDBE12 /* RecommendTagListView.h */,
+				20B82EEE16E37A0F00DDBE12 /* RecommendTagListView.m */,
 			);
 			name = parts;
 			sourceTree = "<group>";
@@ -346,6 +369,9 @@
 				2099164C16D9BCAC008335F5 /* WebViewController.h */,
 				2099164D16D9BCAC008335F5 /* WebViewController.m */,
 				2099164E16D9BCAC008335F5 /* WebViewController.xib */,
+				207DCA1816E2569D0078B65B /* HomeTableViewController.h */,
+				207DCA1916E2569D0078B65B /* HomeTableViewController.m */,
+				207DCA1A16E2569D0078B65B /* HomeTableViewController.xib */,
 			);
 			name = ViewController;
 			sourceTree = "<group>";
@@ -438,6 +464,8 @@
 				20DC34FF16DE571A00FE0907 /* fav_black.png in Resources */,
 				20DC350016DE571A00FE0907 /* view_black.png in Resources */,
 				2031F9FF16DE9003003B0CDB /* SettingTargetViewController.xib in Resources */,
+				207DCA1C16E2569D0078B65B /* HomeTableViewController.xib in Resources */,
+				207DCA2116E33F950078B65B /* recommend.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -474,6 +502,10 @@
 				200BBF2416DA5709007C673F /* ControlSortView.m in Sources */,
 				20DC350316DE7CCF00FE0907 /* SelectTagViewCell.m in Sources */,
 				2031F9FE16DE9003003B0CDB /* SettingTargetViewController.m in Sources */,
+				207DCA1B16E2569D0078B65B /* HomeTableViewController.m in Sources */,
+				207DCA1F16E25FF40078B65B /* RecommendTagView.m in Sources */,
+				20B82EEC16E3450600DDBE12 /* RecommendAPI.m in Sources */,
+				20B82EEF16E37A0F00DDBE12 /* RecommendTagListView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

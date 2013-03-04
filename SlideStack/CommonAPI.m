@@ -126,6 +126,37 @@
     }
 }
 
+// リクエストを送信（プライベートメソッド）
+- (void)_sendWithURL: (NSString *)urlStr {
+    @autoreleasepool {
+        NSURLRequest *req = nil;
+    
+        // リクエストの作成
+        if (urlStr) {
+            NSURL *url = [NSURL URLWithString:urlStr];
+            if (url) {
+                req = [NSURLRequest requestWithURL:url];
+            }
+        }
+        
+        if (!req) {
+            return;
+        }
+        
+        // ネットワークアクセス開始
+        NSData *data;
+        NSURLResponse *res;
+        NSError *err = nil;
+        
+        data = [NSURLConnection sendSynchronousRequest:req
+                                     returningResponse:&res
+                                                 error:&err];
+        [self parse:data];
+    }
+}
+
+
+
 // リクエストを送信（パラメータあり）
 - (void)send:(NSDictionary *)param {
     // サブスレッドを作成する
@@ -135,6 +166,11 @@
 // リクエストを送信（パラメータなし）
 - (void)send {
     [self send:nil];
+}
+
+- (void)sendWithUrl:(NSString *)url {
+    // サブスレッドを作成する
+    [NSThread detachNewThreadSelector:@selector(_sendWithURL:) toTarget:self withObject:url];
 }
 
 @end
