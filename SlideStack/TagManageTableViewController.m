@@ -37,6 +37,8 @@
 
 - (void)viewDidLoad
 {
+    GA_TRACK_CLASS
+    
     [super viewDidLoad];
 
     self.title = @"タグを追加";
@@ -47,7 +49,7 @@
     
     _mySearchBar.tintColor = [UIColor lightGrayColor];
     _mySearchBar.delegate = self;
-    _mySearchBar.placeholder = @"タグを検索";
+    _mySearchBar.placeholder = @"タグを絞り込み";
     _mySearchBar.showsCancelButton = NO;
     [_mySearchBar sizeToFit];
     self.tableView.tableHeaderView = _mySearchBar;

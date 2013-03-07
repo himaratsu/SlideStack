@@ -11,10 +11,11 @@
 #import "SVProgressHUD.h"
 #import "SlideShowObject.h"
 #import "WebViewController.h"
-#import "SettingTableViewController.h"
 #import "SlideTableViewCell.h"
 #import "IIViewDeckController.h"
 #import "SlideHistoryManager.h"
+#import "MySettingViewController.h"
+#import "TagManager.h"
 
 @interface SlideListTableViewController ()
 
@@ -27,7 +28,7 @@
     if (self) {
         self.slideArray = [[NSMutableArray alloc] init];
         _searchWord = @"Objective-C";
-        _sortType = @"latest";
+        _sortType = [MySettingViewController sharedInstance].defaultSort;
         _isLoading = NO;
         _isScrollTopAfterLoad = NO;
         _isMoreSlide = YES;
@@ -37,6 +38,8 @@
 
 - (void)viewDidLoad
 {
+    GA_TRACK_CLASS
+    
     [super viewDidLoad];
     
     self.title = @"Slide Socket";
@@ -47,7 +50,9 @@
     // ソートコントローラを追加
     _sortControlView = [[ControlSortView alloc] initWithFrame:CGRectMake(0, 0, 320, 40)];
     _sortControlView.delegate = self;
+    [_sortControlView highlightTagButton: [[TagManager sharedInstance] isAlreadyChecked:_searchWord]];
     [self.view addSubview:_sortControlView];
+    [_sortControlView selectSort:_sortType];
     
     // 同じサイズだけ上部に空間を空ける
     UIView *brankView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 42)];
@@ -314,24 +319,28 @@
 //    [self reset];
 }
 
-- (void)openSettingView {
-    SettingTableViewController *settingTableVC = [[SettingTableViewController alloc]
-                                                  initWithNibName:@"SettingTableViewController"
-                                                  bundle:nil];
-    UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:settingTableVC];
-    [self presentViewController:navController animated:YES completion:nil];
-}
-
 - (void)sortChange:(NSString *)sortType {
     _sortType = sortType;
     [self reset];
+}
+
+- (void)tapAddTagButton {
+    // 既に追加している場合
+    if ([[TagManager sharedInstance] isAlreadyChecked:_searchWord]) {
+        [_sortControlView highlightTagButton:NO];
+        [[TagManager sharedInstance] updateCheckMarkState:_searchWord isCheck:NO];
+    }
+    else {
+        [_sortControlView highlightTagButton:YES];
+        [[TagManager sharedInstance] checkTagOrAddNewTag:_searchWord];
+    }
 }
 
 - (void)headerViewScrollToTop:(BOOL)animated {
     CGFloat y = self.tableView.contentOffset.y;
     
     if (y <= 0) {
-        return;
+        y = 0;
     }
     
     CGRect targetRect = CGRectMake(_sortControlView.frame.origin.x,
@@ -339,20 +348,21 @@
                                    _sortControlView.frame.size.width,
                                    _sortControlView.frame.size.height);
     if (animated) {
-        CGFloat y = self.tableView.contentOffset.y - 40;
-        if (y < 0) {
-            y = 0;
-        }
-        
-        _sortControlView.frame = CGRectMake(0, y, 320, 40);
-        
-        [UIView animateWithDuration:0.5f delay:0.0f
-                            options:UIViewAnimationOptionCurveEaseInOut
-                         animations:^{
-                             // UITableViewのスクロールに合わせて表示位置を調整
-                             [_sortControlView setFrame:targetRect];
-                         }completion:nil
-         ];
+        // TODO: まだ使えない
+//        CGFloat y = self.tableView.contentOffset.y - 40;
+//        if (y < 0) {
+//            y = 0;
+//        }
+//        
+//        _sortControlView.frame = CGRectMake(0, y, 320, 40);
+//        
+//        [UIView animateWithDuration:0.5f delay:0.0f
+//                            options:UIViewAnimationOptionCurveEaseInOut
+//                         animations:^{
+//                             // UITableViewのスクロールに合わせて表示位置を調整
+//                             [_sortControlView setFrame:targetRect];
+//                         }completion:nil
+//         ];
     }
     else {
         // アニメなし
@@ -362,6 +372,10 @@
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
+    [self headerViewScrollToTop:NO];
+}
+
+- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
     [self headerViewScrollToTop:NO];
 }
 

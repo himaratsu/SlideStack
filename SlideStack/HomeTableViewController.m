@@ -10,7 +10,6 @@
 #import "RecommendTagView.h"
 #import "SlideListTableViewController.h"
 #import "IIViewDeckController.h"
-#import "SettingTableViewController.h"
 #import "RecommendAPI.h"
 #import "SVProgressHUD.h"
 #import "WebViewController.h"
@@ -25,12 +24,15 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         isLoaded = NO;
+        self.recommendTags = [NSMutableArray array];
     }
     return self;
 }
 
 - (void)viewDidLoad
 {
+    GA_TRACK_CLASS
+    
     [super viewDidLoad];
 
     self.title = @"おすすめ";
@@ -39,15 +41,6 @@
     self.tableView.allowsSelection = NO;
     
     // ナビゲーションバーの設定
-    // 設定ボタン
-    UIButton *settingButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 40, 40)];
-    settingButton.showsTouchWhenHighlighted = YES;
-    [settingButton setBackgroundImage:[UIImage imageNamed:@"setting.png"] forState:UIControlStateNormal];
-    [settingButton addTarget:self action:@selector(openSettingView) forControlEvents:UIControlEventTouchUpInside];
-    UIBarButtonItem* settingbuttonItem = [[UIBarButtonItem alloc] initWithCustomView:settingButton];
-    settingbuttonItem.style = UIBarButtonItemStyleBordered;
-    self.navigationItem.leftBarButtonItem = settingbuttonItem;
-    
     // タグ表示ボタン
     UIButton *tagButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 40, 40)];
     tagButton.showsTouchWhenHighlighted = YES;
@@ -77,9 +70,10 @@
 
 - (RecommendTagListView *)tagListView {
     if (_tagListView == nil) {
-        _tagListView = [[RecommendTagListView alloc] initWithFrame:CGRectMake(0, 0, 320, 200)];
+        _tagListView = [[RecommendTagListView alloc] initWithFrame:CGRectMake(0, 0, 320, 90)];
         _tagListView.delegate = self;
     }
+    _tagListView.tagList = _recommendTags;
     return _tagListView;
 }
 
@@ -133,7 +127,7 @@
         case 0:
             return [self.tagListView heightForTagList] + 10;
         case 1:
-            return 270;
+            return 230;
         case 2:
             return 100;
         default:
@@ -167,7 +161,7 @@
             [_slideListView startLoadingImages];
             break;
         case 2:
-            [_histView reload];
+//            [_histView reload];
             break;
         default:
             break;
@@ -190,6 +184,7 @@
 }
 
 - (void)didTapRecomeendTag:(NSString*)tagName {
+    GA_TRACK_METHOD
     SlideListTableViewController *slideListVC = [[SlideListTableViewController alloc]
                                                initWithNibName:@"SlideListTableViewController"
                                                bundle:nil];
@@ -198,6 +193,7 @@
 }
 
 - (void)didTapRecommendSlideWithUrl:(NSString *)url title:(NSString *)title {
+    GA_TRACK_METHOD
     WebViewController *webVC = [[WebViewController alloc] initWithNibName:@"WebViewController" bundle:nil];
     webVC.title = title;
     webVC.loadUrl = url;
@@ -205,6 +201,7 @@
 }
 
 - (void)didTapSlideHistory:(SlideShowObject *)slide {
+    GA_TRACK_METHOD
     WebViewController *webVC = [[WebViewController alloc] initWithNibName:@"WebViewController" bundle:nil];
     webVC.title = slide.title;
     webVC.loadUrl = slide.url;
@@ -215,25 +212,18 @@
     [self.viewDeckController toggleRightViewAnimated:YES];
 }
 
-- (void)openSettingView {
-    SettingTableViewController *settingTableVC = [[SettingTableViewController alloc]
-                                                  initWithNibName:@"SettingTableViewController"
-                                                  bundle:nil];
-    UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:settingTableVC];
-    [self presentViewController:navController animated:YES completion:nil];
-}
-
-
 #pragma mark - HttpRequestDelegate method
 
 - (void)didStartHttpResuest:(id)result type:(NSString *)type {
-
+    [SVProgressHUD show];
 }
 
 - (void)didEndHttpResuest:(id)result type:(NSString *)type {
+    [SVProgressHUD dismiss];
+    
     NSMutableDictionary *results = (NSMutableDictionary*)result;
     
-    self.tagListView.tagList = [results objectForKey:@"RecommendTags"];
+    self.recommendTags = [results objectForKey:@"RecommendTags"];
     self.slideListView.dataArray = [results objectForKey:@"RecommendSlides"];
     
     isLoaded = YES;
@@ -242,7 +232,7 @@
 }
 
 - (void)didErrorHttpRequest:(id)result type:(NSString *)type {
-
+    [SVProgressHUD dismiss];
 }
 
 

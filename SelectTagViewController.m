@@ -14,6 +14,7 @@
 #import "TagWithCheckMarkObject.h"
 #import "SelectTagViewCell.h"
 #import "HomeTableViewController.h"
+#import "SettingTableViewController.h"
 
 @interface SelectTagViewController ()
 
@@ -33,6 +34,8 @@
 
 - (void)viewDidLoad
 {
+    GA_TRACK_CLASS
+    
     [super viewDidLoad];
     
     self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(RIGHT_SIDE_BAR_WIDTH, 0, 270, 548)
@@ -70,20 +73,18 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 3;
+    return 2;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     if (section == 0) {
-        return 1;
+        return 2;
     }
     else if (section == 1) {
-        return [_dataArray count];
+        return 1 + [_dataArray count];
     }
-    else {
-        return 1;
-    }
+    return 1;
 }
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
@@ -92,9 +93,8 @@
             return @"";
         case 1:
             return @"タグを選ぶ";
-        case 2:
         default:
-            return @"タグを管理";
+            return @"";
     }
 }
 
@@ -103,7 +103,6 @@
         case 0:
             return 0;
         case 1:
-        case 2:
             return 30;
         default:
             break;
@@ -139,16 +138,25 @@
     }
     
     if (indexPath.section == 0) {
-        cell.textLabel.text = @"おすすめ";
-        cell.imageView.image = [UIImage imageNamed:@"recommend.png"];        
+        if (indexPath.row == 0) {
+            cell.textLabel.text = @"おすすめ";
+            cell.imageView.image = [UIImage imageNamed:@"recommend.png"];
+        }
+        else {
+            cell.textLabel.text = @"設定・その他";
+            cell.imageView.image = [UIImage imageNamed:@"setting.png"];
+        }
     }
     else if (indexPath.section == 1) {
-        TagWithCheckMarkObject *tag = [_dataArray objectAtIndex:indexPath.row];
-        cell.textLabel.text = tag.tagName;
-        cell.imageView.image = [UIImage imageNamed:@"tag.png"];
-    }
-    else {
-        cell.textLabel.text = @"＜タグの追加＞";
+        if (indexPath.row == 0) {
+            cell.textLabel.text = @"タグの追加";
+            cell.imageView.image = [UIImage imageNamed:@"add.png"];
+        }
+        else {
+            TagWithCheckMarkObject *tag = [_dataArray objectAtIndex:indexPath.row-1];
+            cell.textLabel.text = tag.tagName;
+            cell.imageView.image = [UIImage imageNamed:@"tag.png"];
+        }
     }
     cell.textLabel.textColor = DEFAULT_TAG_LIST_FONTCOLOR;
     cell.textLabel.font = [UIFont systemFontOfSize:18.0];
@@ -162,7 +170,7 @@
 // Override to support conditional editing of the table view.
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (indexPath.section == 1) {
+    if (indexPath.section == 1 && indexPath.row != 0) {
         return YES;
     } else {
         return NO;
@@ -179,7 +187,7 @@
         // Delete the row from the data source
         TagWithCheckMarkObject *deleteTag = [_dataArray objectAtIndex:indexPath.row];
         [[TagManager sharedInstance] updateCheckMarkState:deleteTag.tagName isCheck:NO];
-        [_dataArray removeObjectAtIndex:indexPath.row];
+        [_dataArray removeObjectAtIndex:indexPath.row-1];
         [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
     }
     
@@ -209,33 +217,47 @@
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
     if (indexPath.section == 0) {
-        HomeTableViewController *homeTableVC = [[HomeTableViewController alloc]
-                                                initWithNibName:@"HomeTableViewController" bundle:nil];
-        UINavigationController *navCon = [[UINavigationController alloc] initWithRootViewController:homeTableVC];
-        navCon.navigationBar.tintColor = [UIColor blackColor];
-        self.viewDeckController.centerController = navCon;
+        if (indexPath.row == 0) {
+            HomeTableViewController *homeTableVC = [[HomeTableViewController alloc]
+                                                    initWithNibName:@"HomeTableViewController" bundle:nil];
+            UINavigationController *navCon = [[UINavigationController alloc] initWithRootViewController:homeTableVC];
+            navCon.navigationBar.tintColor = [UIColor blackColor];
+            self.viewDeckController.centerController = navCon;
+        }
+        else {
+            SettingTableViewController *settingTableVC = [[SettingTableViewController alloc]
+                                                          initWithNibName:@"SettingTableViewController"
+                                                          bundle:nil];
+            UINavigationController *navCon = [[UINavigationController alloc] initWithRootViewController:settingTableVC];
+            navCon.navigationBar.tintColor = [UIColor blackColor];
+            self.viewDeckController.centerController = navCon;            
+        }
         
         [self.viewDeckController closeOpenView];
     }
     else if (indexPath.section == 1) {
-        SlideListTableViewController *slideListVC = [[SlideListTableViewController alloc]
-                                                     initWithNibName:@"SlideListTableViewController"
-                                                     bundle:nil];
-        TagWithCheckMarkObject *tag = [_dataArray objectAtIndex:indexPath.row];
-        slideListVC.searchWord = tag.tagName;
-        
-        UINavigationController *navCon = [[UINavigationController alloc] initWithRootViewController:slideListVC];
-        navCon.navigationBar.tintColor = [UIColor blackColor];
-        self.viewDeckController.centerController = navCon;
-        
-        [self.viewDeckController closeOpenView];
-    }
-    else {
-        TagManageTableViewController *tagManageTableVC = [[TagManageTableViewController alloc] initWithNibName:@"TagManageTableViewController" bundle:nil];
-        UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:tagManageTableVC];
-        [self presentViewController:navController animated:YES completion:nil];
-    }
-    
+        if (indexPath.row == 0) {
+            // タグの管理
+            TagManageTableViewController *tagManageTableVC = [[TagManageTableViewController alloc]
+                                                              initWithNibName:@"TagManageTableViewController" bundle:nil];
+            UINavigationController *navController = [[UINavigationController alloc]
+                                                     initWithRootViewController:tagManageTableVC];
+            [self presentViewController:navController animated:YES completion:nil];
+        }
+        else {
+            SlideListTableViewController *slideListVC = [[SlideListTableViewController alloc]
+                                                         initWithNibName:@"SlideListTableViewController"
+                                                         bundle:nil];
+            TagWithCheckMarkObject *tag = [_dataArray objectAtIndex:indexPath.row-1];
+            slideListVC.searchWord = tag.tagName;
+            
+            UINavigationController *navCon = [[UINavigationController alloc] initWithRootViewController:slideListVC];
+            navCon.navigationBar.tintColor = [UIColor blackColor];
+            self.viewDeckController.centerController = navCon;
+            
+            [self.viewDeckController closeOpenView];
+        }
+    }    
 }
 
 

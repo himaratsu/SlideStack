@@ -19,7 +19,7 @@
         self.contentView.backgroundColor = DEFAULT_BGCOLOR;
         
         // タイトル
-        self.titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(120, 15, 180, 60)];
+        self.titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(130, 15, 180, 60)];
         _titleLabel.font = [UIFont systemFontOfSize:SLIDE_CELL_TITLE_FONT_SIZE];
         _titleLabel.textColor = DEFAULT_FONTCOLOR;
         _titleLabel.backgroundColor = [UIColor clearColor];
@@ -27,7 +27,7 @@
         [self addSubview:_titleLabel];
         
         // スライドサムネイル
-        self.customImageView = [[CustomImageView alloc] initWithFrame:CGRectMake(15, 15, 95, 75)];
+        self.customImageView = [[CustomImageView alloc] initWithFrame:CGRectMake(10, 15, 105, 80)];
         _customImageView.layer.borderColor = [UIColor lightGrayColor].CGColor;
         _customImageView.layer.borderWidth = 1.0f;
         _customImageView.layer.shadowColor = [UIColor grayColor].CGColor;

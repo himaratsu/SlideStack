@@ -25,6 +25,12 @@
     int y = MARGIN_UP_BOTTOM;
     _tagList = tagList;
     
+    for (UIView *v in [self subviews]) {
+        if ([v isKindOfClass:[RecommendTagView class]]) {
+            [v removeFromSuperview];
+        }
+    }
+    
     for (int i=0; i<[tagList count]; i++) {
         NSString *tag = [tagList objectAtIndex:i];
         RecommendTagView *tagView = [[RecommendTagView alloc] initWithTagName:tag];

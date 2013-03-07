@@ -26,6 +26,8 @@
 
 - (void)viewDidLoad
 {
+    GA_TRACK_CLASS
+    
     [super viewDidLoad];
 
     self.title = @"検索対象";
@@ -59,10 +61,10 @@
     
     switch (indexPath.row) {
         case 0:
-            cell.textLabel.text = @"タイトル+本文";
+            cell.textLabel.text = @"タグ";
             break;
         case 1:
-            cell.textLabel.text = @"タグ";
+            cell.textLabel.text = @"タイトル+本文";
             break;
         default:
             break;
@@ -86,10 +88,10 @@
     NSString* targetStr;
     switch (indexPath.row) {
         case 0:
-            targetStr = @"タイトル+本文";
+            targetStr = @"タグ";
             break;
         case 1:
-            targetStr = @"タグ";
+            targetStr = @"タイトル+本文";
             break;
         default:
             break;

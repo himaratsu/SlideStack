@@ -16,7 +16,7 @@
 - (id)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
     if (self) {
-        self.scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, 320, 80)];
+        self.scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, 320, 85)];
         [self addSubview:_scrollView];
         
         self.zeroMatchLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 25, 320, 20)];
@@ -43,9 +43,15 @@
         return;
     }
     
+    for (UIView *v in [_scrollView subviews]) {
+        if ([v isKindOfClass:[SlideHistoryViewParts class]]) {
+            [v removeFromSuperview];
+        }
+    }
+    
     for (int i=0; i<[_dataArray count]; i++) {
         SlideShowObject *d = [_dataArray objectAtIndex:i];
-        SlideHistoryViewParts *parts = [[SlideHistoryViewParts alloc] initWithFrame:CGRectMake(5+100*i, 0, 95, 70)];
+        SlideHistoryViewParts *parts = [[SlideHistoryViewParts alloc] initWithFrame:CGRectMake(10+105*i, 0, 100, 70)];
         parts.delegate = self;
         parts.slide = d;
         parts.thumbView.imageUrl = [NSURL URLWithString:d.thumbnailUrl];
@@ -53,7 +59,7 @@
         
         [_scrollView addSubview:parts];
     }
-    _scrollView.contentSize = CGSizeMake(5+100*[_dataArray count], 80);
+    _scrollView.contentSize = CGSizeMake(10+105*[_dataArray count], 85);
 }
 
 

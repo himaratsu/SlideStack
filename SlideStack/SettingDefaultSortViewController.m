@@ -1,19 +1,19 @@
 //
-//  SettingLanguageViewController.m
+//  SettingDefaultSortViewController.m
 //  SlideStack
 //
-//  Created by 平松 亮介 on 2013/02/24.
+//  Created by 平松 亮介 on 2013/03/05.
 //  Copyright (c) 2013年 mashroom. All rights reserved.
 //
 
-#import "SettingLanguageViewController.h"
+#import "SettingDefaultSortViewController.h"
 #import "MySettingViewController.h"
 
-@interface SettingLanguageViewController ()
+@interface SettingDefaultSortViewController ()
 
 @end
 
-@implementation SettingLanguageViewController
+@implementation SettingDefaultSortViewController
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -30,7 +30,7 @@
     
     [super viewDidLoad];
 
-    self.title = @"検索対象言語";
+    self.title = @"標準のソート順";
 }
 
 - (void)didReceiveMemoryWarning
@@ -61,19 +61,19 @@
     
     switch (indexPath.row) {
         case 0:
-            cell.textLabel.text = @"**";
+            cell.textLabel.text = @"Latest";
             break;
         case 1:
-            cell.textLabel.text = @"en";
+            cell.textLabel.text = @"MostView";
             break;
         case 2:
-            cell.textLabel.text = @"ja";
+            cell.textLabel.text = @"MostDownLoad";
             break;
         default:
             break;
     }
     
-    if ([cell.textLabel.text isEqualToString:[MySettingViewController sharedInstance].language]) {
+    if ([cell.textLabel.text isEqualToString:[MySettingViewController sharedInstance].defaultSortDisplay]) {
         cell.accessoryType = UITableViewCellAccessoryCheckmark;
     }
     else {
@@ -126,23 +126,22 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSString *languageStr = nil;
-    
+    NSString* defaultSortDisplay;
     switch (indexPath.row) {
         case 0:
-            languageStr = @"**";
+            defaultSortDisplay = @"Latest";
             break;
         case 1:
-            languageStr = @"en";
+            defaultSortDisplay = @"MostView";
             break;
         case 2:
-            languageStr = @"ja";
+            defaultSortDisplay = @"MostDownload";
             break;
         default:
             break;
     }
     
-    [MySettingViewController sharedInstance].language = languageStr;
+    [MySettingViewController sharedInstance].defaultSortDisplay = defaultSortDisplay;
     [self.tableView reloadData];
     
     [self.navigationController popViewControllerAnimated:YES];

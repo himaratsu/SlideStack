@@ -24,7 +24,9 @@ static MySettingViewController *sharedInstance = nil;
     if (self) {
         self.language = @"ja";
         self.target   = nil;
-        self.targetDisplay = @"タイトル+本文";
+        self.targetDisplay = @"タグ";
+        self.defaultSort = nil;
+        self.defaultSortDisplay = @"Latest";
     }
     return self;
 }
@@ -36,6 +38,19 @@ static MySettingViewController *sharedInstance = nil;
     }
     else if ([targetDisplay isEqualToString:@"タグ"]) {
         _target = @"tag";
+    }
+}
+
+- (void)setDefaultSortDisplay:(NSString *)defaultSortDisplay {
+    _defaultSortDisplay = defaultSortDisplay;
+    if ([_defaultSortDisplay isEqualToString:@"Latest"]) {
+        _defaultSort = @"latest";
+    }
+    else if ([_defaultSortDisplay isEqualToString:@"MostView"]) {
+        _defaultSort = @"mostviewed";
+    }
+    else if ([_defaultSortDisplay isEqualToString:@"MostDownload"]) {
+        _defaultSort = @"mostdownloaded";
     }
 }
 

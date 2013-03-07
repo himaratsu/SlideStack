@@ -16,7 +16,7 @@
     self = [super initWithFrame:frame];
     if (self) {
         // Initialization code
-        self.thumbnailImage = [[CustomImageView alloc] initWithFrame:CGRectMake(0, 0, 260, 180)];
+        self.thumbnailImage = [[CustomImageView alloc] initWithFrame:CGRectMake(0, 0, 220, 160)];
         _thumbnailImage.layer.borderColor = [UIColor lightGrayColor].CGColor;
         _thumbnailImage.layer.borderWidth = 1.0f;
         _thumbnailImage.layer.shadowColor = [UIColor grayColor].CGColor;
@@ -24,13 +24,14 @@
         _thumbnailImage.layer.shadowRadius = 1;
         _thumbnailImage.layer.shadowOpacity = 0.3;
         _thumbnailImage.layer.cornerRadius = 2.0;
-        _thumbnailImage.clipsToBounds = YES;
+        _thumbnailImage.layer.masksToBounds = YES;
         [self addSubview:_thumbnailImage];
         
-        _titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 190, 260, 30)];
+        _titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 165, 220, 20)];
         _titleLabel.backgroundColor = [UIColor clearColor];
-        _titleLabel.font = [UIFont systemFontOfSize:18.0f];
+        _titleLabel.font = [UIFont systemFontOfSize:14.0f];
         _titleLabel.numberOfLines = 0;
+        _titleLabel.textAlignment = NSTextAlignmentCenter;
         [self addSubview:_titleLabel];
 
         [self addTarget:self action:@selector(didTapRecommendSlide) forControlEvents:UIControlEventTouchUpInside];
@@ -47,8 +48,8 @@
     [self addSubview:_thumbnailImage];
     
     // タイトル
-    CGSize size = [_slide.title sizeWithFont:[UIFont systemFontOfSize:18.0f]
-                           constrainedToSize:CGSizeMake(260, CGFLOAT_MAX)];
+    CGSize size = [_slide.title sizeWithFont:[UIFont systemFontOfSize:16.0f]
+                           constrainedToSize:CGSizeMake(220, CGFLOAT_MAX)];
     CGRect frame = _titleLabel.frame;
     frame.size.height = size.height;
     _titleLabel.frame = frame;

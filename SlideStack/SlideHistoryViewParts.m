@@ -23,7 +23,7 @@
         _thumbView.layer.shadowRadius = 1;
         _thumbView.layer.shadowOpacity = 0.3;
         _thumbView.layer.cornerRadius = 2.0;
-        _thumbView.clipsToBounds = YES;
+        _thumbView.layer.masksToBounds = YES;
         [self addSubview:_thumbView];
         
         [self addTarget:self action:@selector(didTapSlideHistory) forControlEvents:UIControlEventTouchUpInside];

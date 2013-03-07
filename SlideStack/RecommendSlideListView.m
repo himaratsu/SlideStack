@@ -14,8 +14,10 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
-        self.scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, 320, 250)];
+        self.scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, 250, 200)];
+        _scrollView.clipsToBounds = NO;
         _scrollView.pagingEnabled = YES;
+        _scrollView.showsHorizontalScrollIndicator = NO;
         [self addSubview:_scrollView];
         
         self.delegate = delegate;
@@ -28,16 +30,22 @@
 - (void)setDataArray:(NSMutableArray *)dataArray {
     _dataArray = dataArray;
     
+    for (UIView *v in [_scrollView subviews]) {
+        if ([v isKindOfClass:[RecommendSlideView class]]) {
+            [v removeFromSuperview];
+        }
+    }
+    
     for (int i=0; i<[_dataArray count]; i++) {
         SlideShowObject *slide = [_dataArray objectAtIndex:i];
         
-        RecommendSlideView *slideView = [[RecommendSlideView alloc] initWithFrame:CGRectMake(30+320*i, 0, 260, 250)];
+        RecommendSlideView *slideView = [[RecommendSlideView alloc] initWithFrame:CGRectMake(50+250*i, 0, 220, 200)];
         slideView.slide = slide;
         slideView.delegate = self;
         [_scrollView addSubview:slideView];
     }
     
-    _scrollView.contentSize = CGSizeMake(320*[_dataArray count], 250);
+    _scrollView.contentSize = CGSizeMake(250*[_dataArray count], 200);
 }
 
 - (void)startLoadingImages {

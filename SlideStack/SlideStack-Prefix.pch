@@ -36,6 +36,14 @@
 #endif
 
 
+// ***** Google Anaytics *****
+#import "GAI.h"
+
+#define GA_TRACK_PAGE(PAGE)   [[GAI sharedInstance].defaultTracker trackView:[NSString stringWithFormat:@"\%@", PAGE]];
+#define GA_TRACK_CLASS  GA_TRACK_PAGE(NSStringFromClass([self class]));
+
+#define GA_TRACK_EVENT(EVENT,ACTION,LABEL,VALUE) [[GAI sharedInstance].defaultTracker trackEventWithCategory:EVENT withAction:ACTION withLabel:LABEL withValue:VALUE];
+#define GA_TRACK_METHOD GA_TRACK_EVENT(NSStringFromClass([self class]),  NSStringFromSelector(_cmd), nil, [NSNumber numberWithInt:-1]);
 
 // ***** Setting *****
 #define PER_PAGE 12
@@ -50,7 +58,8 @@
 
 #define DEFAULT_FONTCOLOR   [UIColor colorWithRed:38/255.0 green:38/255.0 blue:38/255.0 alpha:1.0]
 #define DEFAULT_BGCOLOR     [UIColor colorWithRed:245/255.0 green:245/255.0 blue:245/255.0 alpha:1.0]
-#define DEFAULT_SORT_CONTROL_BGCOLOR [UIColor colorWithRed:0 green:0 blue:0 alpha:0.3]
+#define DEFAULT_SORT_CONTROL_BGCOLOR [UIColor colorWithRed:0 green:0 blue:0 alpha:1]
+#define DEFAULT_SORT_CONTROL_BGCOLOR_ALPHA [UIColor colorWithRed:0 green:0 blue:0 alpha:0.4]
 #define DEFAULT_SORT_CONTROL_LINECOLOR [UIColor colorWithRed:223/255.0 green:220/255.0 blue:210/255.0 alpha:0.5]
 #define DEFAULT_SORT_CONTROL_BUTTON_COLOR DEFAULT_FONTCOLOR
 #define DEFAULT_SORT_CONTROL_BUTTON_COLOR_SELECTED [UIColor orangeColor]

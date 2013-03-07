@@ -28,6 +28,18 @@ static TagManager *sharedInstance = nil;
     return self;
 }
 
+// タグをチェックする. 存在しない場合はタグを追加し、チェック状態にする
+- (void)checkTagOrAddNewTag:(NSString*)newTagName {
+    // まず新規追加しようと試みる
+    BOOL isAdded = [self addOriginalTag:newTagName];
+    
+    if (isAdded == NO) {
+        // 追加できてない=既に存在していた 場合はチェックする
+        [self updateCheckMarkState:newTagName isCheck:YES];
+    }
+}
+
+
 // 独自のタグを追加
 - (BOOL)addOriginalTag:(NSString *)originalTagName {
     if ([self isAlreadyExist:originalTagName]) {
@@ -41,6 +53,25 @@ static TagManager *sharedInstance = nil;
     }
 }
 
+// 既にタグが存在し、チェックされているかどうか
+- (BOOL)isAlreadyChecked:(NSString*)tagName {
+    NSArray *itemArray = [NSArray array];
+    TagWithCheckMarkObject *tag;
+    
+    for (int i=0; i<[_allTags count]; i++) {
+        itemArray = [_allTags objectAtIndex:i];
+        for (int j=0; j<[itemArray count]; j++) {
+            tag = [itemArray objectAtIndex:j];
+            if ([tag.tagName isEqualToString:tagName]) {
+                return tag.isChecked;
+            }
+        }
+    }
+    return NO;
+}
+
+
+// 既にタグが存在するかどうか（チェック状態は考慮しない）
 - (BOOL)isAlreadyExist:(NSString*)tagName {
     NSArray *itemArray = [NSArray array];
     TagWithCheckMarkObject *tag;

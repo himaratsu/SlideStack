@@ -11,6 +11,7 @@
 @protocol ControlSortViewDelegate <NSObject>
 
 - (void)sortChange:(NSString*)sortType;
+- (void)tapAddTagButton;
 
 @end
 
@@ -21,8 +22,12 @@
     UIButton *mostViewBtn;
     UIButton *mostDLBtn;
     UIButton *latestBtn;
+    UIButton *addTagButton;
 }
 
 @property (nonatomic, assign) id<ControlSortViewDelegate> delegate;
+
+- (void)selectSort:(NSString*)sortType;
+- (void)highlightTagButton:(BOOL)isHighlight;
 
 @end

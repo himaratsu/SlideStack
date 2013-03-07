@@ -21,5 +21,7 @@
 - (void)removeOriginalTag:(NSString*)originalTagName;  // タグを削除
 - (void)updateCheckMarkState:(NSString*)tagName isCheck:(BOOL)isCheck;    // 指定したタグの選択状態を変更
 - (NSArray*)checkedTagArray;    // 選択状態にあるタグリストを返す
+- (BOOL)isAlreadyChecked:(NSString*)tagName;        // 既にタグが選択されているかどうか
+- (void)checkTagOrAddNewTag:(NSString*)newTagName;            // タグをチェックする.なければ追加する
 
 @end

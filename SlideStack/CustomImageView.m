@@ -45,11 +45,9 @@ typedef enum LazyImageViewTag_ {
     
     [self setData:[NSMutableData data]];
     
-    LOG(@"imageUrl[%@]", self.imageUrl);
-    
     NSURLRequest *req = [NSURLRequest requestWithURL:self.imageUrl];
     NSURLConnection *con = [NSURLConnection connectionWithRequest:req delegate:self];
-    LOG (@"%@", con);
+
     [self setConnection:con];
     
     [self setLoadingImage];

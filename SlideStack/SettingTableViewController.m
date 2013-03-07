@@ -10,6 +10,8 @@
 #import "SettingLanguageViewController.h"
 #import "MySettingViewController.h"
 #import "SettingTargetViewController.h"
+#import "SettingDefaultSortViewController.h"
+#import "IIViewDeckController.h"
 
 @interface SettingTableViewController ()
 
@@ -20,10 +22,20 @@
 
 - (void)viewDidLoad
 {
+    GA_TRACK_CLASS
+    
     [super viewDidLoad];
     
     self.title = @"設定";    
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"完了" style:UIBarButtonItemStyleDone target:self action:@selector(close)];
+    // ナビゲーションバーの設定
+    // タグ表示ボタン
+    UIButton *tagButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 40, 40)];
+    tagButton.showsTouchWhenHighlighted = YES;
+    [tagButton setBackgroundImage:[UIImage imageNamed:@"list.png"] forState:UIControlStateNormal];
+    [tagButton addTarget:self action:@selector(slide) forControlEvents:UIControlEventTouchUpInside];
+    UIBarButtonItem* tagButtonItem = [[UIBarButtonItem alloc] initWithCustomView:tagButton];
+    tagButtonItem.style = UIBarButtonItemStyleBordered;
+    self.navigationItem.rightBarButtonItem = tagButtonItem;
     
     self.navigationController.navigationBar.tintColor = [UIColor blackColor];
 }
@@ -50,7 +62,7 @@
 {
     switch (section) {
         case 0:
-            return 2;
+            return 3;
         case 1:
             return 2;
         default:
@@ -95,6 +107,9 @@
                 cell.textLabel.text = @"検索対象";
                 cell.detailTextLabel.text = [MySettingViewController sharedInstance].targetDisplay;
                 break;
+            case 2:
+                cell.textLabel.text = @"標準並び";
+                cell.detailTextLabel.text = [MySettingViewController sharedInstance].defaultSortDisplay;
             default:
                 break;
         }
@@ -174,6 +189,13 @@
                 [self.navigationController pushViewController:settingTargetVC animated:YES];
                 break;
             }
+            case 2:
+            {
+                SettingDefaultSortViewController *settingSortVC = [[SettingDefaultSortViewController alloc]
+                                                                initWithNibName:@"SettingDefaultSortViewController" bundle:nil];
+                [self.navigationController pushViewController:settingSortVC animated:YES];
+                break;
+            }
             default:
                 break;
         }
@@ -185,8 +207,8 @@
     }
 }
 
-
-- (void)close {
-    [self dismissViewControllerAnimated:YES completion:nil];
+- (void)slide {
+    [self.viewDeckController toggleRightViewAnimated:YES];
 }
+
 @end

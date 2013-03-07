@@ -21,6 +21,6 @@
 @property (nonatomic, strong) RecommendTagListView *tagListView;    // タグリスト
 @property (nonatomic, strong) RecommendSlideListView *slideListView;// スライドリスト
 @property (nonatomic, strong) SlideHistoryView *histView;           // 履歴リスト
-@property (nonatomic, strong) NSMutableArray *recommendSlides;
+@property (nonatomic, strong) NSMutableArray *recommendTags;
 
 @end
