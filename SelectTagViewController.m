@@ -92,7 +92,7 @@
         case 0:
             return @"";
         case 1:
-            return @"タグを選ぶ";
+            return NSLocalizedString(@"Select Tag", @"タグを選ぶ");
         default:
             return @"";
     }
@@ -139,17 +139,17 @@
     
     if (indexPath.section == 0) {
         if (indexPath.row == 0) {
-            cell.textLabel.text = @"おすすめ";
+            cell.textLabel.text = NSLocalizedString(@"Featured", @"おすすめ");
             cell.imageView.image = [UIImage imageNamed:@"recommend.png"];
         }
         else {
-            cell.textLabel.text = @"設定・その他";
+            cell.textLabel.text = NSLocalizedString(@"Settings", @"設定・その他");
             cell.imageView.image = [UIImage imageNamed:@"setting.png"];
         }
     }
     else if (indexPath.section == 1) {
         if (indexPath.row == 0) {
-            cell.textLabel.text = @"タグの追加";
+            cell.textLabel.text = NSLocalizedString(@"Add Tags", @"タグの追加");
             cell.imageView.image = [UIImage imageNamed:@"add.png"];
         }
         else {

@@ -42,8 +42,6 @@
     
     [super viewDidLoad];
     
-    self.title = @"Slide Socket";
-    
     self.view.backgroundColor = DEFAULT_BGCOLOR;
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     
@@ -125,7 +123,7 @@
     // 引っ張って更新を解除
 //    [_refreshControl endRefreshing];
     
-    [SVProgressHUD showWithStatus:@"読込中..." maskType:SVProgressHUDMaskTypeClear];
+    [SVProgressHUD showWithStatus:NSLocalizedString(@"Loading", @"読込中") maskType:SVProgressHUDMaskTypeClear];
 }
 
 // パラメータを作成
@@ -197,9 +195,9 @@
             else {
                 // 0件の時のメッセージ
                 if ([_slideArray count] == 0) {
-                    cell.textLabel.text = @"条件にマッチしたスライドはありません。";
+                    cell.textLabel.text = NSLocalizedString(@"NoHit", @"条件にマッチしたスライドはありません。");
                 } else {
-                    cell.textLabel.text = @"検索結果は以上です。";
+                    cell.textLabel.text = NSLocalizedString(@"No More Slide.", @"検索結果は以上です。");
                 }
                 cell.textLabel.font = [UIFont boldSystemFontOfSize:12.0f];
                 cell.textLabel.numberOfLines = 0;

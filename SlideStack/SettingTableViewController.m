@@ -26,7 +26,7 @@
     
     [super viewDidLoad];
     
-    self.title = @"設定";    
+    self.title = NSLocalizedString(@"Settings", @"設定・その他");
     // ナビゲーションバーの設定
     // タグ表示ボタン
     UIButton *tagButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 40, 40)];
@@ -64,7 +64,7 @@
         case 0:
             return 3;
         case 1:
-            return 2;
+            return 1;
         default:
             break;
     }
@@ -74,9 +74,9 @@
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
     switch (section) {
         case 0:
-            return @"検索条件";
+            return NSLocalizedString(@"Search Terms", @"検索条件");
         case 1:
-            return @"その他";
+            return NSLocalizedString(@"Contact", @"ご意見・ご要望");
         default:
             break;
     }
@@ -100,15 +100,15 @@
     if (indexPath.section == 0) {
         switch (indexPath.row) {
             case 0:
-                cell.textLabel.text = @"検索言語";
-                cell.detailTextLabel.text = [MySettingViewController sharedInstance].language;
+                cell.textLabel.text = NSLocalizedString(@"Language", @"検索言語");
+                cell.detailTextLabel.text = [MySettingViewController sharedInstance].languageDisplay;
                 break;
             case 1:
-                cell.textLabel.text = @"検索対象";
+                cell.textLabel.text = NSLocalizedString(@"Target", @"検索対象");
                 cell.detailTextLabel.text = [MySettingViewController sharedInstance].targetDisplay;
                 break;
             case 2:
-                cell.textLabel.text = @"標準並び";
+                cell.textLabel.text = NSLocalizedString(@"Sorting", @"標準ソート");
                 cell.detailTextLabel.text = [MySettingViewController sharedInstance].defaultSortDisplay;
             default:
                 break;
@@ -118,10 +118,7 @@
     else if (indexPath.section == 1) {
         switch (indexPath.row) {
             case 0:
-                cell.textLabel.text = @"このアプリについて";
-                break;
-            case 1:
-                cell.textLabel.text = @"ご意見ご要望";
+                cell.textLabel.text = NSLocalizedString(@"Email to Support", @"お問い合わせ");
             default:
                 break;
         }
@@ -178,7 +175,8 @@
         switch (indexPath.row) {
             case 0:
             {
-                SettingLanguageViewController *settingLanguageVC = [[SettingLanguageViewController alloc] initWithNibName:@"SettingLanguageViewController" bundle:nil];
+                SettingLanguageViewController *settingLanguageVC = [[SettingLanguageViewController alloc]
+                                                                    initWithNibName:@"SettingLanguageViewController" bundle:nil];
                 [self.navigationController pushViewController:settingLanguageVC animated:YES];
                 break;
             }

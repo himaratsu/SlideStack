@@ -35,7 +35,7 @@
     
     [super viewDidLoad];
 
-    self.title = @"おすすめ";
+    self.title = NSLocalizedString(@"Featured", @"おすすめ");
     self.tableView.backgroundColor = DEFAULT_BGCOLOR;
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     self.tableView.allowsSelection = NO;
@@ -111,11 +111,11 @@
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
     switch (section) {
         case 0:
-            return @"おすすめのタグ";
+            return NSLocalizedString(@"Featured Tag", @"おすすめのタグ");
         case 1:
-            return @"おすすめのスライド";
+            return NSLocalizedString(@"Featured Slide", @"おすすめのスライド");
         case 2:
-            return @"閲覧履歴";
+            return NSLocalizedString(@"History", @"閲覧履歴");
         default:
             break;
     }

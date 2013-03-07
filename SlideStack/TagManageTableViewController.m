@@ -41,15 +41,19 @@
     
     [super viewDidLoad];
 
-    self.title = @"タグを追加";
+    self.title = NSLocalizedString(@"Add Tags", @"タグを追加");
     
     self.navigationController.navigationBar.tintColor = [UIColor blackColor];
     
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"完了" style:UIBarButtonItemStylePlain target:self action:@selector(close)];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]
+                                              initWithTitle:NSLocalizedString(@"Done", @"完了")
+                                              style:UIBarButtonItemStylePlain
+                                              target:self
+                                              action:@selector(close)];
     
     _mySearchBar.tintColor = [UIColor lightGrayColor];
     _mySearchBar.delegate = self;
-    _mySearchBar.placeholder = @"タグを絞り込み";
+    _mySearchBar.placeholder = NSLocalizedString(@"Narrow Tags", @"タグを絞り込み");
     _mySearchBar.showsCancelButton = NO;
     [_mySearchBar sizeToFit];
     self.tableView.tableHeaderView = _mySearchBar;
@@ -71,7 +75,7 @@
     _mySearchDisplayController.delegate = self;
     _mySearchDisplayController.searchResultsDelegate = self;
     _mySearchDisplayController.searchResultsDataSource = self;
-    _mySearchDisplayController.searchResultsTitle = @"タグの絞り込み";
+    _mySearchDisplayController.searchResultsTitle = NSLocalizedString(@"Narrow Tags", @"タグを絞り込み");
     
     [self.tableView reloadData];
     self.tableView.scrollEnabled = YES;
@@ -119,7 +123,7 @@
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
     if (tableView == self.searchDisplayController.searchResultsTableView) {
-        return @"検索結果";
+        return NSLocalizedString(@"Search Result", @"検索結果");
     } else {
 //        if ([[_tags objectAtIndex:section] count] == 0) {
 //                return @"";
@@ -133,18 +137,18 @@
                     return @"";
                 }
                 else {
-                    return @"あなたが作ったタグ";
+                    return NSLocalizedString(@"Tag You Created", @"あなたが作ったタグ");
                 }
             case 2:
-                return @"プログラミング";
+                return NSLocalizedString(@"Proggraming", @"プログラミング");
             case 3:
-                return @"ライブラリ";
+                return NSLocalizedString(@"Library", @"ライブラリ");
             case 4:
-                return @"開発";
+                return NSLocalizedString(@"Development", @"開発");
             case 5:
-                return @"サーバ/インフラ";
+                return NSLocalizedString(@"Server/Infrastructure", @"サーバ/インフラ");
             case 6:
-                return @"その他";
+                return NSLocalizedString(@"Other", @"その他");
         }
     }
     return @"";
@@ -162,7 +166,7 @@
     if (tableView != self.searchDisplayController.searchResultsTableView
         && indexPath.section == 0)
     {
-        cell.textLabel.text = @"+タグを作成";
+        cell.textLabel.text = NSLocalizedString(@"+ Create Tag", @"+タグを作成");
         return cell;
     }
     
@@ -321,10 +325,10 @@
 }
 
 - (void)createNewTag {
-    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"作成するタグ名"
+    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Tag Name", @"作成するタグ名")
                                                         message:@" "
                                                        delegate:self
-                                              cancelButtonTitle:@"キャンセル"
+                                              cancelButtonTitle:NSLocalizedString(@"Cancel", @"キャンセル")
                                               otherButtonTitles:@"OK", nil];
     alertView.tag = ALERT_VIEW_TAG_CREATE_NEW_TAG;
     self.textFieldNewTagName = [[UITextField alloc] initWithFrame:CGRectMake(12.0, 45.0, 260.0, 25.0)];
@@ -343,8 +347,8 @@
         if (success){
             if (success == NO) {
                 // タグの追加に失敗
-                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"エラー"
-                                                                message:@"既に同名のタグが存在します"
+                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Error", @"エラー")
+                                                                message:NSLocalizedString(@"Tag is Alerady Exist", @"既に同名のタグが存在します")
                                                                delegate:self
                                                       cancelButtonTitle:nil
                                                       otherButtonTitles:@"OK", nil];

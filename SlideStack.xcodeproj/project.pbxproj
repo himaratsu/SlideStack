@@ -32,7 +32,6 @@
 		207343E916D7C6C5002EF8A7 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 207343E816D7C6C5002EF8A7 /* UIKit.framework */; };
 		207343EB16D7C6C5002EF8A7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 207343EA16D7C6C5002EF8A7 /* Foundation.framework */; };
 		207343ED16D7C6C5002EF8A7 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 207343EC16D7C6C5002EF8A7 /* CoreGraphics.framework */; };
-		207343F316D7C6C5002EF8A7 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 207343F116D7C6C5002EF8A7 /* InfoPlist.strings */; };
 		207343F516D7C6C5002EF8A7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 207343F416D7C6C5002EF8A7 /* main.m */; };
 		207343F916D7C6C5002EF8A7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 207343F816D7C6C5002EF8A7 /* AppDelegate.m */; };
 		207343FB16D7C6C5002EF8A7 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 207343FA16D7C6C5002EF8A7 /* Default.png */; };
@@ -43,7 +42,6 @@
 		2073441A16D7DDCA002EF8A7 /* CommonAPIParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 2073441916D7DDCA002EF8A7 /* CommonAPIParser.m */; };
 		2073441D16D7E83C002EF8A7 /* SlideShowObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 2073441C16D7E83C002EF8A7 /* SlideShowObject.m */; };
 		207DCA1B16E2569D0078B65B /* HomeTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 207DCA1916E2569D0078B65B /* HomeTableViewController.m */; };
-		207DCA1C16E2569D0078B65B /* HomeTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 207DCA1A16E2569D0078B65B /* HomeTableViewController.xib */; };
 		207DCA1F16E25FF40078B65B /* RecommendTagView.m in Sources */ = {isa = PBXBuildFile; fileRef = 207DCA1E16E25FF40078B65B /* RecommendTagView.m */; };
 		207DCA2116E33F950078B65B /* recommend.png in Resources */ = {isa = PBXBuildFile; fileRef = 207DCA2016E33F950078B65B /* recommend.png */; };
 		2099163B16D9AFA7008335F5 /* TagObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 2099163A16D9AFA7008335F5 /* TagObject.m */; };
@@ -69,6 +67,7 @@
 		20B82EEC16E3450600DDBE12 /* RecommendAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 20B82EEB16E3450600DDBE12 /* RecommendAPI.m */; };
 		20B82EEF16E37A0F00DDBE12 /* RecommendTagListView.m in Sources */ = {isa = PBXBuildFile; fileRef = 20B82EEE16E37A0F00DDBE12 /* RecommendTagListView.m */; };
 		20BEA5F916E811F00005569D /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 20BEA5F816E811F00005569D /* Crashlytics.framework */; };
+		20BEA60416E8E02C0005569D /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 20BEA60616E8E02C0005569D /* Localizable.strings */; };
 		20C21F8916E63EEF00FBFAE9 /* SettingDefaultSortViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 20C21F8716E63EEF00FBFAE9 /* SettingDefaultSortViewController.m */; };
 		20C21F8A16E63EEF00FBFAE9 /* SettingDefaultSortViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 20C21F8816E63EEF00FBFAE9 /* SettingDefaultSortViewController.xib */; };
 		20C21F8C16E78C1800FBFAE9 /* setting_black.png in Resources */ = {isa = PBXBuildFile; fileRef = 20C21F8B16E78C1800FBFAE9 /* setting_black.png */; };
@@ -120,7 +119,6 @@
 		207343EA16D7C6C5002EF8A7 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		207343EC16D7C6C5002EF8A7 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		207343F016D7C6C5002EF8A7 /* SlideStack-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "SlideStack-Info.plist"; sourceTree = "<group>"; };
-		207343F216D7C6C5002EF8A7 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		207343F416D7C6C5002EF8A7 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		207343F616D7C6C5002EF8A7 /* SlideStack-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SlideStack-Prefix.pch"; sourceTree = "<group>"; };
 		207343F716D7C6C5002EF8A7 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -138,7 +136,6 @@
 		2073441C16D7E83C002EF8A7 /* SlideShowObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SlideShowObject.m; sourceTree = "<group>"; };
 		207DCA1816E2569D0078B65B /* HomeTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeTableViewController.h; sourceTree = "<group>"; };
 		207DCA1916E2569D0078B65B /* HomeTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeTableViewController.m; sourceTree = "<group>"; };
-		207DCA1A16E2569D0078B65B /* HomeTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeTableViewController.xib; sourceTree = "<group>"; };
 		207DCA1D16E25FF40078B65B /* RecommendTagView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecommendTagView.h; sourceTree = "<group>"; };
 		207DCA1E16E25FF40078B65B /* RecommendTagView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecommendTagView.m; sourceTree = "<group>"; };
 		207DCA2016E33F950078B65B /* recommend.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = recommend.png; sourceTree = "<group>"; };
@@ -181,6 +178,8 @@
 		20B82EED16E37A0F00DDBE12 /* RecommendTagListView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecommendTagListView.h; sourceTree = "<group>"; };
 		20B82EEE16E37A0F00DDBE12 /* RecommendTagListView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecommendTagListView.m; sourceTree = "<group>"; };
 		20BEA5F816E811F00005569D /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
+		20BEA60516E8E02C0005569D /* en */ = {isa = PBXFileReference; lastKnownFileType = file; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		20BEA60716E8E02E0005569D /* ja */ = {isa = PBXFileReference; lastKnownFileType = file; name = ja; path = ja.lproj/Localizable.strings; sourceTree = "<group>"; };
 		20C21F8616E63EEF00FBFAE9 /* SettingDefaultSortViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingDefaultSortViewController.h; sourceTree = "<group>"; };
 		20C21F8716E63EEF00FBFAE9 /* SettingDefaultSortViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingDefaultSortViewController.m; sourceTree = "<group>"; };
 		20C21F8816E63EEF00FBFAE9 /* SettingDefaultSortViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SettingDefaultSortViewController.xib; sourceTree = "<group>"; };
@@ -375,7 +374,7 @@
 			children = (
 				200BBF3116DA8A29007C673F /* icon */,
 				207343F016D7C6C5002EF8A7 /* SlideStack-Info.plist */,
-				207343F116D7C6C5002EF8A7 /* InfoPlist.strings */,
+				20BEA60616E8E02C0005569D /* Localizable.strings */,
 				207343F416D7C6C5002EF8A7 /* main.m */,
 				207343F616D7C6C5002EF8A7 /* SlideStack-Prefix.pch */,
 				207343FA16D7C6C5002EF8A7 /* Default.png */,
@@ -428,7 +427,6 @@
 				2099164E16D9BCAC008335F5 /* WebViewController.xib */,
 				207DCA1816E2569D0078B65B /* HomeTableViewController.h */,
 				207DCA1916E2569D0078B65B /* HomeTableViewController.m */,
-				207DCA1A16E2569D0078B65B /* HomeTableViewController.xib */,
 			);
 			name = ViewController;
 			sourceTree = "<group>";
@@ -514,6 +512,7 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				ja,
 			);
 			mainGroup = 207343DC16D7C6C5002EF8A7;
 			productRefGroup = 207343E616D7C6C5002EF8A7 /* Products */;
@@ -530,7 +529,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				207343F316D7C6C5002EF8A7 /* InfoPlist.strings in Resources */,
 				207343FB16D7C6C5002EF8A7 /* Default.png in Resources */,
 				207343FD16D7C6C5002EF8A7 /* Default@2x.png in Resources */,
 				207343FF16D7C6C5002EF8A7 /* Default-568h@2x.png in Resources */,
@@ -554,11 +552,11 @@
 				20DC34FF16DE571A00FE0907 /* fav_black.png in Resources */,
 				20DC350016DE571A00FE0907 /* view_black.png in Resources */,
 				2031F9FF16DE9003003B0CDB /* SettingTargetViewController.xib in Resources */,
-				207DCA1C16E2569D0078B65B /* HomeTableViewController.xib in Resources */,
 				207DCA2116E33F950078B65B /* recommend.png in Resources */,
 				20C21F8A16E63EEF00FBFAE9 /* SettingDefaultSortViewController.xib in Resources */,
 				20C21F8C16E78C1800FBFAE9 /* setting_black.png in Resources */,
 				20FFEF2D16E7AC0E00219762 /* add.png in Resources */,
+				20BEA60416E8E02C0005569D /* Localizable.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -627,12 +625,13 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		207343F116D7C6C5002EF8A7 /* InfoPlist.strings */ = {
+		20BEA60616E8E02C0005569D /* Localizable.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
-				207343F216D7C6C5002EF8A7 /* en */,
+				20BEA60516E8E02C0005569D /* en */,
+				20BEA60716E8E02E0005569D /* ja */,
 			);
-			name = InfoPlist.strings;
+			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

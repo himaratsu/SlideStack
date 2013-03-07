@@ -78,7 +78,7 @@
 // 要素の閉じタグを読み込み
 - (void)parser:(NSXMLParser *)parser didEndElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName {
     
-    LOG(@"start[%@]", elementName);
+//    LOG(@"start[%@]", elementName);
     
     if (_isInRecommendTags) {
         if ([elementName isEqualToString:@"RecommendTags"]) {

@@ -39,7 +39,7 @@
         [self addSubview:mostViewBtn];
         
         mostDLBtn = [UIButton buttonWithType:100];
-        mostDLBtn.frame = CGRectMake(x+145, y, 80, 20);
+        mostDLBtn.frame = CGRectMake(x+144, y, 80, 20);
         mostDLBtn.tintColor = DEFAULT_SORT_CONTROL_BUTTON_COLOR;
         [mostDLBtn setTitle:@"Most DL" forState:UIControlStateNormal];
         [mostDLBtn addTarget:self action:@selector(tapMostDL)
@@ -142,7 +142,7 @@
     else {
         // まだ追加されてない
         addTagButton.frame = CGRectMake(260, 6, 20, 20);
-        addTagButton.tintColor = [UIColor colorWithRed:108/255.0 green:226/255.0 blue:108/255.0 alpha:1.0];
+        addTagButton.tintColor = [UIColor colorWithRed:55/255.0 green:200/255.0 blue:85/255.0 alpha:1.0];
         [addTagButton setTitle:@"+Tag" forState:UIControlStateNormal];
     }
 }

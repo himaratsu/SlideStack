@@ -30,7 +30,7 @@
     
     [super viewDidLoad];
 
-    self.title = @"検索対象言語";
+    self.title = NSLocalizedString(@"Search Language", @"検索対象言語");
 }
 
 - (void)didReceiveMemoryWarning
@@ -61,19 +61,19 @@
     
     switch (indexPath.row) {
         case 0:
-            cell.textLabel.text = @"**";
+            cell.textLabel.text = NSLocalizedString(@"All", @"すべて");
             break;
         case 1:
-            cell.textLabel.text = @"en";
+            cell.textLabel.text = NSLocalizedString(@"Japanese", @"日本語");
             break;
         case 2:
-            cell.textLabel.text = @"ja";
+            cell.textLabel.text = NSLocalizedString(@"English", @"英語");
             break;
         default:
             break;
     }
     
-    if ([cell.textLabel.text isEqualToString:[MySettingViewController sharedInstance].language]) {
+    if ([cell.textLabel.text isEqualToString:[MySettingViewController sharedInstance].languageDisplay]) {
         cell.accessoryType = UITableViewCellAccessoryCheckmark;
     }
     else {
@@ -130,19 +130,19 @@
     
     switch (indexPath.row) {
         case 0:
-            languageStr = @"**";
+            languageStr = NSLocalizedString(@"All", @"すべて");
             break;
         case 1:
-            languageStr = @"en";
+            languageStr = NSLocalizedString(@"Japanese", @"日本語");
             break;
         case 2:
-            languageStr = @"ja";
+            languageStr = NSLocalizedString(@"English", @"英語");
             break;
         default:
             break;
     }
     
-    [MySettingViewController sharedInstance].language = languageStr;
+    [MySettingViewController sharedInstance].languageDisplay = languageStr;
     [self.tableView reloadData];
     
     [self.navigationController popViewControllerAnimated:YES];

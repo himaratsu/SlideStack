@@ -30,7 +30,7 @@
     
     [super viewDidLoad];
 
-    self.title = @"検索対象";
+    self.title = NSLocalizedString(@"Search Target", @"検索対象");
 }
 
 - (void)didReceiveMemoryWarning
@@ -61,10 +61,10 @@
     
     switch (indexPath.row) {
         case 0:
-            cell.textLabel.text = @"タグ";
+            cell.textLabel.text = NSLocalizedString(@"Tag", @"タグ");
             break;
         case 1:
-            cell.textLabel.text = @"タイトル+本文";
+            cell.textLabel.text = NSLocalizedString(@"Title+Contents", @"タイトル+本文");
             break;
         default:
             break;
@@ -88,10 +88,10 @@
     NSString* targetStr;
     switch (indexPath.row) {
         case 0:
-            targetStr = @"タグ";
+            targetStr = NSLocalizedString(@"Tag", nil);
             break;
         case 1:
-            targetStr = @"タイトル+本文";
+            targetStr = NSLocalizedString(@"Title+Contents", nil);
             break;
         default:
             break;

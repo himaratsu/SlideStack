@@ -30,7 +30,7 @@
     
     [super viewDidLoad];
 
-    self.title = @"標準のソート順";
+    self.title = NSLocalizedString(@"Sorting", nil);
 }
 
 - (void)didReceiveMemoryWarning
@@ -61,13 +61,13 @@
     
     switch (indexPath.row) {
         case 0:
-            cell.textLabel.text = @"Latest";
+            cell.textLabel.text = NSLocalizedString(@"Latest", nil);
             break;
         case 1:
-            cell.textLabel.text = @"MostView";
+            cell.textLabel.text = NSLocalizedString(@"MostView", nil);
             break;
         case 2:
-            cell.textLabel.text = @"MostDownLoad";
+            cell.textLabel.text = NSLocalizedString(@"MostDownLoad", nil);
             break;
         default:
             break;
@@ -129,13 +129,13 @@
     NSString* defaultSortDisplay;
     switch (indexPath.row) {
         case 0:
-            defaultSortDisplay = @"Latest";
+            defaultSortDisplay = NSLocalizedString(@"Latest", nil);
             break;
         case 1:
-            defaultSortDisplay = @"MostView";
+            defaultSortDisplay = NSLocalizedString(@"MostView", nil);
             break;
         case 2:
-            defaultSortDisplay = @"MostDownload";
+            defaultSortDisplay = NSLocalizedString(@"MostDownLoad", nil);
             break;
         default:
             break;

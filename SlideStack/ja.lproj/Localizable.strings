@@ -1,0 +1,52 @@
+/* 
+  Localizable.strings
+  SlideStack
+
+  Created by 平松 亮介 on 2013/03/07.
+  Copyright (c) 2013年 mashroom. All rights reserved.
+*/
+
+"Featured" = "おすすめ";
+"Featured Tag"   = "おすすめのタグ";
+"Featured Slide" = "おすすめのスライド";
+"History"       = "閲覧履歴";
+
+// WebViewController
+"Loading"       = "読込中";
+
+// SlideListViewController
+"No More Slide."           = "検索結果は以上です。";
+"No Hit Your Search Word." = "条件にマッチしたスライドはありません。";
+"Add Tags"                 = "タグを追加";
+
+// TagManageTableViewController
+"Done"          = "完了";
+"Narrow Tags"    = "タグを絞り込み";
+"Search Result"  = "検索結果";
+"+ Create Tag"  = "+タグを追加";
+"Tag You Created" = "あなたが追加したタグ";
+
+// SelectTagViewController
+"Select Tag"    = "タグを選ぶ";
+"Settings"      = "設定・その他";
+
+// SettingTableViewController
+"Search Terms"  = "検索条件";
+"Contact"       = "ご意見・ご要望";
+"Language"      = "検索言語";
+"Target"        = "検索対象";
+"Sorting"  = "標準ソート";
+"Email to Support" = "お問い合わせ";
+
+"Search Language"   = "検索対象言語";
+"All"           = "すべて";
+"Japanese"      = "日本語";
+"English"       = "英語";
+
+"Search Target" = "検索対象";
+"Tag"           = "タグ";
+"Title+Contents" = "タイトル+本文";
+
+
+// View/parts
+"No History"    = "閲覧履歴はまだありません";

@@ -20,7 +20,7 @@
         [self addSubview:_scrollView];
         
         self.zeroMatchLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 25, 320, 20)];
-        _zeroMatchLabel.text = @"閲覧履歴はまだありません";
+        _zeroMatchLabel.text = NSLocalizedString(@"No History", @"閲覧履歴はまだありません");
         _zeroMatchLabel.backgroundColor = [UIColor clearColor];
         _zeroMatchLabel.textColor = [UIColor grayColor];
         _zeroMatchLabel.textAlignment = NSTextAlignmentCenter;

@@ -67,7 +67,7 @@
 
 
 - (void)webViewDidStartLoad:(UIWebView *)webView {
-    [SVProgressHUD show];
+    [SVProgressHUD showWithStatus:NSLocalizedString(@"Loading", @"読込中...")];
 }
 
 - (void)webViewDidFinishLoad:(UIWebView *)webView {

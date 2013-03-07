@@ -35,6 +35,7 @@
 #define LOG_RECT(p)
 #endif
 
+#import <Crashlytics/Crashlytics.h>
 
 // ***** Google Anaytics *****
 #import "GAI.h"
