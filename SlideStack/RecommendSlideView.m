@@ -56,12 +56,14 @@
     [self addSubview:_thumbnailImage];
     
     // タイトル
+    if (_slide.title) {
     CGSize size = [_slide.title sizeWithFont:[UIFont systemFontOfSize:16.0f]
                            constrainedToSize:CGSizeMake(220, CGFLOAT_MAX)];
-    CGRect frame = _titleLabel.frame;
-    frame.size.height = size.height;
-    _titleLabel.frame = frame;
-    _titleLabel.text = _slide.title;
+        CGRect frame = _titleLabel.frame;
+        frame.size.height = size.height;
+        _titleLabel.frame = frame;
+        _titleLabel.text = _slide.title;
+    }
     
     [self layoutSubviews];
 }

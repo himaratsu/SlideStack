@@ -86,7 +86,7 @@ static MySettingViewController *sharedInstance = nil;
         _defaultSortDisplay = NSLocalizedString(@"MostView", nil);
     }
     else if ([_defaultSort isEqualToString:@"mostdownloaded"]) {
-        _defaultSortDisplay = NSLocalizedString(@"MostDownload", nil);
+        _defaultSortDisplay = NSLocalizedString(@"MostDownLoad", nil);
     }
     [self saveMySettingDefaultSort];
 }
@@ -99,7 +99,7 @@ static MySettingViewController *sharedInstance = nil;
     else if ([_defaultSortDisplay isEqualToString:NSLocalizedString(@"MostView", nil)]) {
         _defaultSort = @"mostviewed";
     }
-    else if ([_defaultSortDisplay isEqualToString:NSLocalizedString(@"MostDownload", nil)]) {
+    else if ([_defaultSortDisplay isEqualToString:NSLocalizedString(@"MostDownLoad", nil)]) {
         _defaultSort = @"mostdownloaded";
     }
     [self saveMySettingDefaultSort];

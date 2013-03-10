@@ -16,54 +16,53 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
-        self.backgroundColor = DEFAULT_SORT_CONTROL_BGCOLOR_ALPHA;
+//        self.backgroundColor = DEFAULT_SORT_CONTROL_BGCOLOR_ALPHA;
         
         CGFloat x = 10;
         CGFloat y = 6;
-        
-        latestBtn = [UIButton buttonWithType:100];
-        latestBtn.tintColor = DEFAULT_SORT_CONTROL_BUTTON_COLOR_SELECTED;
-        latestBtn.frame = CGRectMake(x, y, 0, 20);
-        [latestBtn setTitle:@"Latest" forState:UIControlStateNormal];
-        [latestBtn addTarget:self action:@selector(tapLatest)
-            forControlEvents:UIControlEventTouchUpInside];
+
+        UIImage *latestImage = [UIImage imageNamed:@"sort_button_latest.png"];
+        UIImage *latestImageHigh = [UIImage imageNamed:@"sort_button_latest_highlight.png"];
+        latestBtn = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 74, 40)];
+        [latestBtn setImage:latestImage forState:UIControlStateNormal];
+        [latestBtn setImage:latestImageHigh forState:UIControlStateSelected];
+        [latestBtn addTarget:self action:@selector(tapLatest) forControlEvents:UIControlEventTouchUpInside];
         [self addSubview:latestBtn];
         
-        mostViewBtn = [UIButton buttonWithType:100];
-        mostViewBtn.frame = CGRectMake(x+60, y
-                                       , 90, 20);
-        mostViewBtn.tintColor = DEFAULT_SORT_CONTROL_BUTTON_COLOR;
-        [mostViewBtn setTitle:@"Most View" forState:UIControlStateNormal];
+        UIImage *mostViewImage = [UIImage imageNamed:@"sort_button_mview.png"];
+        UIImage *mostViewImageHigh = [UIImage imageNamed:@"sort_button_mview_highlight.png"];
+        mostViewBtn = [[UIButton alloc] initWithFrame:CGRectMake(74, 0, 74, 40)];
+        [mostViewBtn setImage:mostViewImage forState:UIControlStateNormal];
+        [mostViewBtn setImage:mostViewImageHigh forState:UIControlStateSelected];
         [mostViewBtn addTarget:self action:@selector(tapMostView)
               forControlEvents:UIControlEventTouchUpInside];
         [self addSubview:mostViewBtn];
-        
-        mostDLBtn = [UIButton buttonWithType:100];
-        mostDLBtn.frame = CGRectMake(x+144, y, 80, 20);
-        mostDLBtn.tintColor = DEFAULT_SORT_CONTROL_BUTTON_COLOR;
-        [mostDLBtn setTitle:@"Most DL" forState:UIControlStateNormal];
+    
+        UIImage *mostDownloadImage = [UIImage imageNamed:@"sort_button_mdl.png"];
+        UIImage *mostDownloadImageHigh = [UIImage imageNamed:@"sort_button_mdl_highlight.png"];
+        mostDLBtn = [[UIButton alloc] initWithFrame:CGRectMake(148, 0, 74, 40)];
+        [mostDLBtn setImage:mostDownloadImage forState:UIControlStateNormal];
+        [mostDLBtn setImage:mostDownloadImageHigh forState:UIControlStateSelected];
         [mostDLBtn addTarget:self action:@selector(tapMostDL)
             forControlEvents:UIControlEventTouchUpInside];
         [self addSubview:mostDLBtn];
+
+        UIImageView *brankBG = [[UIImageView alloc] initWithFrame:CGRectMake(222, 0, 104, 40)];
+        brankBG.image = [UIImage imageNamed:@"sort_button_none.png"];
+        [self addSubview:brankBG];
         
-        addTagButton = [UIButton buttonWithType:100];
-        addTagButton.frame = CGRectMake(260, y, 20, 20);
-        [addTagButton setTitle:@"+Tag" forState:UIControlStateNormal];
+        UIImage *tagAddOffImage = [UIImage imageNamed:@"tag_add_off.png"];
+        UIImage *tagRemoveOffImage = [UIImage imageNamed:@"tag_remove_off.png"];
+        addTagButton = [[UIButton alloc] initWithFrame:CGRectMake(235, 6, 76, 28)];
+        [addTagButton setImage:tagAddOffImage forState:UIControlStateNormal];
+        [addTagButton setImage:tagRemoveOffImage forState:UIControlStateSelected];
         [addTagButton addTarget:self action:@selector(tapAddTag)
-            forControlEvents:UIControlEventTouchUpInside];
+               forControlEvents:UIControlEventTouchUpInside];
         [self addSubview:addTagButton];
         
-        
-//        relateBtn = [UIButton buttonWithType:100];
-//        relateBtn.frame = CGRectMake(245, 6, 70, 20);
-//        relateBtn.tintColor = DEFAULT_SORT_CONTROL_BUTTON_COLOR;
-//        [relateBtn setTitle:@"Relative" forState:UIControlStateNormal];
-//        [relateBtn addTarget:self action:@selector(tapRelative)
-//            forControlEvents:UIControlEventTouchUpInside];
-//        [self addSubview:relateBtn];
-//        
-//        self.layer.shadowColor = [UIColor blackColor].CGColor;
-//        self.layer.shadowOffset = CGSizeMake(1.0, 2.0);
+        selectBorder = [[UIView alloc] initWithFrame:CGRectMake(3, 38, 69, 2)];
+        selectBorder.backgroundColor = [UIColor colorWithRed:255/255.0 green:159/255.0 blue:58/255.0 alpha:1.0];
+        [self addSubview:selectBorder];
         
     }
     return self;
@@ -84,36 +83,36 @@
 }
 
 
-//- (void)tapRelative {
-//    [self allResetButtonSelected];
-//    relateBtn.tintColor = DEFAULT_SORT_CONTROL_BUTTON_COLOR_SELECTED;
-//    [self sortChange:@"relevance"];
-//}
+- (void)moveSelectBorderAtIndex:(NSInteger)index {
+    [UIView animateWithDuration:0.3f animations:^(void){
+        selectBorder.frame = CGRectMake(3 + 74*index, 38, 69, 2);
+    }];
+}
+
+- (void)tapLatest {
+    [self allResetButtonSelected];
+    latestBtn.selected = YES;
+    [self moveSelectBorderAtIndex:0];
+    [self sortChange:@"latest"];
+}
 
 - (void)tapMostView {
     [self allResetButtonSelected];
-    mostViewBtn.tintColor = DEFAULT_SORT_CONTROL_BUTTON_COLOR_SELECTED;
+    mostViewBtn.selected = YES;
+    [self moveSelectBorderAtIndex:1];
     [self sortChange:@"mostviewed"];
 }
 
 - (void)tapMostDL {
     [self allResetButtonSelected];
-    mostDLBtn.tintColor = DEFAULT_SORT_CONTROL_BUTTON_COLOR_SELECTED;
+    mostDLBtn.selected = YES;
+    [self moveSelectBorderAtIndex:2];
     [self sortChange:@"mostdownloaded"];
 }
 
-- (void)tapLatest {
-    [self allResetButtonSelected];
-    latestBtn.tintColor = DEFAULT_SORT_CONTROL_BUTTON_COLOR_SELECTED;
-    [self sortChange:@"latest"];
-}
 
 - (void)allResetButtonSelected {
-    relateBtn.tintColor
-    = mostViewBtn.tintColor
-    = mostDLBtn.tintColor
-    = latestBtn.tintColor
-    = DEFAULT_SORT_CONTROL_BUTTON_COLOR;
+    latestBtn.selected = mostViewBtn.selected = mostDLBtn.selected = NO;
 }
 
 - (void)selectSort:(NSString *)sortType {
@@ -121,13 +120,16 @@
     [self allResetButtonSelected];
     
     if ([sortType isEqualToString:@"latest"]) {
-        latestBtn.tintColor = DEFAULT_SORT_CONTROL_BUTTON_COLOR_SELECTED;
+        latestBtn.selected = YES;
+        [self moveSelectBorderAtIndex:0];
     }
     else if ([sortType isEqualToString:@"mostviewed"]) {
-        mostViewBtn.tintColor = DEFAULT_SORT_CONTROL_BUTTON_COLOR_SELECTED;
+        mostViewBtn.selected = YES;
+        [self moveSelectBorderAtIndex:1];
     }
     else if ([sortType isEqualToString:@"mostdownloaded"]) {
-        mostDLBtn.tintColor = DEFAULT_SORT_CONTROL_BUTTON_COLOR_SELECTED;
+        mostDLBtn.selected = YES;
+        [self moveSelectBorderAtIndex:2];
     }
 }
 
@@ -135,17 +137,11 @@
 - (void)highlightTagButton:(BOOL)isHighlight {
     if (isHighlight) {
         // 既に追加済み
-        addTagButton.frame = CGRectMake(240, 6, 20, 20);
-        addTagButton.tintColor = [UIColor grayColor];
         addTagButton.selected = YES;
-        [addTagButton setTitle:@"-Remove" forState:UIControlStateNormal];
     }
     else {
         // まだ追加されてない
-        addTagButton.frame = CGRectMake(260, 6, 20, 20);
-        addTagButton.tintColor = [UIColor colorWithRed:55/255.0 green:200/255.0 blue:85/255.0 alpha:1.0];
         addTagButton.selected = NO;
-        [addTagButton setTitle:@"+Add" forState:UIControlStateNormal];
     }
 }
 
