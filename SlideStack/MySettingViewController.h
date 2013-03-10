@@ -19,4 +19,10 @@
 @property (nonatomic, strong) NSString *defaultSort;        // 標準の並び順
 @property (nonatomic, strong) NSString *defaultSortDisplay; // 標準の並び順の表示文
 
+- (void)saveMySettingLanguage;
+- (void)saveMySettingTarget;
+- (void)saveMySettingDefaultSort;
+
+- (void)loadMySetting;
+
 @end

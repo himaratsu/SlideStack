@@ -22,15 +22,23 @@ static MySettingViewController *sharedInstance = nil;
 - (id)init {
     self = [super init];
     if (self) {
-        self.target   = nil;
-        self.targetDisplay = NSLocalizedString(@"Tag", nil);
-        self.defaultSort = nil;
-        self.defaultSortDisplay = NSLocalizedString(@"Latest", nil);
-        
-        // 端末の言語設定によってデフォルト値を変更する
-        [self changeLanguage];
+        [self loadMySetting];
     }
     return self;
+}
+
+- (void)setLanguage:(NSString *)language {
+    _language = language;
+    if ([_language isEqualToString:@"**"]) {
+        _languageDisplay = NSLocalizedString(@"All", nil);
+    }
+    else if ([_language isEqualToString:@"ja"]) {
+        _languageDisplay = NSLocalizedString(@"Japanese", nil);
+    }
+    else if ([_language isEqualToString:@"en"]) {
+        _languageDisplay = NSLocalizedString(@"English", nil);
+    }
+    [self saveMySettingLanguage];
 }
 
 - (void)setLanguageDisplay:(NSString *)languageDisplay {
@@ -44,6 +52,18 @@ static MySettingViewController *sharedInstance = nil;
     else if ([_languageDisplay isEqualToString:NSLocalizedString(@"English", nil)]) {
         _language = @"en";
     }
+    [self saveMySettingLanguage];
+}
+
+- (void)setTarget:(NSString *)target {
+    _target = target;
+    if (_target == nil) {
+        _targetDisplay = NSLocalizedString(@"Title+Contents", nil);
+    }
+    else if ([_target isEqualToString:@"tag"]) {
+        _targetDisplay = NSLocalizedString(@"Tag", nil);
+    }
+    [self saveMySettingTarget];
 }
 
 - (void)setTargetDisplay:(NSString *)targetDisplay {
@@ -54,6 +74,21 @@ static MySettingViewController *sharedInstance = nil;
     else if ([targetDisplay isEqualToString:NSLocalizedString(@"Tag", nil)]) {
         _target = @"tag";
     }
+    [self saveMySettingTarget];
+}
+
+- (void)setDefaultSort:(NSString *)defaultSort {
+    _defaultSort = defaultSort;
+    if ([_defaultSort isEqualToString:@"latest"]) {
+        _defaultSortDisplay = NSLocalizedString(@"Latest", nil);
+    }
+    else if ([_defaultSort isEqualToString:@"mostviewed"]) {
+        _defaultSortDisplay = NSLocalizedString(@"MostView", nil);
+    }
+    else if ([_defaultSort isEqualToString:@"mostdownloaded"]) {
+        _defaultSortDisplay = NSLocalizedString(@"MostDownload", nil);
+    }
+    [self saveMySettingDefaultSort];
 }
 
 - (void)setDefaultSortDisplay:(NSString *)defaultSortDisplay {
@@ -67,19 +102,77 @@ static MySettingViewController *sharedInstance = nil;
     else if ([_defaultSortDisplay isEqualToString:NSLocalizedString(@"MostDownload", nil)]) {
         _defaultSort = @"mostdownloaded";
     }
+    [self saveMySettingDefaultSort];
 }
 
-- (void)changeLanguage {
+
+// 初回起動、スライドの検索対象をどうするか
+- (void)defaultLanguage {
     NSArray *languages = [NSLocale preferredLanguages];
     NSString *currentLanguage = [languages objectAtIndex:0];
     NSLog(@"currentLanguage: %@", currentLanguage);
     
     if ([currentLanguage isEqualToString:@"ja"]) {
         // デフォルト日本語（スライドの対象も日本のスライド）
+        self.language        = @"ja";
         self.languageDisplay = NSLocalizedString(@"Japanese", nil);
     } else {
+        self.language        = @"**";
         self.languageDisplay = NSLocalizedString(@"All", nil);
     }
+}
+
+// データ保存
+
+- (void)saveMySettingLanguage {
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [defaults setObject:self.language forKey:@"Language"];
+    [defaults synchronize];
+}
+
+- (void)saveMySettingTarget {
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [defaults setObject:self.target forKey:@"Target"];
+    [defaults synchronize];
+}
+
+- (void)saveMySettingDefaultSort {
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [defaults setObject:self.defaultSort forKey:@"DefaultSort"];
+    [defaults synchronize];
+}
+
+// データ読込
+- (void)loadMySetting {
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    BOOL notFirstSetting = [defaults boolForKey:@"NotFirstSetting"];   // 初回起動かどうか（NOなら初回起動）
+    
+    if (notFirstSetting == NO) {
+        [self setDefaultSetting];
+    }
+    else {
+        self.language = [defaults objectForKey:@"Language"];
+        self.target = [defaults objectForKey:@"Target"];
+        self.defaultSort = [defaults objectForKey:@"DefaultSort"];
+    }
+}
+
+// デフォルト設定を反映
+- (void)setDefaultSetting {
+    self.targetDisplay = NSLocalizedString(@"Tag", nil);
+    self.defaultSortDisplay = NSLocalizedString(@"Latest", nil);
+    
+    // 端末の言語設定によってデフォルト値を変更する
+    [self defaultLanguage];
+    
+    [self saveMySettingLanguage];
+    [self saveMySettingTarget];
+    [self saveMySettingDefaultSort];
+    
+    // 初回起動フラグを折っておく
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [defaults setBool:YES forKey:@"NotFirstSetting"];
+    [defaults synchronize];
 }
 
 @end

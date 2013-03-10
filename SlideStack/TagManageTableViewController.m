@@ -77,6 +77,11 @@
     _mySearchDisplayController.searchResultsDataSource = self;
     _mySearchDisplayController.searchResultsTitle = NSLocalizedString(@"Narrow Tags", @"タグを絞り込み");
     
+    // ナビゲーションバーの設定
+    // 背景画像
+    UIImage *image = [UIImage imageNamed:@"nav_bg.png"];
+    [self.navigationController.navigationBar setBackgroundImage:image forBarMetrics:UIBarMetricsDefault];
+    
     [self.tableView reloadData];
     self.tableView.scrollEnabled = YES;
 }
@@ -140,7 +145,7 @@
                     return NSLocalizedString(@"Tag You Created", @"あなたが作ったタグ");
                 }
             case 2:
-                return NSLocalizedString(@"Proggraming", @"プログラミング");
+                return NSLocalizedString(@"Programing", @"プログラミング");
             case 3:
                 return NSLocalizedString(@"Library", @"ライブラリ");
             case 4:

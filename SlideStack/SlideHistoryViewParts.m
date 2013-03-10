@@ -15,7 +15,7 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
-        self.thumbView = [[CustomImageView alloc] initWithFrame:CGRectMake(0, 0, self.frame.size.width, self.frame.size.height)];
+        self.thumbView = [[CustomImageView alloc] initWithFrame:CGRectMake(0, 4, self.frame.size.width, self.frame.size.height)];
         _thumbView.layer.borderColor = [UIColor lightGrayColor].CGColor;
         _thumbView.layer.borderWidth = 1.0f;
         _thumbView.layer.shadowColor = [UIColor grayColor].CGColor;
@@ -26,6 +26,14 @@
         _thumbView.layer.masksToBounds = YES;
         [self addSubview:_thumbView];
         
+        // ハイライト時のビュー
+        _highlightedView = [[UIView alloc] initWithFrame:CGRectMake(-4, 0, self.frame.size.width+8, self.frame.size.height+8)];
+        _highlightedView.backgroundColor = [UIColor grayColor];
+        _highlightedView.alpha = 0.6;
+        _highlightedView.layer.cornerRadius = self.layer.cornerRadius;
+        _highlightedView.hidden = YES;
+        [self addSubview:_highlightedView];
+        
         [self addTarget:self action:@selector(didTapSlideHistory) forControlEvents:UIControlEventTouchUpInside];
     }
     return self;
@@ -35,6 +43,11 @@
     if ([_delegate respondsToSelector:@selector(didTapSlideHistory:)]) {
         [_delegate didTapSlideHistory:self.slide];
     }
+}
+
+- (void)setHighlighted:(BOOL)highlighted {
+    [super setHighlighted:YES];
+    _highlightedView.hidden = !highlighted;
 }
 
 @end

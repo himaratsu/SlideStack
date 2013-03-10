@@ -54,6 +54,8 @@
     self.deckController = [[IIViewDeckController alloc] initWithCenterViewController:self.navController rightViewController:selectTagVC];
     _deckController.rightSize = RIGHT_SIDE_BAR_WIDTH;
     _deckController.centerhiddenInteractivity = IIViewDeckCenterHiddenNotUserInteractiveWithTapToClose;
+    _deckController.openSlideAnimationDuration = 0.20f;
+    _deckController.closeSlideAnimationDuration = 0.25f;
     
     self.window.rootViewController = self.deckController;
     [self.window makeKeyAndVisible];

@@ -18,6 +18,7 @@
 
 @interface RecommendSlideView : UIButton {
     UILabel *_titleLabel;
+    UIView  *_highlightedView;
 }
 
 @property (nonatomic, strong) CustomImageView *thumbnailImage;

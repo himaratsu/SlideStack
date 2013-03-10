@@ -13,6 +13,7 @@
 #import "RecommendAPI.h"
 #import "SVProgressHUD.h"
 #import "WebViewController.h"
+#import "SlideHistoryManager.h"
 
 @interface HomeTableViewController ()
 
@@ -41,6 +42,11 @@
     self.tableView.allowsSelection = NO;
     
     // ナビゲーションバーの設定
+    
+    // 背景画像
+    UIImage *image = [UIImage imageNamed:@"nav_bg.png"];
+    [self.navigationController.navigationBar setBackgroundImage:image forBarMetrics:UIBarMetricsDefault];
+    
     // タグ表示ボタン
     UIButton *tagButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 40, 40)];
     tagButton.showsTouchWhenHighlighted = YES;
@@ -54,6 +60,7 @@
 }
 
 - (void)reload {
+    [SVProgressHUD showWithStatus:NSLocalizedString(@"Loading", nil)];
     RecommendAPI *api = [[RecommendAPI alloc] initWithDelegate:self];
     [api send];
 }
@@ -170,6 +177,31 @@
     return cell;
 }
 
+//- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
+//    return 30;
+//}
+//
+//- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
+//    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(5, 0, 320, 40)];
+//    view.backgroundColor = [UIColor clearColor];
+//    
+//    UIImage *ribon = [UIImage imageNamed:@"ribon.png"];
+//    UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(5, 0, 269, 40)];
+//    imageView.image = ribon;
+//    [view addSubview:imageView];
+//    
+//    NSString *title = [self tableView:tableView titleForHeaderInSection:section];
+//    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(20, 6, 260, 20)];
+//    label.text = title;
+//    label.backgroundColor = [UIColor clearColor];
+//    label.font = [UIFont boldSystemFontOfSize:13.0f];
+//    label.textColor = DEFAULT_TAG_LIST_TITLE_FONTCOLOR;
+//    [view addSubview:label];
+//    
+//    return view;
+//}
+
+
 #pragma mark - Table view delegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
@@ -184,7 +216,7 @@
 }
 
 - (void)didTapRecomeendTag:(NSString*)tagName {
-    GA_TRACK_METHOD
+    GA_TRACK_METHOD_WITH_LABEL(tagName);
     SlideListTableViewController *slideListVC = [[SlideListTableViewController alloc]
                                                initWithNibName:@"SlideListTableViewController"
                                                bundle:nil];
@@ -193,7 +225,7 @@
 }
 
 - (void)didTapRecommendSlideWithUrl:(NSString *)url title:(NSString *)title {
-    GA_TRACK_METHOD
+    GA_TRACK_METHOD_WITH_LABEL(title);
     WebViewController *webVC = [[WebViewController alloc] initWithNibName:@"WebViewController" bundle:nil];
     webVC.title = title;
     webVC.loadUrl = url;
@@ -201,11 +233,14 @@
 }
 
 - (void)didTapSlideHistory:(SlideShowObject *)slide {
-    GA_TRACK_METHOD
+    GA_TRACK_METHOD_WITH_LABEL(slide.title);
     WebViewController *webVC = [[WebViewController alloc] initWithNibName:@"WebViewController" bundle:nil];
     webVC.title = slide.title;
     webVC.loadUrl = slide.url;
     [self.navigationController pushViewController:webVC animated:YES];
+    
+    // スライド閲覧履歴に追加
+    [[SlideHistoryManager sharedInstance] appendHistoryList:slide];
 }
 
 - (void)slide {
@@ -215,7 +250,7 @@
 #pragma mark - HttpRequestDelegate method
 
 - (void)didStartHttpResuest:(id)result type:(NSString *)type {
-    [SVProgressHUD show];
+
 }
 
 - (void)didEndHttpResuest:(id)result type:(NSString *)type {

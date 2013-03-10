@@ -49,6 +49,11 @@
     _tableView.dataSource = self;
     [self.view addSubview:_tableView];
     
+    // ナビゲーションバーの設定
+    // 背景画像
+    UIImage *image = [UIImage imageNamed:@"nav_bg.png"];
+    [self.navigationController.navigationBar setBackgroundImage:image forBarMetrics:UIBarMetricsDefault];
+    
     self.tableView.scrollsToTop = NO;
 }
 

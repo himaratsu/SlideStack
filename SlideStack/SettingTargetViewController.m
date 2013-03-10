@@ -29,8 +29,16 @@
     GA_TRACK_CLASS
     
     [super viewDidLoad];
+    
+    // ナビゲーションバーの設定
+    // 背景画像
+    UIImage *image = [UIImage imageNamed:@"nav_bg.png"];
+    [self.navigationController.navigationBar setBackgroundImage:image forBarMetrics:UIBarMetricsDefault];
 
     self.title = NSLocalizedString(@"Search Target", @"検索対象");
+    
+    self.tableView.backgroundView = nil;
+    self.tableView.backgroundColor = DEFAULT_SETTING_BGCOLOR;
 }
 
 - (void)didReceiveMemoryWarning

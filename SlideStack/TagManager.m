@@ -48,6 +48,8 @@ static TagManager *sharedInstance = nil;
     else {
         TagWithCheckMarkObject *tag = [[TagWithCheckMarkObject alloc] initWithTagName:originalTagName isChecked:YES];
         [_myOriginalTags addObject:tag];
+        NSString *log = [NSString stringWithFormat:@"addOriginalTag:%@", originalTagName];
+        GA_TRACK_METHOD_WITH_LABEL(log);
         [self saveTags];
         return YES;
     }
@@ -112,6 +114,15 @@ static TagManager *sharedInstance = nil;
             tag = [itemArray objectAtIndex:j];
             if ([tag.tagName isEqualToString:tagName]) {
                 tag.isChecked = isCheck;
+            
+                NSString *isCheckStr = nil;
+                if (isCheck) {
+                    isCheckStr = @"On";
+                } else {
+                    isCheckStr = @"Off";
+                }
+                NSString *log = [NSString stringWithFormat:@"update:%@ flag:%@", tagName, isCheckStr];
+                GA_TRACK_METHOD_WITH_LABEL(log);
                 break ;
             }
         }

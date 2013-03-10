@@ -135,15 +135,17 @@
 - (void)highlightTagButton:(BOOL)isHighlight {
     if (isHighlight) {
         // 既に追加済み
-        addTagButton.frame = CGRectMake(250, 6, 20, 20);
+        addTagButton.frame = CGRectMake(240, 6, 20, 20);
         addTagButton.tintColor = [UIColor grayColor];
-        [addTagButton setTitle:@"Added" forState:UIControlStateNormal];
+        addTagButton.selected = YES;
+        [addTagButton setTitle:@"-Remove" forState:UIControlStateNormal];
     }
     else {
         // まだ追加されてない
         addTagButton.frame = CGRectMake(260, 6, 20, 20);
         addTagButton.tintColor = [UIColor colorWithRed:55/255.0 green:200/255.0 blue:85/255.0 alpha:1.0];
-        [addTagButton setTitle:@"+Tag" forState:UIControlStateNormal];
+        addTagButton.selected = NO;
+        [addTagButton setTitle:@"+Add" forState:UIControlStateNormal];
     }
 }
 

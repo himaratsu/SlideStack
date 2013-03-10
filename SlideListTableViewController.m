@@ -70,17 +70,10 @@
     
     // ナビゲーションバーの設定
 
-    // 設定ボタン
-//    if (self.navigationItem.leftBarButtonItem != nil) {
-//        UIButton *settingButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 40, 40)];
-//        settingButton.showsTouchWhenHighlighted = YES;
-//        [settingButton setBackgroundImage:[UIImage imageNamed:@"setting.png"] forState:UIControlStateNormal];
-//        [settingButton addTarget:self action:@selector(openSettingView) forControlEvents:UIControlEventTouchUpInside];
-//        UIBarButtonItem* settingbuttonItem = [[UIBarButtonItem alloc] initWithCustomView:settingButton];
-//        settingbuttonItem.style = UIBarButtonItemStyleBordered;
-//        self.navigationItem.leftBarButtonItem = settingbuttonItem;
-//    }
-
+    // 背景画像
+    UIImage *image = [UIImage imageNamed:@"nav_bg.png"];
+    [self.navigationController.navigationBar setBackgroundImage:image forBarMetrics:UIBarMetricsDefault];
+    
     // タグ表示ボタン
     UIButton *tagButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 40, 40)];
     tagButton.showsTouchWhenHighlighted = YES;
@@ -102,6 +95,11 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+    [SVProgressHUD dismiss];
+    [super viewWillDisappear:animated];
 }
 
 - (void)reset {
@@ -327,10 +325,12 @@
     if ([[TagManager sharedInstance] isAlreadyChecked:_searchWord]) {
         [_sortControlView highlightTagButton:NO];
         [[TagManager sharedInstance] updateCheckMarkState:_searchWord isCheck:NO];
+        [SVProgressHUD showErrorWithStatus:NSLocalizedString(@"Remove Tag", nil)];
     }
     else {
         [_sortControlView highlightTagButton:YES];
         [[TagManager sharedInstance] checkTagOrAddNewTag:_searchWord];
+        [SVProgressHUD showSuccessWithStatus:NSLocalizedString(@"Follow Tag", nil)];
     }
 }
 

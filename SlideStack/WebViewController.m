@@ -31,20 +31,22 @@
     [super viewDidLoad];
     
     NSString *title = self.title;
-    UIView *titleView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 200, 40)];
-    titleView.backgroundColor = [UIColor clearColor];
-    titleView.opaque = NO;
-    self.navigationItem.titleView = titleView;
     
-    UILabel *titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 195, 40)];
+    UILabel *titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 200, 30)];
     titleLabel.backgroundColor = [UIColor clearColor];
-    titleLabel.font = [UIFont boldSystemFontOfSize:19.0f];
-    titleLabel.numberOfLines = 0;
+    titleLabel.font = [UIFont boldSystemFontOfSize:17.0f];
     titleLabel.textAlignment = NSTextAlignmentCenter;
     titleLabel.text = title;
-    titleLabel.lineBreakMode = NSLineBreakByWordWrapping;
     titleLabel.textColor = [UIColor whiteColor];
-    [titleView addSubview:titleLabel];
+    titleLabel.adjustsFontSizeToFitWidth = YES;
+    titleLabel.minimumFontSize = 14.0f;
+    titleLabel.numberOfLines = 0;
+    self.navigationItem.titleView = titleLabel;
+    
+    // ナビゲーションバーの設定
+    // 背景画像
+    UIImage *image = [UIImage imageNamed:@"nav_bg.png"];
+    [self.navigationController.navigationBar setBackgroundImage:image forBarMetrics:UIBarMetricsDefault];
     
     self.webView = [[UIWebView alloc] initWithFrame:CGRectMake(0, 0, 320, 500)];
     self.webView.delegate = self;

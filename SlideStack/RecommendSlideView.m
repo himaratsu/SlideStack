@@ -34,6 +34,14 @@
         _titleLabel.textAlignment = NSTextAlignmentCenter;
         [self addSubview:_titleLabel];
 
+        // ハイライト時のビュー
+        _highlightedView = [[UIView alloc] initWithFrame:CGRectMake(-10, -4, self.frame.size.width+20, self.frame.size.height+8)];
+        _highlightedView.backgroundColor = [UIColor grayColor];
+        _highlightedView.alpha = 0.6;
+        _highlightedView.layer.cornerRadius = self.layer.cornerRadius;
+        _highlightedView.hidden = YES;
+        [self addSubview:_highlightedView];
+        
         [self addTarget:self action:@selector(didTapRecommendSlide) forControlEvents:UIControlEventTouchUpInside];
     }
     return self;
@@ -54,12 +62,26 @@
     frame.size.height = size.height;
     _titleLabel.frame = frame;
     _titleLabel.text = _slide.title;
+    
+    [self layoutSubviews];
 }
 
 - (void)didTapRecommendSlide {
     if ([_delegate respondsToSelector:@selector(didTapRecommendSlideWithUrl:title:)]) {
         [_delegate didTapRecommendSlideWithUrl:_slide.url title:_slide.title];
     }
+}
+
+- (void)layoutSubviews {
+    [super layoutSubviews];
+    CGRect frame = _highlightedView.frame;
+    frame.size.height = _thumbnailImage.frame.size.height + 5 + _titleLabel.frame.size.height + 8;
+    _highlightedView.frame = frame;
+}
+
+- (void)setHighlighted:(BOOL)highlighted {
+    [super setHighlighted:YES];
+    _highlightedView.hidden = !highlighted;
 }
 
 @end

@@ -51,7 +51,7 @@
     
     for (int i=0; i<[_dataArray count]; i++) {
         SlideShowObject *d = [_dataArray objectAtIndex:i];
-        SlideHistoryViewParts *parts = [[SlideHistoryViewParts alloc] initWithFrame:CGRectMake(10+105*i, 0, 100, 70)];
+        SlideHistoryViewParts *parts = [[SlideHistoryViewParts alloc] initWithFrame:CGRectMake(10+110*i, 0, 100, 70)];
         parts.delegate = self;
         parts.slide = d;
         parts.thumbView.imageUrl = [NSURL URLWithString:d.thumbnailUrl];

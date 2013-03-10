@@ -18,7 +18,9 @@
 
 
 
-@interface SlideHistoryViewParts : UIButton
+@interface SlideHistoryViewParts : UIButton {
+    UIView  *_highlightedView;
+}
 
 @property (nonatomic, strong) SlideShowObject *slide;
 @property (nonatomic, strong) CustomImageView *thumbView;
