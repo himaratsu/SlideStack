@@ -177,29 +177,37 @@
     return cell;
 }
 
-//- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
-//    return 30;
-//}
-//
-//- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
-//    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(5, 0, 320, 40)];
-//    view.backgroundColor = [UIColor clearColor];
-//    
-//    UIImage *ribon = [UIImage imageNamed:@"ribon.png"];
-//    UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(5, 0, 269, 40)];
-//    imageView.image = ribon;
-//    [view addSubview:imageView];
-//    
-//    NSString *title = [self tableView:tableView titleForHeaderInSection:section];
-//    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(20, 6, 260, 20)];
-//    label.text = title;
-//    label.backgroundColor = [UIColor clearColor];
-//    label.font = [UIFont boldSystemFontOfSize:13.0f];
-//    label.textColor = DEFAULT_TAG_LIST_TITLE_FONTCOLOR;
-//    [view addSubview:label];
-//    
-//    return view;
-//}
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
+    return 25;
+}
+
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
+    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 40)];
+    view.backgroundColor = [UIColor clearColor];
+    view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"home_header.png"]];
+    
+    UIImage *iconImage;
+    if (section == 0) {
+        iconImage = [UIImage imageNamed:@"tag_black.png"];
+    } else if (section == 1) {
+        iconImage = [UIImage imageNamed:@"slide.png"];
+    } else {
+        iconImage = [UIImage imageNamed:@"view_black.png"];
+    }
+    UIImageView *iconImageView = [[UIImageView alloc] initWithImage:iconImage];
+    iconImageView.frame = CGRectMake(10, 3, 20, 20);
+    [view addSubview:iconImageView];
+    
+    NSString *title = [self tableView:tableView titleForHeaderInSection:section];
+    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(32, 3, 260, 20)];
+    label.text = title;
+    label.backgroundColor = [UIColor clearColor];
+    label.font = [UIFont boldSystemFontOfSize:13.0f];
+    label.textColor = [UIColor colorWithRed:70/255.0 green:70/255.0 blue:70/255.0 alpha:1.0];
+    [view addSubview:label];
+    
+    return view;
+}
 
 
 #pragma mark - Table view delegate

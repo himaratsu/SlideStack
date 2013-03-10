@@ -71,6 +71,9 @@
 		20B82EEC16E3450600DDBE12 /* RecommendAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 20B82EEB16E3450600DDBE12 /* RecommendAPI.m */; };
 		20B82EEF16E37A0F00DDBE12 /* RecommendTagListView.m in Sources */ = {isa = PBXBuildFile; fileRef = 20B82EEE16E37A0F00DDBE12 /* RecommendTagListView.m */; };
 		20B91D0316EBA92400CF56B3 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 20B91D0216EBA92300CF56B3 /* MessageUI.framework */; };
+		20BE82BF16EC20560021FE9B /* slide.png in Resources */ = {isa = PBXBuildFile; fileRef = 20BE82BE16EC20560021FE9B /* slide.png */; };
+		20BE82C816EC24B90021FE9B /* home_header.png in Resources */ = {isa = PBXBuildFile; fileRef = 20BE82C616EC24B90021FE9B /* home_header.png */; };
+		20BE82C916EC24B90021FE9B /* home_header@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 20BE82C716EC24B90021FE9B /* home_header@2x.png */; };
 		20BEA5F916E811F00005569D /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 20BEA5F816E811F00005569D /* Crashlytics.framework */; };
 		20BEA60416E8E02C0005569D /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 20BEA60616E8E02C0005569D /* Localizable.strings */; };
 		20C21F8916E63EEF00FBFAE9 /* SettingDefaultSortViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 20C21F8716E63EEF00FBFAE9 /* SettingDefaultSortViewController.m */; };
@@ -80,7 +83,8 @@
 		20DC34FF16DE571A00FE0907 /* fav_black.png in Resources */ = {isa = PBXBuildFile; fileRef = 20DC34FD16DE571A00FE0907 /* fav_black.png */; };
 		20DC350016DE571A00FE0907 /* view_black.png in Resources */ = {isa = PBXBuildFile; fileRef = 20DC34FE16DE571A00FE0907 /* view_black.png */; };
 		20DC350316DE7CCF00FE0907 /* SelectTagViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 20DC350216DE7CCF00FE0907 /* SelectTagViewCell.m */; };
-		20DDB2AD16EBCA9400BAC310 /* ribon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 20DDB2AC16EBCA9400BAC310 /* ribon@2x.png */; };
+		20DDB2B216EC0E9500BAC310 /* iRate.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 20DDB2AF16EC0E9500BAC310 /* iRate.bundle */; };
+		20DDB2B316EC0E9500BAC310 /* iRate.m in Sources */ = {isa = PBXBuildFile; fileRef = 20DDB2B116EC0E9500BAC310 /* iRate.m */; };
 		20FFEF2D16E7AC0E00219762 /* add.png in Resources */ = {isa = PBXBuildFile; fileRef = 20FFEF2C16E7AC0E00219762 /* add.png */; };
 		20FFEF3516E7AF9600219762 /* libGoogleAnalytics.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 20FFEF3416E7AF9600219762 /* libGoogleAnalytics.a */; };
 /* End PBXBuildFile section */
@@ -185,6 +189,9 @@
 		20B82EED16E37A0F00DDBE12 /* RecommendTagListView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecommendTagListView.h; sourceTree = "<group>"; };
 		20B82EEE16E37A0F00DDBE12 /* RecommendTagListView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecommendTagListView.m; sourceTree = "<group>"; };
 		20B91D0216EBA92300CF56B3 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
+		20BE82BE16EC20560021FE9B /* slide.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = slide.png; sourceTree = "<group>"; };
+		20BE82C616EC24B90021FE9B /* home_header.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = home_header.png; sourceTree = "<group>"; };
+		20BE82C716EC24B90021FE9B /* home_header@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "home_header@2x.png"; sourceTree = "<group>"; };
 		20BEA5F816E811F00005569D /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
 		20BEA60516E8E02C0005569D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		20BEA60716E8E02E0005569D /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -198,7 +205,9 @@
 		20DC34FE16DE571A00FE0907 /* view_black.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = view_black.png; sourceTree = "<group>"; };
 		20DC350116DE7CCE00FE0907 /* SelectTagViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectTagViewCell.h; sourceTree = "<group>"; };
 		20DC350216DE7CCF00FE0907 /* SelectTagViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectTagViewCell.m; sourceTree = "<group>"; };
-		20DDB2AC16EBCA9400BAC310 /* ribon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ribon@2x.png"; sourceTree = "<group>"; };
+		20DDB2AF16EC0E9500BAC310 /* iRate.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = iRate.bundle; sourceTree = "<group>"; };
+		20DDB2B016EC0E9500BAC310 /* iRate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iRate.h; sourceTree = "<group>"; };
+		20DDB2B116EC0E9500BAC310 /* iRate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iRate.m; sourceTree = "<group>"; };
 		20FFEF2C16E7AC0E00219762 /* add.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = add.png; sourceTree = "<group>"; };
 		20FFEF2F16E7AF9600219762 /* GAI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAI.h; sourceTree = "<group>"; };
 		20FFEF3016E7AF9600219762 /* GAITrackedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAITrackedViewController.h; sourceTree = "<group>"; };
@@ -231,6 +240,7 @@
 		200BBF3116DA8A29007C673F /* icon */ = {
 			isa = PBXGroup;
 			children = (
+				20BE82BE16EC20560021FE9B /* slide.png */,
 				20DC34F716DE4CBE00FE0907 /* icon@2x.png */,
 				20FFEF2C16E7AC0E00219762 /* add.png */,
 				207DCA2016E33F950078B65B /* recommend.png */,
@@ -386,9 +396,10 @@
 				20BEA60616E8E02C0005569D /* Localizable.strings */,
 				207343F416D7C6C5002EF8A7 /* main.m */,
 				207343F616D7C6C5002EF8A7 /* SlideStack-Prefix.pch */,
+				20BE82C616EC24B90021FE9B /* home_header.png */,
+				20BE82C716EC24B90021FE9B /* home_header@2x.png */,
 				2020704016EBC61B00FDA116 /* nav_bg.png */,
 				2020704116EBC61B00FDA116 /* nav_bg@2x.png */,
-				20DDB2AC16EBCA9400BAC310 /* ribon@2x.png */,
 				207343FA16D7C6C5002EF8A7 /* Default.png */,
 				207343FC16D7C6C5002EF8A7 /* Default@2x.png */,
 				207343FE16D7C6C5002EF8A7 /* Default-568h@2x.png */,
@@ -480,9 +491,20 @@
 			name = Crashlytics;
 			sourceTree = "<group>";
 		};
+		20DDB2AE16EC0E9500BAC310 /* iRate */ = {
+			isa = PBXGroup;
+			children = (
+				20DDB2AF16EC0E9500BAC310 /* iRate.bundle */,
+				20DDB2B016EC0E9500BAC310 /* iRate.h */,
+				20DDB2B116EC0E9500BAC310 /* iRate.m */,
+			);
+			path = iRate;
+			sourceTree = "<group>";
+		};
 		20FFEF2E16E7AF4F00219762 /* Library */ = {
 			isa = PBXGroup;
 			children = (
+				20DDB2AE16EC0E9500BAC310 /* iRate */,
 				20BEA5FB16E890050005569D /* Crashlytics */,
 				20BEA5FA16E88FF30005569D /* GoogleAnalytics */,
 			);
@@ -572,7 +594,10 @@
 				20123F2316EBBA9A0065B347 /* HomeTableViewController.xib in Resources */,
 				2020704216EBC61B00FDA116 /* nav_bg.png in Resources */,
 				2020704316EBC61B00FDA116 /* nav_bg@2x.png in Resources */,
-				20DDB2AD16EBCA9400BAC310 /* ribon@2x.png in Resources */,
+				20DDB2B216EC0E9500BAC310 /* iRate.bundle in Resources */,
+				20BE82BF16EC20560021FE9B /* slide.png in Resources */,
+				20BE82C816EC24B90021FE9B /* home_header.png in Resources */,
+				20BE82C916EC24B90021FE9B /* home_header@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -635,6 +660,7 @@
 				20A753F116E4D19500BC4692 /* RecommendSlideView.m in Sources */,
 				20A753F416E4D6AC00BC4692 /* SlideHistoryViewParts.m in Sources */,
 				20C21F8916E63EEF00FBFAE9 /* SettingDefaultSortViewController.m in Sources */,
+				20DDB2B316EC0E9500BAC310 /* iRate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

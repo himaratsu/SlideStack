@@ -13,8 +13,24 @@
 #import "HomeTableViewController.h"
 #import "GAI.h"
 #import <Crashlytics/Crashlytics.h>
+#import "iRate.h"
 
 @implementation AppDelegate
+
++ (void)initialize
+{
+    //set the bundle ID. normally you wouldn't need to do this
+    //as it is picked up automatically from your Info.plist file
+    //but we want to test with an app that's actually on the store
+    
+	[iRate sharedInstance].onlyPromptIfLatestVersion = NO;
+    [iRate sharedInstance].usesUntilPrompt = 10;
+    [iRate sharedInstance].eventsUntilPrompt = 0;
+    [iRate sharedInstance].daysUntilPrompt = 0;
+    
+    //enable preview mode
+//    [iRate sharedInstance].previewMode = YES;
+}
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
