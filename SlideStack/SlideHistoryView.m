@@ -17,6 +17,7 @@
     self = [super initWithFrame:frame];
     if (self) {
         self.scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, 320, 85)];
+        _scrollView.showsHorizontalScrollIndicator = NO;
         [self addSubview:_scrollView];
         
         self.zeroMatchLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 25, 320, 20)];
@@ -59,7 +60,7 @@
         
         [_scrollView addSubview:parts];
     }
-    _scrollView.contentSize = CGSizeMake(10+105*[_dataArray count], 85);
+    _scrollView.contentSize = CGSizeMake(10+110*[_dataArray count], 85);
 }
 
 

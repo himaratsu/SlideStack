@@ -56,9 +56,9 @@
     }
 }
 
-- (void)didTapRecommendSlideWithUrl:(NSString *)url title:(NSString *)title {
-    if ([_delegate respondsToSelector:@selector(didTapRecommendSlideWithUrl:title:)]) {
-        [_delegate didTapRecommendSlideWithUrl:url title:title];
+- (void)didTapRecommendSlide:(SlideShowObject *)slide {
+    if ([_delegate respondsToSelector:@selector(didTapRecommendSlide:)]) {
+        [_delegate didTapRecommendSlide:slide];
     }
 }
 

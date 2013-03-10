@@ -59,6 +59,11 @@
     [self reload];
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [self reload];
+}
+
 - (void)reload {
     [SVProgressHUD showWithStatus:NSLocalizedString(@"Loading", nil)];
     RecommendAPI *api = [[RecommendAPI alloc] initWithDelegate:self];
@@ -232,13 +237,17 @@
     [self.navigationController pushViewController:slideListVC animated:YES];
 }
 
-- (void)didTapRecommendSlideWithUrl:(NSString *)url title:(NSString *)title {
-    GA_TRACK_METHOD_WITH_LABEL(title);
+- (void)didTapRecommendSlide:(SlideShowObject *)slide {
+    GA_TRACK_METHOD_WITH_LABEL(slide.title);
     WebViewController *webVC = [[WebViewController alloc] initWithNibName:@"WebViewController" bundle:nil];
-    webVC.title = title;
-    webVC.loadUrl = url;
+    webVC.title = slide.title;
+    webVC.loadUrl = slide.url;
     [self.navigationController pushViewController:webVC animated:YES];
+    
+    // スライド閲覧履歴に追加
+    [[SlideHistoryManager sharedInstance] appendHistoryList:slide];
 }
+
 
 - (void)didTapSlideHistory:(SlideShowObject *)slide {
     GA_TRACK_METHOD_WITH_LABEL(slide.title);

@@ -67,8 +67,8 @@
 }
 
 - (void)didTapRecommendSlide {
-    if ([_delegate respondsToSelector:@selector(didTapRecommendSlideWithUrl:title:)]) {
-        [_delegate didTapRecommendSlideWithUrl:_slide.url title:_slide.title];
+    if ([_delegate respondsToSelector:@selector(didTapRecommendSlide:)]) {
+        [_delegate didTapRecommendSlide:_slide];
     }
 }
 

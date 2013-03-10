@@ -12,7 +12,7 @@
 
 @protocol RecommendSlideViewDelegate <NSObject>
 
-- (void)didTapRecommendSlideWithUrl:(NSString*)url title:(NSString*)title;
+- (void)didTapRecommendSlide:(SlideShowObject*)slide;
 
 @end
 

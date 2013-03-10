@@ -50,3 +50,8 @@
 
 // View/parts
 "No History"    = "閲覧履歴はまだありません";
+
+// Support Mail
+"SupportMailBody" = "【お問い合わせ内容】\n\n\n\n\n※以下は変更しないで下さい。\n-----\nDEVICE: %@\niOS: %@\nVERSION: %@\n";
+"MailSettingError" = "設定エラー";
+"MailSettingNotice" = "端末にメールアカウント設定を行ってください。";

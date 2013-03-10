@@ -232,14 +232,15 @@
         [mailViewController setSubject:@"Slide Pocket"];
         
         // マーケットに出ている場合
-        [mailViewController setMessageBody:[NSString stringWithFormat:@"【お問い合わせ内容】\n\n\n\n※以下は変更しないで下さい。\n-----\nDEVICE: %@\niOS: %@\nVERSION: %@\n",[UIDevice currentDevice].systemVersion, [self _platformString],[self _appVersion]] isHTML:NO];
+        NSString *body = NSLocalizedString(@"SupportMailBody", @"【お問い合わせ内容】\n\n\n\n※以下は変更しないで下さい。\n-----\nDEVICE: %@\niOS: %@\nVERSION: %@\n");
+        [mailViewController setMessageBody:[NSString stringWithFormat:body,[UIDevice currentDevice].systemVersion, [self _platformString],[self _appVersion]] isHTML:NO];
     
         [self.navigationController presentViewController:mailViewController animated:YES completion:nil];
     }
     
     else {
-        UIAlertView *mailBoxAlert = [[UIAlertView alloc] initWithTitle:@"メール設定エラー"
-                                                               message:@"端末にメールアカウント設定を行ってください。"
+        UIAlertView *mailBoxAlert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"MailSettingError", @"メール設定エラー")
+                                                               message:NSLocalizedString(@"MailSettingNotice",@"端末にメールアカウント設定を行ってください。")
                                                               delegate:self
                                                      cancelButtonTitle:@"OK"
                                                      otherButtonTitles: nil];

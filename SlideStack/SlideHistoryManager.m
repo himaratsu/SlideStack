@@ -33,12 +33,18 @@ static SlideHistoryManager *sharedInstance = nil;
     
     if (index == -1) {
         // まだ存在しないスライド
- 
+        // なにもしない
     }
     else {
         // 既に存在する場合、古いものを消して新しいスライドを追加
         [_historyList removeObjectAtIndex:index];
     }
+    
+    // 最大数を超えないよう調整
+    if ([_historyList count] >= 20) {
+        [_historyList removeObjectAtIndex:[_historyList count]-1];
+    }
+    
     [_historyList insertObject:slide atIndex:0];
     [self saveSlideHisotry];
 }
