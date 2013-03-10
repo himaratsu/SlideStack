@@ -227,7 +227,7 @@
     if ([MFMailComposeViewController canSendMail]) {
         MFMailComposeViewController *mailViewController = [[MFMailComposeViewController alloc] init];
         mailViewController.mailComposeDelegate = self;
-        [mailViewController setToRecipients:[NSArray arrayWithObject:@"himaratsu@gmail.com"]];
+        [mailViewController setToRecipients:[NSArray arrayWithObject:SUPPORT_MAIL_ADDRESS]];
         mailViewController.title = @"";
         [mailViewController setSubject:@"Slide Pocket"];
         

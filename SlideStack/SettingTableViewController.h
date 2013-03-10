@@ -10,6 +10,8 @@
 #import <MessageUI/MessageUI.h>
 #import <MessageUI/MFMailComposeViewController.h>
 
+#define SUPPORT_MAIL_ADDRESS @"slidepocket.team@gmail.com"
+
 @interface SettingTableViewController : UITableViewController <MFMailComposeViewControllerDelegate>
 
 @end
