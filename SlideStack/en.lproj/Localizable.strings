@@ -9,3 +9,6 @@
 "SupportMailBody" = "Dear SlidePocket Team, \n\n\n\n\n ※Don't change below comment\n-----\nDEVICE: %@\niOS: %@\nVERSION: %@\n";
 "MailSettingError" = "Setting Error";
 "MailSettingNotice" = "Please set your mail account to Device";
+
+"NetworkError"          = "Network Error";
+"NetworkErrorNotice"    = "Please check your network status";

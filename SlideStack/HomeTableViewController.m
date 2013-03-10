@@ -14,6 +14,7 @@
 #import "SVProgressHUD.h"
 #import "WebViewController.h"
 #import "SlideHistoryManager.h"
+#import "Util.h"
 
 @interface HomeTableViewController ()
 
@@ -55,8 +56,7 @@
     UIBarButtonItem* tagButtonItem = [[UIBarButtonItem alloc] initWithCustomView:tagButton];
     tagButtonItem.style = UIBarButtonItemStyleBordered;
     self.navigationItem.rightBarButtonItem = tagButtonItem;
-    
-    [self reload];
+
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -65,9 +65,19 @@
 }
 
 - (void)reload {
-    [SVProgressHUD showWithStatus:NSLocalizedString(@"Loading", nil)];
-    RecommendAPI *api = [[RecommendAPI alloc] initWithDelegate:self];
-    [api send];
+    if ([Util isAvailableNetwork]) {
+        [SVProgressHUD showWithStatus:NSLocalizedString(@"Loading", nil)];
+        RecommendAPI *api = [[RecommendAPI alloc] initWithDelegate:self];
+        [api send];
+    }
+    else {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"NetworkError", @"通信エラー")
+                                                        message:NSLocalizedString(@"NetworkErrorNotice", @"ネットワーク環境を確認して下さい")
+                                                       delegate:self
+                                              cancelButtonTitle:nil
+                                              otherButtonTitles:@"OK", nil];
+        [alert show];
+    }
 }
 
 - (void)reloadData {

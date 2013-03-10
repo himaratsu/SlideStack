@@ -17,20 +17,20 @@
 
 @implementation AppDelegate
 
-+ (void)initialize
-{
-    //set the bundle ID. normally you wouldn't need to do this
-    //as it is picked up automatically from your Info.plist file
-    //but we want to test with an app that's actually on the store
-    
-	[iRate sharedInstance].onlyPromptIfLatestVersion = NO;
-    [iRate sharedInstance].usesUntilPrompt = 10;
-    [iRate sharedInstance].eventsUntilPrompt = 0;
-    [iRate sharedInstance].daysUntilPrompt = 0;
-    
-    //enable preview mode
-//    [iRate sharedInstance].previewMode = YES;
-}
+//+ (void)initialize
+//{
+//    //set the bundle ID. normally you wouldn't need to do this
+//    //as it is picked up automatically from your Info.plist file
+//    //but we want to test with an app that's actually on the store
+//    
+//	[iRate sharedInstance].onlyPromptIfLatestVersion = NO;
+//    [iRate sharedInstance].usesUntilPrompt = 10;
+//    [iRate sharedInstance].eventsUntilPrompt = 0;
+//    [iRate sharedInstance].daysUntilPrompt = 0;
+//    
+//    //enable preview mode
+////    [iRate sharedInstance].previewMode = YES;
+//}
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
@@ -54,8 +54,6 @@
     
     // Crashlyticsの設定
     [Crashlytics startWithAPIKey:@"74dc746a2d9a2b2651749c6880c73afd97bb079a"];
-    
-    
     
     
     

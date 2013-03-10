@@ -8,6 +8,7 @@
 
 #import "WebViewController.h"
 #import "SVProgressHUD.h"
+#import "Util.h"
 
 @interface WebViewController ()
 
@@ -51,8 +52,20 @@
     self.webView = [[UIWebView alloc] initWithFrame:CGRectMake(0, 0, 320, 500)];
     self.webView.delegate = self;
     [self.view addSubview:_webView];
-    [_webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:_loadUrl]]];
-
+    
+    
+    if ([Util isAvailableNetwork]) {
+        [_webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:_loadUrl]]];
+    }
+    else {
+        [SVProgressHUD dismiss];
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"NetworkError", @"通信エラー")
+                                                        message:NSLocalizedString(@"NetworkErrorNotice", @"ネットワーク環境を確認して下さい")
+                                                       delegate:self
+                                              cancelButtonTitle:nil
+                                              otherButtonTitles:@"OK", nil];
+        [alert show];
+    }
 }
 
 - (void)viewWillDisappear:(BOOL)animated {

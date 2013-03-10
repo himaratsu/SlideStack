@@ -16,6 +16,7 @@
 #import "SlideHistoryManager.h"
 #import "MySettingViewController.h"
 #import "TagManager.h"
+#import "Util.h"
 
 @interface SlideListTableViewController ()
 
@@ -115,13 +116,21 @@
 - (void)reload {
     self.title = _searchWord;
     
-    SlideSearchAPI *api = [[SlideSearchAPI alloc] initWithDelegate:self];
-    [api send:[self createApiParameter]];
-    
-    // 引っ張って更新を解除
-//    [_refreshControl endRefreshing];
-    
-    [SVProgressHUD showWithStatus:NSLocalizedString(@"Loading", @"読込中") maskType:SVProgressHUDMaskTypeClear];
+    if ([Util isAvailableNetwork]) {
+        
+        SlideSearchAPI *api = [[SlideSearchAPI alloc] initWithDelegate:self];
+        [api send:[self createApiParameter]];
+        
+        [SVProgressHUD showWithStatus:NSLocalizedString(@"Loading", @"読込中") maskType:SVProgressHUDMaskTypeClear];
+    }
+    else {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"NetworkError", @"通信エラー")
+                                                        message:NSLocalizedString(@"NetworkErrorNotice", @"ネットワーク環境を確認して下さい")
+                                                       delegate:self
+                                              cancelButtonTitle:nil
+                                              otherButtonTitles:@"OK", nil];
+        [alert show];
+    }
 }
 
 // パラメータを作成
@@ -144,7 +153,12 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 2;
+    if ([Util isAvailableNetwork]) {
+        return 2;
+    }
+    else {
+        return 0;
+    }
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section

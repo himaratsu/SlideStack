@@ -55,3 +55,7 @@
 "SupportMailBody" = "【お問い合わせ内容】\n\n\n\n\n※以下は変更しないで下さい。\n-----\nDEVICE: %@\niOS: %@\nVERSION: %@\n";
 "MailSettingError" = "設定エラー";
 "MailSettingNotice" = "端末にメールアカウント設定を行ってください。";
+
+// NetWork
+"NetworkError"          = "通信エラー";
+"NetworkErrorNotice"    = "ネットワークに接続できる環境で再度お試し下さい";

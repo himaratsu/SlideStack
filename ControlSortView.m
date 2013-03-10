@@ -60,7 +60,7 @@
                forControlEvents:UIControlEventTouchUpInside];
         [self addSubview:addTagButton];
         
-        selectBorder = [[UIView alloc] initWithFrame:CGRectMake(3, 38, 69, 2)];
+        selectBorder = [[UIView alloc] initWithFrame:CGRectMake(3, 37, 69, 3)];
         selectBorder.backgroundColor = [UIColor colorWithRed:255/255.0 green:159/255.0 blue:58/255.0 alpha:1.0];
         [self addSubview:selectBorder];
         
@@ -85,7 +85,7 @@
 
 - (void)moveSelectBorderAtIndex:(NSInteger)index {
     [UIView animateWithDuration:0.3f animations:^(void){
-        selectBorder.frame = CGRectMake(3 + 74*index, 38, 69, 2);
+        selectBorder.frame = CGRectMake(3 + 74*index, 37, 69, 3);
     }];
 }
 
