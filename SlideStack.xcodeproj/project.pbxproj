@@ -105,6 +105,11 @@
 		20DC350316DE7CCF00FE0907 /* SelectTagViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 20DC350216DE7CCF00FE0907 /* SelectTagViewCell.m */; };
 		20DDB2B216EC0E9500BAC310 /* iRate.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 20DDB2AF16EC0E9500BAC310 /* iRate.bundle */; };
 		20DDB2B316EC0E9500BAC310 /* iRate.m in Sources */ = {isa = PBXBuildFile; fileRef = 20DDB2B116EC0E9500BAC310 /* iRate.m */; };
+		20F4444016EE056700E43AD8 /* PocketAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 20F4443816EE056700E43AD8 /* PocketAPI.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		20F4444116EE056700E43AD8 /* PocketAPILogin.m in Sources */ = {isa = PBXBuildFile; fileRef = 20F4443A16EE056700E43AD8 /* PocketAPILogin.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		20F4444216EE056700E43AD8 /* PocketAPIOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 20F4443C16EE056700E43AD8 /* PocketAPIOperation.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		20F4444316EE056700E43AD8 /* SFHFKeychainUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 20F4443F16EE056700E43AD8 /* SFHFKeychainUtils.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		20F4444516EE05AA00E43AD8 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 20F4444416EE05AA00E43AD8 /* Security.framework */; };
 		20FFEF2D16E7AC0E00219762 /* add.png in Resources */ = {isa = PBXBuildFile; fileRef = 20FFEF2C16E7AC0E00219762 /* add.png */; };
 		20FFEF3516E7AF9600219762 /* libGoogleAnalytics.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 20FFEF3416E7AF9600219762 /* libGoogleAnalytics.a */; };
 /* End PBXBuildFile section */
@@ -250,6 +255,17 @@
 		20DDB2AF16EC0E9500BAC310 /* iRate.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = iRate.bundle; sourceTree = "<group>"; };
 		20DDB2B016EC0E9500BAC310 /* iRate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iRate.h; sourceTree = "<group>"; };
 		20DDB2B116EC0E9500BAC310 /* iRate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iRate.m; sourceTree = "<group>"; };
+		20F4443616EE056700E43AD8 /* PocketAPI+NSOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "PocketAPI+NSOperation.h"; sourceTree = "<group>"; };
+		20F4443716EE056700E43AD8 /* PocketAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PocketAPI.h; sourceTree = "<group>"; };
+		20F4443816EE056700E43AD8 /* PocketAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PocketAPI.m; sourceTree = "<group>"; };
+		20F4443916EE056700E43AD8 /* PocketAPILogin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PocketAPILogin.h; sourceTree = "<group>"; };
+		20F4443A16EE056700E43AD8 /* PocketAPILogin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PocketAPILogin.m; sourceTree = "<group>"; };
+		20F4443B16EE056700E43AD8 /* PocketAPIOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PocketAPIOperation.h; sourceTree = "<group>"; };
+		20F4443C16EE056700E43AD8 /* PocketAPIOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PocketAPIOperation.m; sourceTree = "<group>"; };
+		20F4443D16EE056700E43AD8 /* PocketAPITypes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PocketAPITypes.h; sourceTree = "<group>"; };
+		20F4443E16EE056700E43AD8 /* SFHFKeychainUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SFHFKeychainUtils.h; sourceTree = "<group>"; };
+		20F4443F16EE056700E43AD8 /* SFHFKeychainUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SFHFKeychainUtils.m; sourceTree = "<group>"; };
+		20F4444416EE05AA00E43AD8 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		20FFEF2C16E7AC0E00219762 /* add.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = add.png; sourceTree = "<group>"; };
 		20FFEF2F16E7AF9600219762 /* GAI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAI.h; sourceTree = "<group>"; };
 		20FFEF3016E7AF9600219762 /* GAITrackedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAITrackedViewController.h; sourceTree = "<group>"; };
@@ -264,6 +280,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				20F4444516EE05AA00E43AD8 /* Security.framework in Frameworks */,
 				20B91D0316EBA92400CF56B3 /* MessageUI.framework in Frameworks */,
 				2020ECA216E7B11300272C11 /* SystemConfiguration.framework in Frameworks */,
 				2020ECA016E7B10B00272C11 /* CoreData.framework in Frameworks */,
@@ -377,6 +394,7 @@
 		207343DC16D7C6C5002EF8A7 = {
 			isa = PBXGroup;
 			children = (
+				20F4444416EE05AA00E43AD8 /* Security.framework */,
 				20C12E7616EC868B00FF0089 /* icon.png */,
 				20C12E7416EC868800FF0089 /* icon@2x.png */,
 				20B91D0216EBA92300CF56B3 /* MessageUI.framework */,
@@ -611,11 +629,29 @@
 			path = iRate;
 			sourceTree = "<group>";
 		};
+		20F4443516EE056700E43AD8 /* SDK */ = {
+			isa = PBXGroup;
+			children = (
+				20F4443616EE056700E43AD8 /* PocketAPI+NSOperation.h */,
+				20F4443716EE056700E43AD8 /* PocketAPI.h */,
+				20F4443816EE056700E43AD8 /* PocketAPI.m */,
+				20F4443916EE056700E43AD8 /* PocketAPILogin.h */,
+				20F4443A16EE056700E43AD8 /* PocketAPILogin.m */,
+				20F4443B16EE056700E43AD8 /* PocketAPIOperation.h */,
+				20F4443C16EE056700E43AD8 /* PocketAPIOperation.m */,
+				20F4443D16EE056700E43AD8 /* PocketAPITypes.h */,
+				20F4443E16EE056700E43AD8 /* SFHFKeychainUtils.h */,
+				20F4443F16EE056700E43AD8 /* SFHFKeychainUtils.m */,
+			);
+			path = SDK;
+			sourceTree = "<group>";
+		};
 		20FFEF2E16E7AF4F00219762 /* Library */ = {
 			isa = PBXGroup;
 			children = (
 				20BDA60816ECBF1800D4240F /* Reachability.h */,
 				20BDA60916ECBF1800D4240F /* Reachability.m */,
+				20F4443516EE056700E43AD8 /* SDK */,
 				20DDB2AE16EC0E9500BAC310 /* iRate */,
 				20BEA5FB16E890050005569D /* Crashlytics */,
 				20BEA5FA16E88FF30005569D /* GoogleAnalytics */,
@@ -793,6 +829,10 @@
 				20DDB2B316EC0E9500BAC310 /* iRate.m in Sources */,
 				20BDA60716ECBEF700D4240F /* Util.m in Sources */,
 				20BDA60A16ECBF1800D4240F /* Reachability.m in Sources */,
+				20F4444016EE056700E43AD8 /* PocketAPI.m in Sources */,
+				20F4444116EE056700E43AD8 /* PocketAPILogin.m in Sources */,
+				20F4444216EE056700E43AD8 /* PocketAPIOperation.m in Sources */,
+				20F4444316EE056700E43AD8 /* SFHFKeychainUtils.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -839,8 +879,8 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				ONLY_ACTIVE_ARCH = YES;
-				PROVISIONING_PROFILE = "D16E7AA9-96ED-402B-83F4-39E0AB6F4078";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "D16E7AA9-96ED-402B-83F4-39E0AB6F4078";
+				PROVISIONING_PROFILE = "549B1492-D863-476A-8347-23E0C4FDDD90";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "549B1492-D863-476A-8347-23E0C4FDDD90";
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -866,8 +906,8 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
-				PROVISIONING_PROFILE = "D16E7AA9-96ED-402B-83F4-39E0AB6F4078";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "D16E7AA9-96ED-402B-83F4-39E0AB6F4078";
+				PROVISIONING_PROFILE = "549B1492-D863-476A-8347-23E0C4FDDD90";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "549B1492-D863-476A-8347-23E0C4FDDD90";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -891,8 +931,8 @@
 					"\"$(SRCROOT)/SlideStack\"",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "D16E7AA9-96ED-402B-83F4-39E0AB6F4078";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "D16E7AA9-96ED-402B-83F4-39E0AB6F4078";
+				PROVISIONING_PROFILE = "549B1492-D863-476A-8347-23E0C4FDDD90";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "549B1492-D863-476A-8347-23E0C4FDDD90";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -915,8 +955,8 @@
 					"\"$(SRCROOT)/SlideStack\"",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "D16E7AA9-96ED-402B-83F4-39E0AB6F4078";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "D16E7AA9-96ED-402B-83F4-39E0AB6F4078";
+				PROVISIONING_PROFILE = "549B1492-D863-476A-8347-23E0C4FDDD90";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "549B1492-D863-476A-8347-23E0C4FDDD90";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

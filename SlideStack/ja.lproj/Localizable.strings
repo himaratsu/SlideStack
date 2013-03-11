@@ -59,3 +59,8 @@
 // NetWork
 "NetworkError"          = "通信エラー";
 "NetworkErrorNotice"    = "ネットワークに接続できる環境で再度お試し下さい";
+
+// WebView
+"Copy URL"      = "URLをコピー";
+"Open in Safari" = "Safariで開く";
+"Save to Pocket" = "Pocketに送る";

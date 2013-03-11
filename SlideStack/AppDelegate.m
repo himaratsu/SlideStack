@@ -14,6 +14,7 @@
 #import "GAI.h"
 #import <Crashlytics/Crashlytics.h>
 #import "iRate.h"
+#import "PocketAPI.h"
 
 @implementation AppDelegate
 
@@ -34,8 +35,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    // Google Analyticsの設定
-    
+    // *** Google Analyticsの設定 ***
     // Exceptionのトラッキングはしない
     [GAI sharedInstance].trackUncaughtExceptions = YES;
     
@@ -52,8 +52,13 @@
     [[GAI sharedInstance] trackerWithTrackingId:@"UA-39064682-1"];
     
     
-    // Crashlyticsの設定
+    // *** Crashlyticsの設定 ***
     [Crashlytics startWithAPIKey:@"74dc746a2d9a2b2651749c6880c73afd97bb079a"];
+    
+    
+    // *** PocketAPIの設定 ***
+    [[PocketAPI sharedAPI] setConsumerKey:@"12337-073396b42bedbaecab248dad"];
+    
     
     
     
@@ -102,5 +107,20 @@
 {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
+
+-(BOOL)application:(UIApplication *)application
+           openURL:(NSURL *)url
+ sourceApplication:(NSString *)sourceApplication
+        annotation:(id)annotation{
+    
+    if([[PocketAPI sharedAPI] handleOpenURL:url]){
+        return YES;
+    }else{
+        // if you handle your own custom url-schemes, do it here
+        return NO;
+    }
+    
+}
+
 
 @end

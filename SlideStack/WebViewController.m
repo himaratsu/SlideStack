@@ -9,6 +9,7 @@
 #import "WebViewController.h"
 #import "SVProgressHUD.h"
 #import "Util.h"
+#import "PocketAPI.h"
 
 @interface WebViewController ()
 
@@ -48,6 +49,13 @@
     // 背景画像
     UIImage *image = [UIImage imageNamed:@"nav_bg.png"];
     [self.navigationController.navigationBar setBackgroundImage:image forBarMetrics:UIBarMetricsDefault];
+    
+    // Pocketに送るボタン
+    UIBarButtonItem *pocket = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAction
+                                                                            target:self
+                                                                            action:@selector(openSavePocket)];
+    self.navigationItem.rightBarButtonItem = pocket;
+    
     
     self.webView = [[UIWebView alloc] initWithFrame:CGRectMake(0, 0, 320, 500)];
     self.webView.delegate = self;
@@ -94,5 +102,72 @@
 }
 
 
+- (void)openSavePocket {
+    UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:nil
+                                                             delegate:self
+                                                    cancelButtonTitle:NSLocalizedString(@"Cancel", @"キャンセル")
+                                               destructiveButtonTitle:nil
+                                                    otherButtonTitles:NSLocalizedString(@"Copy URL", @"URLをコピー"),
+                                                                      NSLocalizedString(@"Open in Safari", @"Safariで開く"),
+                                                                      NSLocalizedString(@"Save to Pocket", @"Pocketに送る"),
+                                                                      nil
+                                  ];
+    [actionSheet showInView:self.view];
+}
+
+#pragma mark - UIActionSheetDelegate
+
+- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
+    switch (buttonIndex) {
+        case 0:
+            // URLをコピー
+            [self copyUrl];
+            break;
+        case 1:
+            // Safariで開く
+            [self openInSafari];
+            break;
+        case 2:
+            // Pocketに送る
+            [SVProgressHUD showWithStatus:@"Sending..." maskType:SVProgressHUDMaskTypeClear];
+            [self sendUrlToPocket];
+            break;
+        case 3:
+            // キャンセル
+            break;
+        default:
+            break;
+    }
+}
+
+// URLをコピー
+- (void)copyUrl {
+    UIPasteboard *board = [UIPasteboard generalPasteboard];
+    [board setValue:_loadUrl forPasteboardType:@"public.utf8-plain-text"];
+    [SVProgressHUD showSuccessWithStatus:@"Success Copy"];
+}
+
+// Safariで開く
+- (void)openInSafari {
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:_loadUrl]];
+}
+
+// ポケットに送る
+- (void)sendUrlToPocket {
+    NSURL *url = [NSURL URLWithString:_loadUrl];
+    [[PocketAPI sharedAPI] saveURL:url handler: ^(PocketAPI *API, NSURL *URL,
+                                                  NSError *error){
+        
+        if(error){
+            // 失敗
+            [SVProgressHUD dismiss];
+            [SVProgressHUD showErrorWithStatus:@"Failed Save"];
+        }else{
+            // 成功
+            [SVProgressHUD dismiss];
+            [SVProgressHUD showSuccessWithStatus:@"Success Saved"];
+        }
+    }];
+}
 
 @end
