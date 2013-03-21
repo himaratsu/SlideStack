@@ -67,6 +67,8 @@
 		20A753F016E4D19500BC4692 /* RecommendSlideListView.m in Sources */ = {isa = PBXBuildFile; fileRef = 20A753ED16E4D19500BC4692 /* RecommendSlideListView.m */; };
 		20A753F116E4D19500BC4692 /* RecommendSlideView.m in Sources */ = {isa = PBXBuildFile; fileRef = 20A753EF16E4D19500BC4692 /* RecommendSlideView.m */; };
 		20A753F416E4D6AC00BC4692 /* SlideHistoryViewParts.m in Sources */ = {isa = PBXBuildFile; fileRef = 20A753F316E4D6AC00BC4692 /* SlideHistoryViewParts.m */; };
+		20B00AC916FB50B700423441 /* UIViewController+UIViewControllerForIOS6.m in Sources */ = {isa = PBXBuildFile; fileRef = 20B00AC816FB50B700423441 /* UIViewController+UIViewControllerForIOS6.m */; };
+		20B00ACC16FB51AC00423441 /* UINavigationController+Rotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 20B00ACB16FB51AC00423441 /* UINavigationController+Rotation.m */; };
 		20B82EEC16E3450600DDBE12 /* RecommendAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 20B82EEB16E3450600DDBE12 /* RecommendAPI.m */; };
 		20B82EEF16E37A0F00DDBE12 /* RecommendTagListView.m in Sources */ = {isa = PBXBuildFile; fileRef = 20B82EEE16E37A0F00DDBE12 /* RecommendTagListView.m */; };
 		20B91D0316EBA92400CF56B3 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 20B91D0216EBA92300CF56B3 /* MessageUI.framework */; };
@@ -209,6 +211,10 @@
 		20A753EF16E4D19500BC4692 /* RecommendSlideView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecommendSlideView.m; sourceTree = "<group>"; };
 		20A753F216E4D6AC00BC4692 /* SlideHistoryViewParts.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SlideHistoryViewParts.h; sourceTree = "<group>"; };
 		20A753F316E4D6AC00BC4692 /* SlideHistoryViewParts.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SlideHistoryViewParts.m; sourceTree = "<group>"; };
+		20B00AC716FB50B700423441 /* UIViewController+UIViewControllerForIOS6.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+UIViewControllerForIOS6.h"; sourceTree = "<group>"; };
+		20B00AC816FB50B700423441 /* UIViewController+UIViewControllerForIOS6.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+UIViewControllerForIOS6.m"; sourceTree = "<group>"; };
+		20B00ACA16FB51AC00423441 /* UINavigationController+Rotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationController+Rotation.h"; sourceTree = "<group>"; };
+		20B00ACB16FB51AC00423441 /* UINavigationController+Rotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationController+Rotation.m"; sourceTree = "<group>"; };
 		20B82EEA16E3450600DDBE12 /* RecommendAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecommendAPI.h; sourceTree = "<group>"; };
 		20B82EEB16E3450600DDBE12 /* RecommendAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecommendAPI.m; sourceTree = "<group>"; };
 		20B82EED16E37A0F00DDBE12 /* RecommendTagListView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecommendTagListView.h; sourceTree = "<group>"; };
@@ -655,6 +661,10 @@
 				20DDB2AE16EC0E9500BAC310 /* iRate */,
 				20BEA5FB16E890050005569D /* Crashlytics */,
 				20BEA5FA16E88FF30005569D /* GoogleAnalytics */,
+				20B00AC716FB50B700423441 /* UIViewController+UIViewControllerForIOS6.h */,
+				20B00AC816FB50B700423441 /* UIViewController+UIViewControllerForIOS6.m */,
+				20B00ACA16FB51AC00423441 /* UINavigationController+Rotation.h */,
+				20B00ACB16FB51AC00423441 /* UINavigationController+Rotation.m */,
 			);
 			name = Library;
 			sourceTree = "<group>";
@@ -833,6 +843,8 @@
 				20F4444116EE056700E43AD8 /* PocketAPILogin.m in Sources */,
 				20F4444216EE056700E43AD8 /* PocketAPIOperation.m in Sources */,
 				20F4444316EE056700E43AD8 /* SFHFKeychainUtils.m in Sources */,
+				20B00AC916FB50B700423441 /* UIViewController+UIViewControllerForIOS6.m in Sources */,
+				20B00ACC16FB51AC00423441 /* UINavigationController+Rotation.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

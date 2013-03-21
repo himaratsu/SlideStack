@@ -25,6 +25,11 @@
 "Search Result"  = "検索結果";
 "+ Create Tag"  = "+タグを追加";
 "Tag You Created" = "あなたが追加したタグ";
+"Programing"    = "プログラミング";
+"Library"       = "ライブラリ";
+"Development"   = "開発";
+"Server/Infrastructure" = "サーバ/インフラ";
+"Other"         = "その他";
 
 // SelectTagViewController
 "Select Tag"    = "タグを選ぶ";

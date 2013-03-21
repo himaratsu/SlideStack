@@ -10,6 +10,7 @@
 #import "SVProgressHUD.h"
 #import "Util.h"
 #import "PocketAPI.h"
+#import "IIViewDeckController.h"
 
 @interface WebViewController ()
 
@@ -31,6 +32,8 @@
     GA_TRACK_CLASS
     
     [super viewDidLoad];
+    
+    self.view.backgroundColor = [UIColor blackColor];
     
     NSString *title = self.title;
     
@@ -56,12 +59,11 @@
                                                                             action:@selector(openSavePocket)];
     self.navigationItem.rightBarButtonItem = pocket;
     
-    
-    self.webView = [[UIWebView alloc] initWithFrame:CGRectMake(0, 0, 320, 500)];
+    CGRect frame = [[UIScreen mainScreen] applicationFrame];
+    self.webView = [[UIWebView alloc] initWithFrame:CGRectMake(0, 0, 320, frame.size.height-44)];
     self.webView.delegate = self;
     [self.view addSubview:_webView];
-    
-    
+
     if ([Util isAvailableNetwork]) {
         [_webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:_loadUrl]]];
     }
@@ -74,6 +76,11 @@
                                               otherButtonTitles:@"OK", nil];
         [alert show];
     }
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
@@ -170,4 +177,39 @@
     }];
 }
 
+// 回転対応
+- (NSUInteger)supportedInterfaceOrientations
+{
+    // WebViewでは回転を許可
+    return UIInterfaceOrientationMaskAll;
+}
+
+- (BOOL)shouldAutorotate
+{    
+    return YES;
+}
+
+- (void)willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration {
+
+    if (toInterfaceOrientation == UIDeviceOrientationPortrait
+        || toInterfaceOrientation == UIDeviceOrientationPortraitUpsideDown) {
+        LOG (@"タテ回転〜！");
+        [[UIApplication sharedApplication] setStatusBarHidden:NO withAnimation:YES];
+        [self.navigationController setNavigationBarHidden:NO animated:YES];
+        CGRect frame = [[UIScreen mainScreen] applicationFrame];
+        _webView.frame = CGRectMake(0, 0, 320, frame.size.height - 64);
+        _webView.scrollView.scrollEnabled = YES;
+        [self.viewDeckController setEnabled:YES];
+    }
+    else {
+        LOG (@"ヨコ回転〜！");
+        [[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:YES];
+        [self.navigationController setNavigationBarHidden:YES animated:YES];
+        CGRect frame = [[UIScreen mainScreen] applicationFrame];
+        _webView.frame = CGRectMake(0, 0, frame.size.height, 320);
+        _webView.scrollView.scrollEnabled = NO;
+        [self.viewDeckController closeRightView];
+        [self.viewDeckController setEnabled:NO];
+    }
+}
 @end

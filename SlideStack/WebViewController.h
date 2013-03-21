@@ -8,7 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
-@interface WebViewController : UIViewController <UIWebViewDelegate, UIActionSheetDelegate>
+#define ORIENTATION [[UIDevice currentDevice] orientation]
+
+@interface WebViewController : UIViewController <UIWebViewDelegate, UIActionSheetDelegate> {
+    BOOL isLoading;
+}
 
 @property (nonatomic, strong) UIWebView *webView;
 @property (nonatomic, strong) NSString  *loadUrl;
