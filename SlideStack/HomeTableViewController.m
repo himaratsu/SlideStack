@@ -65,19 +65,24 @@
 }
 
 - (void)reload {
-    if ([Util isAvailableNetwork]) {
-        [SVProgressHUD showWithStatus:NSLocalizedString(@"Loading", nil)];
-        RecommendAPI *api = [[RecommendAPI alloc] initWithDelegate:self];
-        [api send];
-    }
-    else {
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"NetworkError", @"通信エラー")
-                                                        message:NSLocalizedString(@"NetworkErrorNotice", @"ネットワーク環境を確認して下さい")
-                                                       delegate:self
-                                              cancelButtonTitle:nil
-                                              otherButtonTitles:@"OK", nil];
-        [alert show];
-    }
+    
+    isLoaded = YES;
+    self.recommendTags = @[@"Swift", @"Go", @"Arduino", @"Docker", @"AWS", @"Design"].mutableCopy;
+    [self reloadData];
+    
+//    if ([Util isAvailableNetwork]) {
+//        [SVProgressHUD showWithStatus:NSLocalizedString(@"Loading", nil)];
+//        RecommendAPI *api = [[RecommendAPI alloc] initWithDelegate:self];
+//        [api send];
+//    }
+//    else {
+//        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"NetworkError", @"通信エラー")
+//                                                        message:NSLocalizedString(@"NetworkErrorNotice", @"ネットワーク環境を確認して下さい")
+//                                                       delegate:self
+//                                              cancelButtonTitle:nil
+//                                              otherButtonTitles:@"OK", nil];
+//        [alert show];
+//    }
 }
 
 - (void)reloadData {
@@ -92,7 +97,7 @@
 
 - (RecommendTagListView *)tagListView {
     if (_tagListView == nil) {
-        _tagListView = [[RecommendTagListView alloc] initWithFrame:CGRectMake(0, 0, 320, 90)];
+        _tagListView = [[RecommendTagListView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 90)];
         _tagListView.delegate = self;
     }
     _tagListView.tagList = _recommendTags;
@@ -101,14 +106,14 @@
 
 - (RecommendSlideListView *)slideListView {
     if (_slideListView == nil) {
-        _slideListView = [[RecommendSlideListView alloc] initWithFrame:CGRectMake(0, 10, 320, 250) delegate:self];
+        _slideListView = [[RecommendSlideListView alloc] initWithFrame:CGRectMake(0, 10, self.view.frame.size.width, 250) delegate:self];
     }
     return _slideListView;
 }
 
 - (SlideHistoryView *)histView {
     if (_histView == nil) {
-        _histView = [[SlideHistoryView alloc] initWithFrame:CGRectMake(0, 10, 320, 80)];
+        _histView = [[SlideHistoryView alloc] initWithFrame:CGRectMake(0, 10, self.view.frame.size.width, 80)];
         _histView.delegate = self;
     }
     return _histView;
@@ -119,7 +124,7 @@
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     if (isLoaded) {
-        return 3;
+        return 2;
     } else {
         return 0;
     }
@@ -134,9 +139,9 @@
     switch (section) {
         case 0:
             return NSLocalizedString(@"Featured Tag", @"おすすめのタグ");
+//        case 1:
+//            return NSLocalizedString(@"Featured Slide", @"おすすめのスライド");
         case 1:
-            return NSLocalizedString(@"Featured Slide", @"おすすめのスライド");
-        case 2:
             return NSLocalizedString(@"History", @"閲覧履歴");
         default:
             break;
@@ -148,9 +153,9 @@
     switch (indexPath.section) {
         case 0:
             return [self.tagListView heightForTagList] + 10;
+//        case 1:
+//            return 230;
         case 1:
-            return 230;
-        case 2:
             return 100;
         default:
             break;
@@ -168,10 +173,10 @@
         if (indexPath.section == 0) {
             [cell.contentView addSubview:self.tagListView];
         }
+//        else if (indexPath.section == 1) {
+//            [cell.contentView addSubview:self.slideListView];
+//        }
         else if (indexPath.section == 1) {
-            [cell.contentView addSubview:self.slideListView];
-        }
-        else if (indexPath.section == 2) {
             [cell.contentView addSubview:self.histView];
         }
     }
@@ -179,9 +184,9 @@
     switch (indexPath.section) {
         case 0:
             break;
-        case 1:
-            [_slideListView startLoadingImages];
-            break;
+//        case 1:
+//            [_slideListView startLoadingImages];
+//            break;
         case 2:
 //            [_histView reload];
             break;
@@ -197,15 +202,15 @@
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
-    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 40)];
+    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 40)];
     view.backgroundColor = [UIColor clearColor];
     view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"home_header.png"]];
     
     UIImage *iconImage;
     if (section == 0) {
         iconImage = [UIImage imageNamed:@"tag_black.png"];
-    } else if (section == 1) {
-        iconImage = [UIImage imageNamed:@"slide.png"];
+//    } else if (section == 1) {
+//        iconImage = [UIImage imageNamed:@"slide.png"];
     } else {
         iconImage = [UIImage imageNamed:@"view_black.png"];
     }

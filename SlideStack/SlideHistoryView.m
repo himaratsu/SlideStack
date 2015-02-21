@@ -16,11 +16,11 @@
 - (id)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
     if (self) {
-        self.scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, 320, 85)];
+        self.scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, self.frame.size.width, 85)];
         _scrollView.showsHorizontalScrollIndicator = NO;
         [self addSubview:_scrollView];
         
-        self.zeroMatchLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 25, 320, 20)];
+        self.zeroMatchLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 25, self.frame.size.width, 20)];
         _zeroMatchLabel.text = NSLocalizedString(@"No History", @"閲覧履歴はまだありません");
         _zeroMatchLabel.backgroundColor = [UIColor clearColor];
         _zeroMatchLabel.textColor = [UIColor grayColor];

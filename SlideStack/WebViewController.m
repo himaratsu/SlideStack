@@ -59,7 +59,7 @@
                                                                             action:@selector(openSavePocket)];
     self.navigationItem.rightBarButtonItem = pocket;
     
-    // 戻るボタンl
+    // 戻るボタン
     self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
 
 

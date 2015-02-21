@@ -20,7 +20,7 @@
         
         // サイズを計算
         CGSize size = [_displayTagName sizeWithFont:TAG_DEFAULT_FONT
-                          constrainedToSize:CGSizeMake(320, CGFLOAT_MAX)];
+                          constrainedToSize:CGSizeMake(self.frame.size.width, CGFLOAT_MAX)];
         self.frame = CGRectMake(0, 0, size.width+10, size.height+6);
         
         // タグの背景色

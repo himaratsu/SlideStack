@@ -62,6 +62,8 @@
     self.tableView.tableHeaderView = brankView;
     
     // ナビゲーションバーの設定
+    // 戻るボタン
+    self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
 
     // 背景画像
     UIImage *image = [UIImage imageNamed:@"nav_bg.png"];

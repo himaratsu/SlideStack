@@ -41,7 +41,7 @@
         frame.origin.x += x;
         
         // 画面内に収まらない場合は改行
-        if (frame.origin.x + frame.size.width > 320-MARGIN_LEFT_RIGHT) {
+        if (frame.origin.x + frame.size.width > self.frame.size.width-MARGIN_LEFT_RIGHT) {
             frame.origin.x = x = MARGIN_LEFT_RIGHT;
             y += 40;
         }
