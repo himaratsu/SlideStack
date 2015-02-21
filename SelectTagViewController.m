@@ -168,6 +168,8 @@
     cell.textLabel.backgroundColor = [UIColor clearColor];
     cell.selectionStyle = UITableViewCellSelectionStyleGray;
     
+    cell.backgroundColor = DEFAULT_TAG_LIST_BGCOLOR;
+    
     return cell;
 }
 

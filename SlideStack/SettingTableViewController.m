@@ -94,7 +94,7 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 75;
+    return 60;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -133,6 +133,7 @@
         switch (indexPath.row) {
             case 0:
                 cell.textLabel.text = NSLocalizedString(@"Email to Support", @"お問い合わせ");
+                cell.textLabel.font = [UIFont systemFontOfSize:14.0];
             default:
                 break;
         }
