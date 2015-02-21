@@ -52,6 +52,15 @@
 //    [[GAI sharedInstance] trackerWithTrackingId:@"UA-39064682-1"];
     
     
+    [[UINavigationBar appearance] setTitleTextAttributes:
+     [NSDictionary dictionaryWithObjectsAndKeys:
+      [UIColor colorWithRed:255.0/255.0 green:255.0/255.0 blue:255.0/255.0 alpha:1.0],
+      UITextAttributeTextColor,
+      [UIFont fontWithName:@"Arial-Bold" size:0.0],
+      UITextAttributeFont,
+      nil]];
+
+    
     // *** Crashlyticsの設定 ***
 //    [Crashlytics startWithAPIKey:@"74dc746a2d9a2b2651749c6880c73afd97bb079a"];
     

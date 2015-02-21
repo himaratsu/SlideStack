@@ -45,6 +45,7 @@
     
     self.navigationController.navigationBar.tintColor = [UIColor blackColor];
     
+    
     self.tableView.backgroundView = nil;
     self.tableView.backgroundColor = DEFAULT_SETTING_BGCOLOR;
 }
@@ -92,6 +93,10 @@
     return @"";
 }
 
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return 75;
+}
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *CellIdentifier = nil;
@@ -133,6 +138,8 @@
         }
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     }
+    
+    cell.backgroundColor = [UIColor colorWithRed:235/255.0 green:235/255.0 blue:235/255.0 alpha:1];
     
     return cell;
 }
