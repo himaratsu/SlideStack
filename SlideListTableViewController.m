@@ -47,8 +47,9 @@
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     
     // ソートコントローラを追加
-    _sortControlView = [[ControlSortView alloc] initWithFrame:CGRectMake(0, 0, 320, 40)];
+    _sortControlView = [[ControlSortView alloc] init];
     _sortControlView.delegate = self;
+    _sortControlView.backgroundColor = [UIColor grayColor];
     [_sortControlView highlightTagButton: [[TagManager sharedInstance] isAlreadyChecked:_searchWord]];
     [self.view addSubview:_sortControlView];
     [_sortControlView selectSort:_sortType];
@@ -91,7 +92,15 @@
     
     self.tableView.scrollsToTop = YES;
     
+    [self registerNibFiles];
+    
     [self reset];
+}
+
+- (void)registerNibFiles {
+    [self.tableView registerNib:[UINib nibWithNibName:@"SlideTableViewCell"
+                                              bundle:[NSBundle mainBundle]]
+         forCellReuseIdentifier:@"SlideTableViewCell"];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -101,6 +110,14 @@
 - (void)viewWillDisappear:(BOOL)animated {
     [SVProgressHUD dismiss];
     [super viewWillDisappear:animated];
+}
+
+- (void)viewDidLayoutSubviews {
+    [super viewDidLayoutSubviews];
+    
+    _sortControlView.frame = CGRectMake((self.view.frame.size.width - 320) / 2, 0, 320, 40);
+    
+    [self.view layoutSubviews];
 }
 
 - (void)reset {
@@ -223,10 +240,7 @@
     }
     
     // スライドセル
-    SlideTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    if (cell == nil) {
-        cell = [[SlideTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
-    }
+    SlideTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"SlideTableViewCell"];
     
     if (indexPath.section == 0) {
         SlideShowObject *slide = [_slideArray objectAtIndex:indexPath.row];
@@ -297,7 +311,7 @@
     if (_isScrollTopAfterLoad) {
         [self.tableView scrollRectToVisible:CGRectMake(0, 0, 320, 1) animated:NO];
         _isScrollTopAfterLoad = NO;
-        _sortControlView.frame = CGRectMake(0, 0, 320, 40);
+//        _sortControlView.frame = CGRectMake(0, 0, 320, 40);
     }
 
     // まだ読み込む結果があるかチェック

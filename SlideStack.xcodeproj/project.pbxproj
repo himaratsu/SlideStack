@@ -25,6 +25,7 @@
 		20415CED1A98EA750024728F /* libGoogleAnalytics.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 20415CEB1A98EA630024728F /* libGoogleAnalytics.a */; };
 		20415CEF1A98F9860024728F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 20415CEE1A98F9860024728F /* Images.xcassets */; };
 		20415CF11A9900D80024728F /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 20415CF01A9900D80024728F /* LaunchScreen.xib */; };
+		20415CF51A99065B0024728F /* SlideTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 20415CF41A99065B0024728F /* SlideTableViewCell.xib */; };
 		20461D0616D9F6BD00BAA4AA /* TagManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 20461D0516D9F6BD00BAA4AA /* TagManager.m */; };
 		20461D0916D9F91F00BAA4AA /* TagWithCheckMarkObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 20461D0816D9F91F00BAA4AA /* TagWithCheckMarkObject.m */; };
 		20461D1216DA339A00BAA4AA /* SettingTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 20461D1016DA339A00BAA4AA /* SettingTableViewController.m */; };
@@ -138,6 +139,7 @@
 		20415CEB1A98EA630024728F /* libGoogleAnalytics.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libGoogleAnalytics.a; sourceTree = "<group>"; };
 		20415CEE1A98F9860024728F /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = SlideStack/Images.xcassets; sourceTree = "<group>"; };
 		20415CF01A9900D80024728F /* LaunchScreen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LaunchScreen.xib; sourceTree = "<group>"; };
+		20415CF41A99065B0024728F /* SlideTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SlideTableViewCell.xib; sourceTree = "<group>"; };
 		20461D0416D9F6BD00BAA4AA /* TagManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TagManager.h; sourceTree = "<group>"; };
 		20461D0516D9F6BD00BAA4AA /* TagManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TagManager.m; sourceTree = "<group>"; };
 		20461D0716D9F91F00BAA4AA /* TagWithCheckMarkObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TagWithCheckMarkObject.h; sourceTree = "<group>"; };
@@ -373,6 +375,7 @@
 				20A753F316E4D6AC00BC4692 /* SlideHistoryViewParts.m */,
 				20461D2016DA41CE00BAA4AA /* SlideTableViewCell.h */,
 				20461D2116DA41CE00BAA4AA /* SlideTableViewCell.m */,
+				20415CF41A99065B0024728F /* SlideTableViewCell.xib */,
 				20461D2316DA423700BAA4AA /* CustomImageView.h */,
 				20461D2416DA423800BAA4AA /* CustomImageView.m */,
 				200BBF2216DA5709007C673F /* ControlSortView.h */,
@@ -749,6 +752,7 @@
 				20DC350016DE571A00FE0907 /* view_black.png in Resources */,
 				2031F9FF16DE9003003B0CDB /* SettingTargetViewController.xib in Resources */,
 				207DCA2116E33F950078B65B /* recommend.png in Resources */,
+				20415CF51A99065B0024728F /* SlideTableViewCell.xib in Resources */,
 				20C21F8A16E63EEF00FBFAE9 /* SettingDefaultSortViewController.xib in Resources */,
 				20C21F8C16E78C1800FBFAE9 /* setting_black.png in Resources */,
 				20FFEF2D16E7AC0E00219762 /* add.png in Resources */,

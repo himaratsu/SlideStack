@@ -11,12 +11,12 @@
 
 @interface SlideTableViewCell : UITableViewCell
 
-@property (nonatomic, strong) UILabel *titleLabel;
-@property (nonatomic, strong) CustomImageView *customImageView;
+@property (nonatomic, strong) IBOutlet UILabel *titleLabel;
+@property (nonatomic, strong) IBOutlet CustomImageView *customImageView;
 
-@property (nonatomic, strong) UILabel *numViewsLabel;
-@property (nonatomic, strong) UILabel *numFavoritesLabel;
-@property (nonatomic, strong) UILabel *numDownloadsLabel;
+@property (nonatomic, strong) IBOutlet UILabel *numViewsLabel;
+@property (nonatomic, strong) IBOutlet UILabel *numFavoritesLabel;
+@property (nonatomic, strong) IBOutlet UILabel *numDownloadsLabel;
 
 @property (nonatomic, assign) NSInteger numViews;
 @property (nonatomic, assign) NSInteger numFavorites;
