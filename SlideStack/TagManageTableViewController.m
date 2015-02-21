@@ -331,24 +331,35 @@
 
 - (void)createNewTag {
     UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Tag Name", @"作成するタグ名")
-                                                        message:@" "
+                                                        message:nil
                                                        delegate:self
                                               cancelButtonTitle:NSLocalizedString(@"Cancel", @"キャンセル")
                                               otherButtonTitles:@"OK", nil];
     alertView.tag = ALERT_VIEW_TAG_CREATE_NEW_TAG;
-    self.textFieldNewTagName = [[UITextField alloc] initWithFrame:CGRectMake(12.0, 45.0, 260.0, 25.0)];
-    [_textFieldNewTagName setBackgroundColor:[UIColor whiteColor]];
-    [alertView addSubview:_textFieldNewTagName];
+    [alertView setAlertViewStyle:UIAlertViewStylePlainTextInput];
     [alertView show];
 }
 
 #pragma mark - UIAlertViewDelegate
 
+- (BOOL)alertViewShouldEnableFirstOtherButton:(UIAlertView *)alertView {
+    NSString *inputText = [[alertView textFieldAtIndex:0] text];
+    if ([inputText length] >= 1) {
+        return YES;
+    }
+    else {
+        return NO;
+    }
+}
+
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
     if (alertView.tag == ALERT_VIEW_TAG_CREATE_NEW_TAG
         && buttonIndex == 1) {
+        
+        NSString *inputTitle = [[alertView textFieldAtIndex:0] text];
+
         // タグを新規作成
-        BOOL success = [[TagManager sharedInstance] addOriginalTag:_textFieldNewTagName.text];
+        BOOL success = [[TagManager sharedInstance] addOriginalTag:inputTitle];
         if (success){
             if (success == NO) {
                 // タグの追加に失敗

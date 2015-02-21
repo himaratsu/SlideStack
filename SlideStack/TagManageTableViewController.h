@@ -15,7 +15,6 @@
 
 @property (nonatomic, strong) NSMutableArray *tags;
 @property (nonatomic, strong) NSMutableArray *filteredTags;
-@property (nonatomic, strong) UITextField *textFieldNewTagName;
 
 @property (weak, nonatomic) IBOutlet UISearchBar *mySearchBar;
 @property (strong, nonatomic) IBOutlet UISearchDisplayController *mySearchDisplayController;
