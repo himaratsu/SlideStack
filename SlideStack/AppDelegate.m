@@ -11,8 +11,8 @@
 #import "SlideListTableViewController.h"
 #import "SelectTagViewController.h"
 #import "HomeTableViewController.h"
-#import "GAI.h"
-#import <Crashlytics/Crashlytics.h>
+//#import "GAI.h"
+//#import <Crashlytics/Crashlytics.h>
 #import "iRate.h"
 #import "PocketAPI.h"
 
@@ -36,24 +36,24 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // *** Google Analyticsの設定 ***
-    // Exceptionのトラッキングはしない
-    [GAI sharedInstance].trackUncaughtExceptions = YES;
-    
-    // トラッキング間隔は10秒
-    [GAI sharedInstance].dispatchInterval = 10;
-    
-    // デバック出力はしない
-    [GAI sharedInstance].debug = NO;
-    
-    // 通信にはHTTPSを使用する
-    [[GAI sharedInstance].defaultTracker setUseHttps:YES];
-    
-    // トラッキングIDを設定
-    [[GAI sharedInstance] trackerWithTrackingId:@"UA-39064682-1"];
+//    // Exceptionのトラッキングはしない
+//    [GAI sharedInstance].trackUncaughtExceptions = YES;
+//    
+//    // トラッキング間隔は10秒
+//    [GAI sharedInstance].dispatchInterval = 10;
+//    
+//    // デバック出力はしない
+//    [GAI sharedInstance].debug = NO;
+//    
+//    // 通信にはHTTPSを使用する
+//    [[GAI sharedInstance].defaultTracker setUseHttps:YES];
+//    
+//    // トラッキングIDを設定
+//    [[GAI sharedInstance] trackerWithTrackingId:@"UA-39064682-1"];
     
     
     // *** Crashlyticsの設定 ***
-    [Crashlytics startWithAPIKey:@"74dc746a2d9a2b2651749c6880c73afd97bb079a"];
+//    [Crashlytics startWithAPIKey:@"74dc746a2d9a2b2651749c6880c73afd97bb079a"];
     
     
     // *** PocketAPIの設定 ***

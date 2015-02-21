@@ -10,6 +10,8 @@
 
 @implementation SlideShowObject
 
+@synthesize description = _description;
+
 - (id)initWithCoder:(NSCoder *)aDecoder {
     self = [super init];
     if (self) {

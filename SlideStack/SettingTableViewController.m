@@ -13,6 +13,8 @@
 #import "SettingDefaultSortViewController.h"
 #import "IIViewDeckController.h"
 
+#import <sys/sysctl.h>
+
 @interface SettingTableViewController ()
 
 @end

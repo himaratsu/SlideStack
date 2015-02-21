@@ -22,6 +22,7 @@
 		2031F9FE16DE9003003B0CDB /* SettingTargetViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2031F9FC16DE9003003B0CDB /* SettingTargetViewController.m */; };
 		2031F9FF16DE9003003B0CDB /* SettingTargetViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2031F9FD16DE9003003B0CDB /* SettingTargetViewController.xib */; };
 		2033616B16DAA29F009E898F /* tag_black.png in Resources */ = {isa = PBXBuildFile; fileRef = 2033616A16DAA29F009E898F /* tag_black.png */; };
+		20415CED1A98EA750024728F /* libGoogleAnalytics.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 20415CEB1A98EA630024728F /* libGoogleAnalytics.a */; };
 		20461D0616D9F6BD00BAA4AA /* TagManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 20461D0516D9F6BD00BAA4AA /* TagManager.m */; };
 		20461D0916D9F91F00BAA4AA /* TagWithCheckMarkObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 20461D0816D9F91F00BAA4AA /* TagWithCheckMarkObject.m */; };
 		20461D1216DA339A00BAA4AA /* SettingTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 20461D1016DA339A00BAA4AA /* SettingTableViewController.m */; };
@@ -79,7 +80,6 @@
 		20BE82BF16EC20560021FE9B /* slide.png in Resources */ = {isa = PBXBuildFile; fileRef = 20BE82BE16EC20560021FE9B /* slide.png */; };
 		20BE82C816EC24B90021FE9B /* home_header.png in Resources */ = {isa = PBXBuildFile; fileRef = 20BE82C616EC24B90021FE9B /* home_header.png */; };
 		20BE82C916EC24B90021FE9B /* home_header@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 20BE82C716EC24B90021FE9B /* home_header@2x.png */; };
-		20BEA5F916E811F00005569D /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 20BEA5F816E811F00005569D /* Crashlytics.framework */; };
 		20BEA60416E8E02C0005569D /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 20BEA60616E8E02C0005569D /* Localizable.strings */; };
 		20C12E6116EC6C3E00FF0089 /* tag_add_off@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 20C12E6016EC6C3D00FF0089 /* tag_add_off@2x.png */; };
 		20C12E6616EC736600FF0089 /* sort_button_latest_highlight@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 20C12E6416EC736600FF0089 /* sort_button_latest_highlight@2x.png */; };
@@ -113,7 +113,6 @@
 		20F4444316EE056700E43AD8 /* SFHFKeychainUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 20F4443F16EE056700E43AD8 /* SFHFKeychainUtils.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		20F4444516EE05AA00E43AD8 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 20F4444416EE05AA00E43AD8 /* Security.framework */; };
 		20FFEF2D16E7AC0E00219762 /* add.png in Resources */ = {isa = PBXBuildFile; fileRef = 20FFEF2C16E7AC0E00219762 /* add.png */; };
-		20FFEF3516E7AF9600219762 /* libGoogleAnalytics.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 20FFEF3416E7AF9600219762 /* libGoogleAnalytics.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -134,6 +133,7 @@
 		2031F9FC16DE9003003B0CDB /* SettingTargetViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingTargetViewController.m; sourceTree = "<group>"; };
 		2031F9FD16DE9003003B0CDB /* SettingTargetViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SettingTargetViewController.xib; sourceTree = "<group>"; };
 		2033616A16DAA29F009E898F /* tag_black.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tag_black.png; sourceTree = "<group>"; };
+		20415CEB1A98EA630024728F /* libGoogleAnalytics.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libGoogleAnalytics.a; sourceTree = "<group>"; };
 		20461D0416D9F6BD00BAA4AA /* TagManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TagManager.h; sourceTree = "<group>"; };
 		20461D0516D9F6BD00BAA4AA /* TagManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TagManager.m; sourceTree = "<group>"; };
 		20461D0716D9F91F00BAA4AA /* TagWithCheckMarkObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TagWithCheckMarkObject.h; sourceTree = "<group>"; };
@@ -278,7 +278,6 @@
 		20FFEF3116E7AF9600219762 /* GAITracker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAITracker.h; sourceTree = "<group>"; };
 		20FFEF3216E7AF9600219762 /* GAITransaction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAITransaction.h; sourceTree = "<group>"; };
 		20FFEF3316E7AF9600219762 /* GAITransactionItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAITransactionItem.h; sourceTree = "<group>"; };
-		20FFEF3416E7AF9600219762 /* libGoogleAnalytics.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libGoogleAnalytics.a; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -293,9 +292,8 @@
 				2099164B16D9BC43008335F5 /* QuartzCore.framework in Frameworks */,
 				207343E916D7C6C5002EF8A7 /* UIKit.framework in Frameworks */,
 				207343EB16D7C6C5002EF8A7 /* Foundation.framework in Frameworks */,
+				20415CED1A98EA750024728F /* libGoogleAnalytics.a in Frameworks */,
 				207343ED16D7C6C5002EF8A7 /* CoreGraphics.framework in Frameworks */,
-				20FFEF3516E7AF9600219762 /* libGoogleAnalytics.a in Frameworks */,
-				20BEA5F916E811F00005569D /* Crashlytics.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -530,8 +528,8 @@
 				20FFEF3016E7AF9600219762 /* GAITrackedViewController.h */,
 				20FFEF3116E7AF9600219762 /* GAITracker.h */,
 				20FFEF3216E7AF9600219762 /* GAITransaction.h */,
+				20415CEB1A98EA630024728F /* libGoogleAnalytics.a */,
 				20FFEF3316E7AF9600219762 /* GAITransactionItem.h */,
-				20FFEF3416E7AF9600219762 /* libGoogleAnalytics.a */,
 			);
 			name = GoogleAnalytics;
 			sourceTree = "<group>";
@@ -791,7 +789,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "./Crashlytics.framework/run 74dc746a2d9a2b2651749c6880c73afd97bb079a";
+			shellScript = "";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -933,6 +931,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/SlideStack\"",
+					"$(PROJECT_DIR)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "SlideStack/SlideStack-Prefix.pch";
@@ -941,6 +940,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/SlideStack\"",
+					"$(PROJECT_DIR)/SlideStack",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "6EE0F68A-B4D7-4FC3-B8CB-8EC755689BD2";
@@ -957,6 +957,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/SlideStack\"",
+					"$(PROJECT_DIR)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "SlideStack/SlideStack-Prefix.pch";
@@ -965,6 +966,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/SlideStack\"",
+					"$(PROJECT_DIR)/SlideStack",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "6EE0F68A-B4D7-4FC3-B8CB-8EC755689BD2";
