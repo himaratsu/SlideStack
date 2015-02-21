@@ -14,7 +14,7 @@
     BOOL isLoading;
 }
 
-@property (nonatomic, strong) UIWebView *webView;
+@property (nonatomic, strong) IBOutlet UIWebView *webView;
 @property (nonatomic, strong) NSString  *loadUrl;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil loadUrl:(NSString*)loadUrl;

@@ -59,6 +59,8 @@
       [UIFont fontWithName:@"Arial-Bold" size:0.0],
       UITextAttributeFont,
       nil]];
+    
+    [[UIBarButtonItem appearance] setTintColor:[UIColor whiteColor]];
 
     
     // *** Crashlyticsの設定 ***

@@ -59,10 +59,10 @@
                                                                             action:@selector(openSavePocket)];
     self.navigationItem.rightBarButtonItem = pocket;
     
-    CGRect frame = [[UIScreen mainScreen] applicationFrame];
-    self.webView = [[UIWebView alloc] initWithFrame:CGRectMake(0, 0, 320, frame.size.height-44)];
-    self.webView.delegate = self;
-    [self.view addSubview:_webView];
+    // 戻るボタンl
+    self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
+
+
 
     if ([Util isAvailableNetwork]) {
         [_webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:_loadUrl]]];
@@ -196,8 +196,6 @@
         LOG (@"タテ回転〜！");
         [[UIApplication sharedApplication] setStatusBarHidden:NO withAnimation:YES];
         [self.navigationController setNavigationBarHidden:NO animated:YES];
-        CGRect frame = [[UIScreen mainScreen] applicationFrame];
-        _webView.frame = CGRectMake(0, 0, 320, frame.size.height - 64);
         _webView.scrollView.scrollEnabled = YES;
         [self.viewDeckController setEnabled:YES];
     }
@@ -205,8 +203,6 @@
         LOG (@"ヨコ回転〜！");
         [[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:YES];
         [self.navigationController setNavigationBarHidden:YES animated:YES];
-        CGRect frame = [[UIScreen mainScreen] applicationFrame];
-        _webView.frame = CGRectMake(0, 0, frame.size.height, 320);
         _webView.scrollView.scrollEnabled = NO;
         [self.viewDeckController closeRightView];
         [self.viewDeckController setEnabled:NO];
