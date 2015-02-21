@@ -161,6 +161,8 @@
 
 // ポケットに送る
 - (void)sendUrlToPocket {
+    [SVProgressHUD dismiss];
+    
     NSURL *url = [NSURL URLWithString:_loadUrl];
     [[PocketAPI sharedAPI] saveURL:url handler: ^(PocketAPI *API, NSURL *URL,
                                                   NSError *error){
