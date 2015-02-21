@@ -17,6 +17,7 @@
     self = [super initWithFrame:frame];
     if (self) {
 //        self.backgroundColor = DEFAULT_SORT_CONTROL_BGCOLOR_ALPHA;
+        self.backgroundColor = [UIColor blackColor];
 
         UIImage *latestImage = [UIImage imageNamed:@"sort_button_latest.png"];
         UIImage *latestImageHigh = [UIImage imageNamed:@"sort_button_latest_highlight.png"];

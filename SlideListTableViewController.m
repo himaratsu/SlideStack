@@ -47,27 +47,18 @@
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     
     // ソートコントローラを追加
+    
     _sortControlView = [[ControlSortView alloc] init];
     _sortControlView.delegate = self;
-    _sortControlView.backgroundColor = [UIColor grayColor];
     [_sortControlView highlightTagButton: [[TagManager sharedInstance] isAlreadyChecked:_searchWord]];
     [self.view addSubview:_sortControlView];
     [_sortControlView selectSort:_sortType];
     
     // 同じサイズだけ上部に空間を空ける
-    UIView *brankView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 42)];
-    brankView.backgroundColor = [UIColor clearColor];
-    // ズルイ線（黒背景用）
-    UIView *borderUpper = [[UIView alloc] initWithFrame:CGRectMake(0, brankView.frame.size.height-2, 320, 1)];
-    borderUpper.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.1];
-    borderUpper.layer.shadowOpacity = 0.1;
-    borderUpper.layer.shadowColor = [UIColor colorWithRed:1 green:1 blue:1 alpha:0.1].CGColor;
-    borderUpper.layer.shadowOffset = CGSizeMake(320, 1);
-    [brankView addSubview:borderUpper];
+    UIView *brankView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 40)];
+//    brankView.backgroundColor = [UIColor colorWithRed:32/255.0 green:32/255.0 blue:32/255.0 alpha:1.0];
+    brankView.backgroundColor = [UIColor grayColor];
     
-    UIView *borderBottom = [[UIView alloc] initWithFrame:CGRectMake(0, brankView.frame.size.height-1, 320, 1)];
-    borderBottom.backgroundColor = [UIColor colorWithRed:1 green:1 blue:1 alpha:1];
-    [brankView addSubview:borderBottom];
     self.tableView.tableHeaderView = brankView;
     
     // ナビゲーションバーの設定
@@ -311,7 +302,6 @@
     if (_isScrollTopAfterLoad) {
         [self.tableView scrollRectToVisible:CGRectMake(0, 0, 320, 1) animated:NO];
         _isScrollTopAfterLoad = NO;
-//        _sortControlView.frame = CGRectMake(0, 0, 320, 40);
     }
 
     // まだ読み込む結果があるかチェック
