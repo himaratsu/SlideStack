@@ -15,6 +15,7 @@
 }
 
 @property (nonatomic, strong) IBOutlet UIWebView *webView;
+@property (nonatomic, strong) NSString *slideId;
 @property (nonatomic, strong) NSString  *loadUrl;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil loadUrl:(NSString*)loadUrl;

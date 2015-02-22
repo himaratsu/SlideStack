@@ -273,6 +273,7 @@
 {
     WebViewController *webVC = [[WebViewController alloc] initWithNibName:@"WebViewController" bundle:nil];
     SlideShowObject *d = [_slideArray objectAtIndex:indexPath.row];
+    webVC.slideId = d.slideId;
     webVC.title = d.title;
     webVC.loadUrl = d.url;
     [self.navigationController pushViewController:webVC animated:YES];

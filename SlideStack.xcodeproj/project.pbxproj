@@ -705,6 +705,11 @@
 			attributes = {
 				LastUpgradeCheck = 0460;
 				ORGANIZATIONNAME = mashroom;
+				TargetAttributes = {
+					207343E416D7C6C5002EF8A7 = {
+						DevelopmentTeam = Y6LHTNYSDM;
+					};
+				};
 			};
 			buildConfigurationList = 207343E016D7C6C5002EF8A7 /* Build configuration list for PBXProject "SlideStack" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -885,8 +890,8 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: RYOSUKE HIRAMATSU";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: RYOSUKE HIRAMATSU";
+				CODE_SIGN_IDENTITY = "iPhone Developer: RYOSUKE HIRAMATSU (CX83Y44847)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: RYOSUKE HIRAMATSU (CX83Y44847)";
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -901,8 +906,8 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				ONLY_ACTIVE_ARCH = YES;
-				PROVISIONING_PROFILE = "6EE0F68A-B4D7-4FC3-B8CB-8EC755689BD2";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "6EE0F68A-B4D7-4FC3-B8CB-8EC755689BD2";
+				PROVISIONING_PROFILE = "0ddceccf-382c-4d9c-ba09-610aae4fe7db";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "0ddceccf-382c-4d9c-ba09-610aae4fe7db";
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -940,8 +945,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: RYOSUKE HIRAMATSU";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: RYOSUKE HIRAMATSU";
+				CODE_SIGN_IDENTITY = "iPhone Developer: RYOSUKE HIRAMATSU (CX83Y44847)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: RYOSUKE HIRAMATSU (CX83Y44847)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/SlideStack\"",
@@ -957,8 +962,8 @@
 					"$(PROJECT_DIR)/SlideStack",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "6EE0F68A-B4D7-4FC3-B8CB-8EC755689BD2";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "6EE0F68A-B4D7-4FC3-B8CB-8EC755689BD2";
+				PROVISIONING_PROFILE = "0ddceccf-382c-4d9c-ba09-610aae4fe7db";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "0ddceccf-382c-4d9c-ba09-610aae4fe7db";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -968,8 +973,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: RYOSUKE HIRAMATSU";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: RYOSUKE HIRAMATSU";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/SlideStack\"",
@@ -985,7 +990,7 @@
 					"$(PROJECT_DIR)/SlideStack",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "6EE0F68A-B4D7-4FC3-B8CB-8EC755689BD2";
+				PROVISIONING_PROFILE = "";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "6EE0F68A-B4D7-4FC3-B8CB-8EC755689BD2";
 				WRAPPER_EXTENSION = app;
 			};

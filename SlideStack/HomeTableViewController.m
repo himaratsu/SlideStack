@@ -255,6 +255,7 @@
 - (void)didTapRecommendSlide:(SlideShowObject *)slide {
     GA_TRACK_METHOD_WITH_LABEL(slide.title);
     WebViewController *webVC = [[WebViewController alloc] initWithNibName:@"WebViewController" bundle:nil];
+    webVC.slideId = slide.slideId;
     webVC.title = slide.title;
     webVC.loadUrl = slide.url;
     [self.navigationController pushViewController:webVC animated:YES];
@@ -267,6 +268,7 @@
 - (void)didTapSlideHistory:(SlideShowObject *)slide {
     GA_TRACK_METHOD_WITH_LABEL(slide.title);
     WebViewController *webVC = [[WebViewController alloc] initWithNibName:@"WebViewController" bundle:nil];
+    webVC.slideId = slide.slideId;
     webVC.title = slide.title;
     webVC.loadUrl = slide.url;
     [self.navigationController pushViewController:webVC animated:YES];

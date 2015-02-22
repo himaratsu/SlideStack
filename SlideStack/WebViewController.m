@@ -117,6 +117,7 @@
                                                     otherButtonTitles:NSLocalizedString(@"Copy URL", @"URLをコピー"),
                                                                       NSLocalizedString(@"Open in Safari", @"Safariで開く"),
                                                                       NSLocalizedString(@"Save to Pocket", @"Pocketに送る"),
+                                  NSLocalizedString(@"Open in SlideShare App", @"SlideShareアプリで開く"),
                                                                       nil
                                   ];
     [actionSheet showInView:self.view];
@@ -140,6 +141,23 @@
             [self sendUrlToPocket];
             break;
         case 3:
+        {
+            // Slideshareアプリで開く
+            NSString *url = [NSString stringWithFormat:@"slideshare-app://ss/%@", self.slideId];
+            
+            if ([[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:url]]) {
+                [[UIApplication sharedApplication] openURL:[NSURL URLWithString:url]];
+            }
+            else {
+                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@""
+                                                                message:@"Slideshareアプリがインストールされていません"
+                                                               delegate:nil
+                                                      cancelButtonTitle:nil
+                                                      otherButtonTitles:@"OK", nil];
+                [alert show];
+            }
+        }
+        case 4:
             // キャンセル
             break;
         default:
@@ -161,8 +179,6 @@
 
 // ポケットに送る
 - (void)sendUrlToPocket {
-    [SVProgressHUD dismiss];
-    
     NSURL *url = [NSURL URLWithString:_loadUrl];
     [[PocketAPI sharedAPI] saveURL:url handler: ^(PocketAPI *API, NSURL *URL,
                                                   NSError *error){
@@ -177,6 +193,16 @@
             [SVProgressHUD showSuccessWithStatus:@"Success Saved"];
         }
     }];
+}
+
+- (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType {
+    
+    // Slideshareアプリを開こうとするのをキャンセル
+    if ([request.URL.scheme isEqualToString:@"slideshare-app"]) {
+        return NO;
+    }
+    
+    return YES;
 }
 
 // 回転対応
