@@ -12,7 +12,7 @@
 #import "SelectTagViewController.h"
 #import "HomeTableViewController.h"
 //#import "GAI.h"
-//#import <Crashlytics/Crashlytics.h>
+#import <Crashlytics/Crashlytics.h>
 #import "iRate.h"
 #import "PocketAPI.h"
 #import "SVProgressHUD/SVProgressHUD.h"
@@ -56,16 +56,14 @@
     [[UINavigationBar appearance] setTitleTextAttributes:
      [NSDictionary dictionaryWithObjectsAndKeys:
       [UIColor colorWithRed:255.0/255.0 green:255.0/255.0 blue:255.0/255.0 alpha:1.0],
-      UITextAttributeTextColor,
-      [UIFont fontWithName:@"Arial-Bold" size:0.0],
-      UITextAttributeFont,
+      NSForegroundColorAttributeName,
       nil]];
     
     [[UIBarButtonItem appearance] setTintColor:[UIColor whiteColor]];
 
     
     // *** Crashlyticsの設定 ***
-//    [Crashlytics startWithAPIKey:@"74dc746a2d9a2b2651749c6880c73afd97bb079a"];
+    [Crashlytics startWithAPIKey:@"74dc746a2d9a2b2651749c6880c73afd97bb079a"];
     
     
     // *** PocketAPIの設定 ***

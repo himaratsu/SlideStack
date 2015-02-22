@@ -19,6 +19,7 @@
 		2020704316EBC61B00FDA116 /* nav_bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2020704116EBC61B00FDA116 /* nav_bg@2x.png */; };
 		2020ECA016E7B10B00272C11 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2020EC9F16E7B10B00272C11 /* CoreData.framework */; };
 		2020ECA216E7B11300272C11 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2020ECA116E7B11200272C11 /* SystemConfiguration.framework */; };
+		202FBC461A99A57F0068F3E1 /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 202FBC451A99A57F0068F3E1 /* Crashlytics.framework */; };
 		2031F9FE16DE9003003B0CDB /* SettingTargetViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2031F9FC16DE9003003B0CDB /* SettingTargetViewController.m */; };
 		2031F9FF16DE9003003B0CDB /* SettingTargetViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2031F9FD16DE9003003B0CDB /* SettingTargetViewController.xib */; };
 		2033616B16DAA29F009E898F /* tag_black.png in Resources */ = {isa = PBXBuildFile; fileRef = 2033616A16DAA29F009E898F /* tag_black.png */; };
@@ -132,6 +133,7 @@
 		2020704116EBC61B00FDA116 /* nav_bg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "nav_bg@2x.png"; sourceTree = "<group>"; };
 		2020EC9F16E7B10B00272C11 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		2020ECA116E7B11200272C11 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		202FBC451A99A57F0068F3E1 /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
 		2031F9FB16DE9003003B0CDB /* SettingTargetViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingTargetViewController.h; sourceTree = "<group>"; };
 		2031F9FC16DE9003003B0CDB /* SettingTargetViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingTargetViewController.m; sourceTree = "<group>"; };
 		2031F9FD16DE9003003B0CDB /* SettingTargetViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SettingTargetViewController.xib; sourceTree = "<group>"; };
@@ -235,7 +237,6 @@
 		20BE82BE16EC20560021FE9B /* slide.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = slide.png; sourceTree = "<group>"; };
 		20BE82C616EC24B90021FE9B /* home_header.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = home_header.png; sourceTree = "<group>"; };
 		20BE82C716EC24B90021FE9B /* home_header@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "home_header@2x.png"; sourceTree = "<group>"; };
-		20BEA5F816E811F00005569D /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
 		20BEA60516E8E02C0005569D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		20BEA60716E8E02E0005569D /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Localizable.strings; sourceTree = "<group>"; };
 		20C12E6016EC6C3D00FF0089 /* tag_add_off@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tag_add_off@2x.png"; sourceTree = "<group>"; };
@@ -297,6 +298,7 @@
 				2020ECA016E7B10B00272C11 /* CoreData.framework in Frameworks */,
 				2099164B16D9BC43008335F5 /* QuartzCore.framework in Frameworks */,
 				207343E916D7C6C5002EF8A7 /* UIKit.framework in Frameworks */,
+				202FBC461A99A57F0068F3E1 /* Crashlytics.framework in Frameworks */,
 				207343EB16D7C6C5002EF8A7 /* Foundation.framework in Frameworks */,
 				20415CED1A98EA750024728F /* libGoogleAnalytics.a in Frameworks */,
 				207343ED16D7C6C5002EF8A7 /* CoreGraphics.framework in Frameworks */,
@@ -412,6 +414,7 @@
 				20B91D0216EBA92300CF56B3 /* MessageUI.framework */,
 				2099164A16D9BC43008335F5 /* QuartzCore.framework */,
 				2070A68916D91CE400F27B85 /* NSString+MyString.h */,
+				202FBC451A99A57F0068F3E1 /* Crashlytics.framework */,
 				2070A68A16D91CE400F27B85 /* NSString+MyString.m */,
 				20415CEE1A98F9860024728F /* Images.xcassets */,
 				207343EE16D7C6C5002EF8A7 /* SlideStack */,
@@ -543,14 +546,6 @@
 			name = GoogleAnalytics;
 			sourceTree = "<group>";
 		};
-		20BEA5FB16E890050005569D /* Crashlytics */ = {
-			isa = PBXGroup;
-			children = (
-				20BEA5F816E811F00005569D /* Crashlytics.framework */,
-			);
-			name = Crashlytics;
-			sourceTree = "<group>";
-		};
 		20C26A0A16ECCA8A00DE392F /* accent */ = {
 			isa = PBXGroup;
 			children = (
@@ -666,7 +661,6 @@
 				20BDA60916ECBF1800D4240F /* Reachability.m */,
 				20F4443516EE056700E43AD8 /* SDK */,
 				20DDB2AE16EC0E9500BAC310 /* iRate */,
-				20BEA5FB16E890050005569D /* Crashlytics */,
 				20BEA5FA16E88FF30005569D /* GoogleAnalytics */,
 				20B00AC716FB50B700423441 /* UIViewController+UIViewControllerForIOS6.h */,
 				20B00AC816FB50B700423441 /* UIViewController+UIViewControllerForIOS6.m */,
@@ -806,7 +800,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "";
+			shellScript = "./Crashlytics.framework/run 74dc746a2d9a2b2651749c6880c73afd97bb079a 24a5c684e0bb25341bd141bd87f56c0016dced8c269d53cb0b70b29cca2369f7";
 		};
 /* End PBXShellScriptBuildPhase section */
 

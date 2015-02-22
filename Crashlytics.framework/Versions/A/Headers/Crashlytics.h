@@ -2,7 +2,7 @@
 //  Crashlytics.h
 //  Crashlytics
 //
-//  Copyright 2012 Crashlytics, Inc. All rights reserved.
+//  Copyright 2013 Crashlytics, Inc. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
@@ -38,6 +38,7 @@
  *
  **/
 OBJC_EXTERN void CLSLog(NSString *format, ...) NS_FORMAT_FUNCTION(1,2);
+OBJC_EXTERN void CLSLogv(NSString *format, va_list args) NS_FORMAT_FUNCTION(1,0);
 
 /**
  *
@@ -46,6 +47,8 @@ OBJC_EXTERN void CLSLog(NSString *format, ...) NS_FORMAT_FUNCTION(1,2);
  *
  **/
 OBJC_EXTERN void CLSNSLog(NSString *format, ...) NS_FORMAT_FUNCTION(1,2);
+OBJC_EXTERN void CLSNSLogv(NSString *format, va_list args) NS_FORMAT_FUNCTION(1,0);
+
 
 @protocol CrashlyticsDelegate;
 
@@ -148,12 +151,37 @@ OBJC_EXTERN void CLSNSLog(NSString *format, ...) NS_FORMAT_FUNCTION(1,2);
 /**
  * Returns the session identifier for the crash report.
  **/
-- (NSString *)identifier;
+@property (nonatomic, readonly) NSString *identifier;
 
 /**
  * Returns the custom key value data for the crash report.
  **/
-- (NSDictionary *)customKeys;
+@property (nonatomic, readonly) NSDictionary *customKeys;
+
+/**
+ * Returns the CFBundleVersion of the application that crashed.
+ **/
+@property (nonatomic, readonly) NSString *bundleVersion;
+
+/**
+ * Returns the CFBundleShortVersionString of the application that crashed.
+ **/
+@property (nonatomic, readonly) NSString *bundleShortVersionString;
+
+/**
+ * Returns the date that the application crashed at.
+ **/
+@property (nonatomic, readonly) NSDate *crashedOnDate;
+
+/**
+ * Returns the os version that the application crashed on.
+ **/
+@property (nonatomic, readonly) NSString *OSVersion;
+
+/**
+ * Returns the os build version that the application crashed on.
+ **/
+@property (nonatomic, readonly) NSString *OSBuildVersion;
 
 @end
 
