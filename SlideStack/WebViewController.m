@@ -44,7 +44,7 @@
     titleLabel.text = title;
     titleLabel.textColor = [UIColor whiteColor];
     titleLabel.adjustsFontSizeToFitWidth = YES;
-    titleLabel.minimumFontSize = 14.0f;
+    titleLabel.minimumScaleFactor = 0.6f;
     titleLabel.numberOfLines = 0;
     self.navigationItem.titleView = titleLabel;
     

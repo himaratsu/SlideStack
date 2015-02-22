@@ -147,7 +147,7 @@
 - (NSMutableDictionary*)createApiParameter {
     NSMutableDictionary *dict = [NSMutableDictionary dictionary];
     [dict setObject:_searchWord forKey:@"q"];
-    [dict setObject:[NSString stringWithFormat:@"%d", _page] forKey:@"page"];
+    [dict setObject:[NSString stringWithFormat:@"%ld", (long)_page] forKey:@"page"];
     [dict setObject:_sortType forKey:@"sort"];
     [dict setObject:@"1" forKey:@"detailed"];
     return dict;
@@ -193,7 +193,7 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *CellIdentifier;
-    CellIdentifier = [NSString stringWithFormat:@"Cell_%d_%d", indexPath.section, indexPath.row];
+    CellIdentifier = [NSString stringWithFormat:@"Cell_%ld_%ld", indexPath.section, indexPath.row];
     
     // 最下部に表示するインジケータセル
     if (indexPath.section == 1) {

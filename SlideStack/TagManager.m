@@ -177,7 +177,7 @@ static TagManager *sharedInstance = nil;
                        ];
     NSArray *other = [self stringArrayToTagArray:
                       @[@"Twitter", @"Facebook", @"Marketing", @"SEO",
-                      @"WebDesign", @"Photoshop", @"Flash"
+                      @"WebDesign", @"Photoshop", @"Flash",
                       @"Mobile", @"iPhone", @"iPad", @"Android"]];
     defaultArray = [NSArray arrayWithObjects:_myOriginalTags, program, library, develop, server, other, nil];
     

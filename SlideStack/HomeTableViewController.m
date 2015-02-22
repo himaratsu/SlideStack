@@ -67,7 +67,7 @@
 - (void)reload {
     
     isLoaded = YES;
-    self.recommendTags = @[@"Swift", @"Go", @"Arduino", @"Docker", @"AWS", @"Design"].mutableCopy;
+    self.recommendTags = @[@"Swift", @"Arduino", @"Docker", @"AWS", @"Design"].mutableCopy;
     [self reloadData];
     
 //    if ([Util isAvailableNetwork]) {

@@ -41,11 +41,11 @@
 #import "GAI.h"
 
 #define GA_TRACK_PAGE(PAGE)
-#define GA_TRACK_CLASS  GA_TRACK_PAGE(NSStringFromClass([self class]));
+#define GA_TRACK_CLASS 
 
-#define GA_TRACK_EVENT(EVENT,ACTION,LABEL,VALUE) [[GAI sharedInstance].defaultTracker trackEventWithCategory:EVENT withAction:ACTION withLabel:LABEL withValue:VALUE];
-#define GA_TRACK_METHOD GA_TRACK_EVENT(NSStringFromClass([self class]),  NSStringFromSelector(_cmd), nil, [NSNumber numberWithInt:-1]);
-#define GA_TRACK_METHOD_WITH_LABEL(LABEL) GA_TRACK_EVENT(NSStringFromClass([self class]),  NSStringFromSelector(_cmd), LABEL, [NSNumber numberWithInt:-1]);
+#define GA_TRACK_EVENT(EVENT,ACTION,LABEL,VALUE)
+#define GA_TRACK_METHOD
+#define GA_TRACK_METHOD_WITH_LABEL(LABEL)
 
 // ***** Setting *****
 #define PER_PAGE 12
